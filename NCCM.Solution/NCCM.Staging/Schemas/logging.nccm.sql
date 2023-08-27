@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [logging.NCCM] AUTHORIZATION dbo;

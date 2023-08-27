@@ -5,18 +5,30 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NCCM.Staging", "NCCM.Staging\NCCM.Staging.sqlproj", "{D6807E60-9709-4161-B54D-B4F8972374FE}"
 EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "NCCM.Integration", "NCCM.Integration\NCCM.Integration.dtproj", "{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D6807E60-9709-4161-B54D-B4F8972374FE}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6807E60-9709-4161-B54D-B4F8972374FE}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{D6807E60-9709-4161-B54D-B4F8972374FE}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6807E60-9709-4161-B54D-B4F8972374FE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Debug|Any CPU.ActiveCfg = Development
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Debug|Any CPU.Build.0 = Development
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Development|Any CPU.ActiveCfg = Development
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Development|Any CPU.Build.0 = Development
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Release|Any CPU.ActiveCfg = Development
+		{337F1E07-0BFB-4765-808C-3F4EAEE0A42A}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

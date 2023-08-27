@@ -1,0 +1,39 @@
+﻿CREATE VIEW [bronze.NCCM].VW_AS_CLAIM
+AS
+    SELECT 
+        stm.*,
+        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+            stm.AS_APPROVED_AMOUNT__C,
+            -- stm.AS_CASE_RECORD__C,
+            stm.AS_CLAIM_AMOUNT__C,
+            stm.AS_CLAIM_ID__C,
+            stm.AS_CLAIM_RATE_TYPE__C,
+            stm.AS_GST_AMOUNT__C,
+            stm.AS_JOBSEEKER_ID__C,
+            -- stm.AS_PLACEMENT_MILESTONE__C,
+            stm.AS_STATUS_DATE__C,
+            stm.AS_STATUS__C,
+            stm.NAME,
+            stm.OUTCOME_TYPE__C,
+            stm.SITE_CODE__C,
+            stm.ISDELETED)), 2
+        ) AS RowHashSum
+    FROM (
+        SELECT
+            CAST(CAST(NULLIF(CAST(tbl.AS_APPROVED_AMOUNT__C AS VARCHAR(255)), '') AS NUMERIC(18, 0)) AS INT) AS AS_APPROVED_AMOUNT__C,
+            -- NULLIF(CAST(tbl.AS_CASE_RECORD__C AS VARCHAR(18)), '') AS AS_CASE_RECORD__C,
+            CAST(CAST(NULLIF(CAST(tbl.AS_CLAIM_AMOUNT__C AS VARCHAR(255)), '') AS NUMERIC(18, 0)) AS INT) AS AS_CLAIM_AMOUNT__C,
+            NULLIF(CAST(tbl.AS_CLAIM_ID__C AS VARCHAR(18)), '') AS AS_CLAIM_ID__C,
+            NULLIF(CAST(tbl.AS_CLAIM_RATE_TYPE__C AS VARCHAR(255)), '') AS AS_CLAIM_RATE_TYPE__C,
+            CAST(CAST(NULLIF(CAST(tbl.AS_GST_AMOUNT__C AS VARCHAR(255)), '') AS NUMERIC(18, 0)) AS INT) AS AS_GST_AMOUNT__C,
+            NULLIF(CAST(tbl.AS_JOBSEEKER_ID__C AS VARCHAR(18)), '') AS AS_JOBSEEKER_ID__C,
+            -- NULLIF(CAST(tbl.AS_PLACEMENT_MILESTONE__C AS VARCHAR(1024)), '') AS AS_PLACEMENT_MILESTONE__C,
+            CAST(NULLIF(NULLIF(CAST(tbl.AS_STATUS_DATE__C AS VARCHAR(255)), ''), 'NULL') AS DATE) AS AS_STATUS_DATE__C,
+            NULLIF(CAST(tbl.AS_STATUS__C AS VARCHAR(255)), '') AS AS_STATUS__C,
+            NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,
+            NULLIF(CAST(tbl.NAME AS NVARCHAR(1024)), '') AS NAME,
+            NULLIF(CAST(tbl.OUTCOME_TYPE__C AS VARCHAR(255)), '') AS OUTCOME_TYPE__C,
+            NULLIF(CAST(tbl.SITE_CODE__C AS VARCHAR(255)), '') AS SITE_CODE__C,
+            CAST(CAST(tbl.ISDELETED AS CHAR) AS INT) AS ISDELETED
+        FROM [$(Staging5)].dbo.SFICMS_AS_Claim__c AS tbl
+    ) AS stm;

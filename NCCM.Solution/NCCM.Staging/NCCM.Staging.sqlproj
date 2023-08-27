@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{d6807e60-9709-4161-b54d-b4f8972374fe}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -56,5 +56,70 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Schemas" />
+    <Folder Include="Views" />
+    <Folder Include="Views\bronze" />
+    <Folder Include="StoredProcedures\bronze" />
+    <Folder Include="Tables\bronze" />
+    <Folder Include="Tables\logging" />
+    <Folder Include="Tables\logging\indexes" />
+    <Folder Include="StoredProcedures\logging" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\bronze.nccm.sql" />
+    <Build Include="Views\bronze\VW_CONTACTS.sql" />
+    <Build Include="Views\bronze\VW_PROGRAMENGAGEMENT.sql" />
+    <Build Include="Views\bronze\VW_AS_CLAIM.sql" />
+    <Build Include="Views\bronze\VW_PARTICIPANTS.sql" />
+    <None Include="Tables\bronze\PARTICIPANTS.sql" />
+    <None Include="StoredProcedures\bronze\SP_PARTICIPANTS.sql" />
+    <None Include="Tables\bronze\PROGRAMENGAGEMENT.sql" />
+    <None Include="StoredProcedures\bronze\SP_PROGRAMENGAGEMENT.sql" />
+    <None Include="Tables\bronze\AS_CLAIM.sql" />
+    <None Include="StoredProcedures\bronze\SP_AS_CLAIM.sql" />
+    <Build Include="Views\bronze\VW_JOB_ORDERS.sql" />
+    <Build Include="Views\bronze\VW_PLACEMENT.sql" />
+    <Build Include="Views\bronze\VW_OUTCOME.sql" />
+    <Build Include="Views\bronze\VW_CASE_CLIENT.sql" />
+    <Build Include="Tables\logging\indexes\INDEXES.sql" />
+    <Build Include="Tables\logging\EXECUTION_LOG.sql" />
+    <Build Include="StoredProcedures\logging\SP_LOGGING.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\deployment.nccm.sql" />
+    <Build Include="Schemas\dq.nccm.sql" />
+    <Build Include="Schemas\gold.nccm.sql" />
+    <Build Include="Schemas\logging.nccm.sql" />
+    <Build Include="Schemas\meta.nccm.sql" />
+    <Build Include="Schemas\raw.nccm.sql" />
+    <Build Include="Schemas\silver.nccm.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="Staging">
+      <DefaultValue>Staging</DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="Staging5">
+      <DefaultValue>Staging5</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tables\bronze\CONTACTS.sql" />
+    <None Include="StoredProcedures\bronze\SP_CONTACTS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="Staging5.dacpac">
+      <HintPath>Staging5.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>Staging5</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="Staging.dacpac">
+      <HintPath>Staging.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>Staging</DatabaseSqlCmdVariable>
+    </ArtifactReference>
   </ItemGroup>
 </Project>
