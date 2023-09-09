@@ -2,9 +2,9 @@
 AS
 BEGIN
 
-    MERGE [bronze.HSP].PROGRAMENGAGEMENT AS trg
-    USING [bronze.HSP].VW_PROGRAMENGAGEMENT AS src
-    ON (trg.Id = src.Id)
+    MERGE [bronze.NCCM].PROGRAMENGAGEMENT AS trg
+    USING [bronze.NCCM].VW_PROGRAMENGAGEMENT AS src
+    ON (trg.ID = src.ID)
     
     WHEN MATCHED AND trg.RowHashSum <> src.RowHashSum THEN
         UPDATE SET
@@ -80,11 +80,11 @@ BEGIN
             trg.[THINK_TIME_DAYS__C] = src.[THINK_TIME_DAYS__C],
             trg.[THINK_TIME_ELECTED__C] = src.[THINK_TIME_ELECTED__C],
             trg.[TRAFFIC_LIGHT__C] = src.[TRAFFIC_LIGHT__C],
-            trg.[IsDeleted] = src.[IsDeleted],
+            trg.[ISDELETED] = src.[ISDELETED],
             trg.[RowHashSum] = src.[RowHashSum]
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
-            [Id],
+            [ID],
             [AGE_OF_YOUNGEST_CHILD__C],
             [CALD__C],
             [DFV_ABUSE_COERCIVE_CONTROL__C],
@@ -157,10 +157,10 @@ BEGIN
             [THINK_TIME_DAYS__C],
             [THINK_TIME_ELECTED__C],
             [TRAFFIC_LIGHT__C],
-            [IsDeleted],
+            [ISDELETED],
             [RowHashSum]
         ) VALUES (
-            src.[Id],
+            src.[ID],
             src.[AGE_OF_YOUNGEST_CHILD__C],
             src.[CALD__C],
             src.[DFV_ABUSE_COERCIVE_CONTROL__C],
@@ -233,7 +233,7 @@ BEGIN
             src.[THINK_TIME_DAYS__C],
             src.[THINK_TIME_ELECTED__C],
             src.[TRAFFIC_LIGHT__C],
-            src.[IsDeleted],
+            src.[ISDELETED],
             src.[RowHashSum]
         );
 

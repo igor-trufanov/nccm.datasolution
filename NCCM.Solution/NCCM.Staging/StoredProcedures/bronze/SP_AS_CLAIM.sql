@@ -2,9 +2,9 @@
 AS
 BEGIN
 
-    MERGE [bronze.HSP].AS_CLAIM AS trg
-    USING [bronze.HSP].VW_AS_CLAIM AS src
-    ON (trg.Id = src.Id)
+    MERGE [bronze.NCCM].AS_CLAIM AS trg
+    USING [bronze.NCCM].VW_AS_CLAIM AS src
+    ON (trg.ID = src.ID)
     
     WHEN MATCHED AND trg.RowHashSum <> src.RowHashSum THEN
         UPDATE SET
@@ -19,11 +19,11 @@ BEGIN
             trg.[NAME] = src.[NAME],
             trg.[OUTCOME_TYPE__C] = src.[OUTCOME_TYPE__C],
             trg.[SITE_CODE__C] = src.[SITE_CODE__C],
-            trg.[IsDeleted] = src.[IsDeleted],
+            trg.[ISDELETED] = src.[ISDELETED],
             trg.[RowHashSum] = src.[RowHashSum]
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
-            [Id],
+            [ID],
             [AS_APPROVED_AMOUNT__C],
             [AS_CLAIM_AMOUNT__C],
             [AS_CLAIM_ID__C],
@@ -35,10 +35,10 @@ BEGIN
             [NAME],
             [OUTCOME_TYPE__C],
             [SITE_CODE__C],
-            [IsDeleted],
+            [ISDELETED],
             [RowHashSum]
         ) VALUES (
-            src.[Id],
+            src.[ID],
             src.[AS_APPROVED_AMOUNT__C],
             src.[AS_CLAIM_AMOUNT__C],
             src.[AS_CLAIM_ID__C],
@@ -50,7 +50,7 @@ BEGIN
             src.[NAME],
             src.[OUTCOME_TYPE__C],
             src.[SITE_CODE__C],
-            src.[IsDeleted],
+            src.[ISDELETED],
             src.[RowHashSum]
         );
 

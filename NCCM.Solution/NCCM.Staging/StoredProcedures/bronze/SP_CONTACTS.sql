@@ -2,38 +2,38 @@
 AS
 BEGIN
 
-    MERGE [bronze.HSP].CONTACTS AS trg
-    USING [bronze.HSP].VW_CONTACTS AS src
-    ON (trg.Id = src.Id)
+    MERGE [bronze.NCCM].CONTACTS AS trg
+    USING [bronze.NCCM].VW_CONTACTS AS src
+    ON (trg.ID = src.ID)
     
     WHEN MATCHED AND trg.RowHashSum <> src.RowHashSum THEN
         UPDATE SET
-            trg.[LastName] = src.[LastName],
-            trg.[FirstName] = src.[FirstName],
-            trg.[Birthdate] = src.[Birthdate],
-            trg.[Gender__c] = src.[Gender__c],
-            trg.[IsDeleted] = src.[IsDeleted],
-            trg.[JobSeekerId__c] = src.[JobSeekerId__c],
-            trg.[AccountId] = src.[AccountId],
+            trg.[LASTNAME] = src.[LASTNAME],
+            trg.[FIRSTNAME] = src.[FIRSTNAME],
+            trg.[BIRTHDATE] = src.[BIRTHDATE],
+            trg.[GENDER__C] = src.[GENDER__C],
+            trg.[JOBSEEKERID__C] = src.[JOBSEEKERID__C],
+            trg.[ACCOUNTID] = src.[ACCOUNTID],
+            trg.[ISDELETED] = src.[ISDELETED],
             trg.[RowHashSum] = src.[RowHashSum]
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
-            [Id],
+            [ID],
             [LastName],
             [FirstName],
             [Birthdate],
             [Gender__c],
-            [IsDeleted],
+            [ISDELETED],
             [JobSeekerId__c],
             [AccountId],
             [RowHashSum]
         ) VALUES (
-            src.[Id],
+            src.[ID],
             src.[LastName],
             src.[FirstName],
             src.[Birthdate],
             src.[Gender__c],
-            src.[IsDeleted],
+            src.[ISDELETED],
             src.[JobSeekerId__c],
             src.[AccountId],
             src.[RowHashSum]

@@ -74,11 +74,11 @@
     <Build Include="Views\bronze\VW_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_PARTICIPANTS.sql" />
     <Build Include="Tables\bronze\PARTICIPANTS.sql" />
-    <None Include="StoredProcedures\bronze\SP_PARTICIPANTS.sql" />
+    <Build Include="StoredProcedures\bronze\SP_PARTICIPANTS.sql" />
     <Build Include="Tables\bronze\PROGRAMENGAGEMENT.sql" />
-    <None Include="StoredProcedures\bronze\SP_PROGRAMENGAGEMENT.sql" />
+    <Build Include="StoredProcedures\bronze\SP_PROGRAMENGAGEMENT.sql" />
     <Build Include="Tables\bronze\AS_CLAIM.sql" />
-    <None Include="StoredProcedures\bronze\SP_AS_CLAIM.sql" />
+    <Build Include="StoredProcedures\bronze\SP_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_JOB_ORDERS.sql" />
     <Build Include="Views\bronze\VW_PLACEMENT.sql" />
     <Build Include="Views\bronze\VW_OUTCOME.sql" />
@@ -90,6 +90,10 @@
     <Build Include="Tables\bronze\OUTCOME.sql" />
     <Build Include="Tables\bronze\JOB_ORDERS.sql" />
     <Build Include="Tables\bronze\CASE_CLIENT.sql" />
+    <Build Include="StoredProcedures\bronze\SP_CASE_CLIENT.sql" />
+    <Build Include="StoredProcedures\bronze\SP_JOB_ORDERS.sql" />
+    <Build Include="StoredProcedures\bronze\SP_OUTCOME.sql" />
+    <Build Include="StoredProcedures\bronze\SP_PLACEMENT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
@@ -112,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\bronze\CONTACTS.sql" />
-    <None Include="StoredProcedures\bronze\SP_CONTACTS.sql" />
+    <Build Include="StoredProcedures\bronze\SP_CONTACTS.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="Staging5.dacpac">
