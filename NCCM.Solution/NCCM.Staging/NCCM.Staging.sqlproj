@@ -73,11 +73,11 @@
     <Build Include="Views\bronze\VW_PROGRAMENGAGEMENT.sql" />
     <Build Include="Views\bronze\VW_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_PARTICIPANTS.sql" />
-    <None Include="Tables\bronze\PARTICIPANTS.sql" />
+    <Build Include="Tables\bronze\PARTICIPANTS.sql" />
     <None Include="StoredProcedures\bronze\SP_PARTICIPANTS.sql" />
-    <None Include="Tables\bronze\PROGRAMENGAGEMENT.sql" />
+    <Build Include="Tables\bronze\PROGRAMENGAGEMENT.sql" />
     <None Include="StoredProcedures\bronze\SP_PROGRAMENGAGEMENT.sql" />
-    <None Include="Tables\bronze\AS_CLAIM.sql" />
+    <Build Include="Tables\bronze\AS_CLAIM.sql" />
     <None Include="StoredProcedures\bronze\SP_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_JOB_ORDERS.sql" />
     <Build Include="Views\bronze\VW_PLACEMENT.sql" />
@@ -86,6 +86,10 @@
     <Build Include="Tables\logging\indexes\INDEXES.sql" />
     <Build Include="Tables\logging\EXECUTION_LOG.sql" />
     <Build Include="StoredProcedures\logging\SP_LOGGING.sql" />
+    <Build Include="Tables\bronze\PLACEMENT.sql" />
+    <Build Include="Tables\bronze\OUTCOME.sql" />
+    <Build Include="Tables\bronze\JOB_ORDERS.sql" />
+    <Build Include="Tables\bronze\CASE_CLIENT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
@@ -107,7 +111,7 @@
     </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tables\bronze\CONTACTS.sql" />
+    <Build Include="Tables\bronze\CONTACTS.sql" />
     <None Include="StoredProcedures\bronze\SP_CONTACTS.sql" />
   </ItemGroup>
   <ItemGroup>

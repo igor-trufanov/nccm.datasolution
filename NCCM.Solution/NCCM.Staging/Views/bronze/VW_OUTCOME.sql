@@ -9,8 +9,8 @@ AS
         ) AS RowHashSum
     FROM (
         SELECT
-            NULLIF(CAST(tbl.WRD_PHASE__C  AS NVARCHAR(1024)), '') AS WRD_PHASE__C,
-            NULLIF(CAST(tbl.RECORD_TYPE_NAME__C  AS NVARCHAR(1024)), '') AS RECORD_TYPE_NAME__C,
+            NULLIF(CAST(tbl.WRD_PHASE__C  AS VARCHAR(1024)), '') AS WRD_PHASE__C,
+            NULLIF(CAST(tbl.RECORD_TYPE_NAME__C  AS VARCHAR(1024)), '') AS RECORD_TYPE_NAME__C,
             NULLIF(CAST(tbl.ID  AS VARCHAR(18)), '') AS ID,
             CAST(CAST(tbl.ISDELETED AS CHAR) AS INT) AS ISDELETED
         FROM [$(Staging5)].dbo.SFICMS_Outcomes__c AS tbl

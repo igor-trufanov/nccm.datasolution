@@ -10,8 +10,8 @@ AS
     FROM (
         SELECT
             NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,
-            NULLIF(CAST(tbl.CONTACT__C AS NVARCHAR(MAX)), '') AS CONTACT__C,
-            NULLIF(CAST(tbl.PROGRAM_ENGAGEMENT__C AS NVARCHAR(MAX)), '') AS PROGRAM_ENGAGEMENT__C,
+            NULLIF(CAST(tbl.CONTACT__C AS VARCHAR(18)), '') AS CONTACT__C,
+            NULLIF(CAST(tbl.PROGRAM_ENGAGEMENT__C AS VARCHAR(18)), '') AS PROGRAM_ENGAGEMENT__C,
             CAST(CAST(tbl.ISDELETED AS CHAR) AS INT) AS ISDELETED
         FROM [$(Staging5)].dbo.SFICMS_Program_Engagement_Participant__c AS tbl
     ) AS stm;
