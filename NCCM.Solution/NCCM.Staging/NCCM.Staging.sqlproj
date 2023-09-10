@@ -66,34 +66,44 @@
     <Folder Include="Tables\logging" />
     <Folder Include="Tables\logging\indexes" />
     <Folder Include="StoredProcedures\logging" />
+    <Folder Include="Views\silver" />
+    <Folder Include="Tables\silver" />
+    <Folder Include="StoredProcedures\silver" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.nccm.sql" />
     <Build Include="Views\bronze\VW_CONTACTS.sql" />
     <Build Include="Views\bronze\VW_PROGRAMENGAGEMENT.sql" />
-    <Build Include="Views\bronze\VW_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_PARTICIPANTS.sql" />
     <Build Include="Tables\bronze\PARTICIPANTS.sql" />
     <Build Include="StoredProcedures\bronze\SP_PARTICIPANTS.sql" />
     <Build Include="Tables\bronze\PROGRAMENGAGEMENT.sql" />
     <Build Include="StoredProcedures\bronze\SP_PROGRAMENGAGEMENT.sql" />
-    <Build Include="Tables\bronze\AS_CLAIM.sql" />
-    <Build Include="StoredProcedures\bronze\SP_AS_CLAIM.sql" />
     <Build Include="Views\bronze\VW_JOB_ORDERS.sql" />
     <Build Include="Views\bronze\VW_PLACEMENT.sql" />
     <Build Include="Views\bronze\VW_OUTCOME.sql" />
-    <Build Include="Views\bronze\VW_CASE_CLIENT.sql" />
     <Build Include="Tables\logging\indexes\INDEXES.sql" />
     <Build Include="Tables\logging\EXECUTION_LOG.sql" />
     <Build Include="StoredProcedures\logging\SP_LOGGING.sql" />
     <Build Include="Tables\bronze\PLACEMENT.sql" />
     <Build Include="Tables\bronze\OUTCOME.sql" />
     <Build Include="Tables\bronze\JOB_ORDERS.sql" />
-    <Build Include="Tables\bronze\CASE_CLIENT.sql" />
-    <Build Include="StoredProcedures\bronze\SP_CASE_CLIENT.sql" />
     <Build Include="StoredProcedures\bronze\SP_JOB_ORDERS.sql" />
     <Build Include="StoredProcedures\bronze\SP_OUTCOME.sql" />
     <Build Include="StoredProcedures\bronze\SP_PLACEMENT.sql" />
+    <Build Include="Tables\bronze\AS_CLAIMS.sql" />
+    <Build Include="Tables\bronze\CLIENT_CASE.sql" />
+    <Build Include="Views\silver\VW_AS_CLAIMS_DIM.sql" />
+    <Build Include="Views\silver\VW_CONTACTS_DIM.sql" />
+    <Build Include="Views\silver\VW_JOB_ORDERS_DIM.sql" />
+    <Build Include="Views\silver\VW_OUTCOME_DIM.sql" />
+    <Build Include="Views\silver\VW_PARTICIPANTS_BRIDGE.sql" />
+    <Build Include="Views\silver\VW_PLACEMENT_DIM.sql" />
+    <Build Include="Views\silver\VW_PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="StoredProcedures\bronze\SP_AS_CLAIMS.sql" />
+    <Build Include="StoredProcedures\bronze\SP_CLIENT_CASE.sql" />
+    <Build Include="Views\bronze\VW_CLIENT_CASE.sql" />
+    <Build Include="Views\bronze\VW_AS_CLAIMS.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

@@ -5,6 +5,7 @@
     -- Attributes
     [WRD_PHASE__C] VARCHAR(1024) NULL,
     [RECORD_TYPE_NAME__C] VARCHAR(1024) NULL,
+    [CLIENT_CASE__C] VARCHAR(18) NULL,
     [ISDELETED] INT NOT NULL,
 
     -- Hash

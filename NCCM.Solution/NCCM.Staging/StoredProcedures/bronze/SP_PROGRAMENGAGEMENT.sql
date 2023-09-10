@@ -81,7 +81,10 @@ BEGIN
             trg.[THINK_TIME_ELECTED__C] = src.[THINK_TIME_ELECTED__C],
             trg.[TRAFFIC_LIGHT__C] = src.[TRAFFIC_LIGHT__C],
             trg.[ISDELETED] = src.[ISDELETED],
-            trg.[RowHashSum] = src.[RowHashSum]
+            trg.[RowHashSum] = src.[RowHashSum],
+            trg.[CREATEDDATE] = src.[CREATEDDATE],
+            trg.[PMDM__APPLICATIONDATE__C] = src.[PMDM__APPLICATIONDATE__C],
+            trg.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS] = src.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
             [ID],
@@ -158,7 +161,10 @@ BEGIN
             [THINK_TIME_ELECTED__C],
             [TRAFFIC_LIGHT__C],
             [ISDELETED],
-            [RowHashSum]
+            [RowHashSum],
+            [CREATEDDATE],
+            [PMDM__APPLICATIONDATE__C],
+            [LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
         ) VALUES (
             src.[ID],
             src.[AGE_OF_YOUNGEST_CHILD__C],
@@ -234,7 +240,10 @@ BEGIN
             src.[THINK_TIME_ELECTED__C],
             src.[TRAFFIC_LIGHT__C],
             src.[ISDELETED],
-            src.[RowHashSum]
+            src.[RowHashSum],
+            src.[CREATEDDATE],
+            src.[PMDM__APPLICATIONDATE__C],
+            src.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
         );
 
 END;

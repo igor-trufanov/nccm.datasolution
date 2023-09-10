@@ -1,4 +1,4 @@
-﻿CREATE VIEW [bronze.NCCM].VW_AS_CLAIM
+﻿CREATE VIEW [bronze.NCCM].VW_AS_CLAIMS
 AS
     SELECT 
         stm.*,

@@ -10,6 +10,7 @@ BEGIN
         UPDATE SET
             trg.[WRD_PHASE__C] = src.[WRD_PHASE__C],
             trg.[RECORD_TYPE_NAME__C] = src.[RECORD_TYPE_NAME__C],
+            trg.[CLIENT_CASE__C] = src.[CLIENT_CASE__C],
             trg.[ISDELETED] = src.[ISDELETED],
             trg.[RowHashSum] = src.[RowHashSum]
     WHEN NOT MATCHED BY TARGET THEN 
@@ -17,12 +18,14 @@ BEGIN
             [ID],
             [WRD_PHASE__C],
             [RECORD_TYPE_NAME__C],
+            [CLIENT_CASE__C],
             [ISDELETED],
             [RowHashSum]
         ) VALUES (
             src.[ID],
             src.[WRD_PHASE__C],
             src.[RECORD_TYPE_NAME__C],
+            src.[CLIENT_CASE__C],
             src.[ISDELETED],
             src.[RowHashSum]
         );

@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE [bronze.NCCM].SP_AS_CLAIM
+﻿CREATE PROCEDURE [bronze.NCCM].SP_AS_CLAIMS
 AS
 BEGIN
 
-    MERGE [bronze.NCCM].AS_CLAIM AS trg
-    USING [bronze.NCCM].VW_AS_CLAIM AS src
+    MERGE [bronze.NCCM].AS_CLAIMS AS trg
+    USING [bronze.NCCM].VW_AS_CLAIMS AS src
     ON (trg.ID = src.ID)
     
     WHEN MATCHED AND trg.RowHashSum <> src.RowHashSum THEN
