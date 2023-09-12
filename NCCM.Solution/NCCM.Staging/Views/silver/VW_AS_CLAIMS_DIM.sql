@@ -15,7 +15,7 @@ AS
             stm.[OUTCOME_TYPE],
             stm.[SITE_CODE],
             stm.[IS_DELETED]
-        )), 2) AS RowHashSum,
+        )), 2) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

@@ -104,6 +104,13 @@
     <Build Include="StoredProcedures\bronze\SP_CLIENT_CASE.sql" />
     <Build Include="Views\bronze\VW_CLIENT_CASE.sql" />
     <Build Include="Views\bronze\VW_AS_CLAIMS.sql" />
+    <Build Include="Tables\silver\CLAIMS_DIM.sql" />
+    <Build Include="Tables\silver\CONTACTS_DIM.sql" />
+    <Build Include="Tables\silver\JOB_ORDERS_DIM.sql" />
+    <Build Include="Tables\silver\OUTCOME_DIM.sql" />
+    <Build Include="Tables\silver\PARTICIPANTS_BRIDGE.sql" />
+    <Build Include="Tables\silver\PLACEMENT_DIM.sql" />
+    <Build Include="Tables\silver\PROGRAMENGAGEMENT_DIM.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

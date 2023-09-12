@@ -41,7 +41,7 @@ AS
             stm.[CALD],
             stm.[EDUCATION_LEVEL],
             stm.[AGE_OF_YOUNGEST_CHILD]
-        )), 2) AS RowHashSum,
+        )), 2) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

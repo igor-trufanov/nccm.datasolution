@@ -8,7 +8,7 @@ AS
             stm.[JOB_TITLE],
             stm.[JOB_TYPE],
             stm.[IS_DELETED]
-        )), 2) AS RowHashSum,
+        )), 2) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT
