@@ -78,6 +78,7 @@ AS
             stm.ISDELETED,
             stm.CREATEDDATE,
             stm.PMDM__APPLICATIONDATE__C,
+            stm.PMDM__ACCOUNT__C,
             stm.LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS)), 2
         ) AS RowHashSum
     FROM (
@@ -161,7 +162,8 @@ AS
                 NULLIF(CAST(tbl.TRAFFIC_LIGHT__C AS VARCHAR(255)), '') AS TRAFFIC_LIGHT__C,
                 CAST(CAST(tbl.ISDELETED AS CHAR) AS INT) AS ISDELETED,
                 CAST(NULLIF(NULLIF(CAST(tbl.CREATEDDATE AS VARCHAR(255)), ''), 'NULL') AS DATETIME) AS CREATEDDATE,
-                CAST(NULLIF(NULLIF(CAST(tbl.PMDM__APPLICATIONDATE__C AS VARCHAR(255)), ''), 'NULL') AS DATETIME) AS PMDM__APPLICATIONDATE__C
+                CAST(NULLIF(NULLIF(CAST(tbl.PMDM__APPLICATIONDATE__C AS VARCHAR(255)), ''), 'NULL') AS DATETIME) AS PMDM__APPLICATIONDATE__C,
+                NULLIF(CAST(tbl.tbl.pmdm__Account__c AS VARCHAR(18)), '') AS PMDM__ACCOUNT__C
             FROM [$(Staging)].dbo.[SFICMS_PMDM__PROGRAMENGAGEMENT__C] AS tbl
         ) AS nst
     ) AS stm;

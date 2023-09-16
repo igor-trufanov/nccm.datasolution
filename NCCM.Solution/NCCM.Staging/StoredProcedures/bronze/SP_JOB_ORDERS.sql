@@ -25,7 +25,6 @@ BEGIN
             [RowHashSum]
         ) VALUES (
             src.[ID],
-            src.[LastName],
             src.[HOST_ORGANISATION],
             src.[JOB_ORDER_TYPE],
             src.[JOB_TITLE],

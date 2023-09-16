@@ -3,7 +3,7 @@ AS
 BEGIN
 
     MERGE [bronze.NCCM].PROGRAMENGAGEMENT AS trg
-    USING [bronze.NCCM].VW_PROGRAMENGAGEMENT AS src
+    USING [bronze.NCCM].VW_PMDM_PROGRAMENGAGEMENT AS src
     ON (trg.ID = src.ID)
     
     WHEN MATCHED AND trg.RowHashSum <> src.RowHashSum THEN
@@ -84,6 +84,7 @@ BEGIN
             trg.[RowHashSum] = src.[RowHashSum],
             trg.[CREATEDDATE] = src.[CREATEDDATE],
             trg.[PMDM__APPLICATIONDATE__C] = src.[PMDM__APPLICATIONDATE__C],
+            trg.[PMDM__ACCOUNT__C] = src.[PMDM__ACCOUNT__C],
             trg.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS] = src.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
@@ -164,6 +165,7 @@ BEGIN
             [RowHashSum],
             [CREATEDDATE],
             [PMDM__APPLICATIONDATE__C],
+            [PMDM__ACCOUNT__C],
             [LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
         ) VALUES (
             src.[ID],
@@ -243,6 +245,7 @@ BEGIN
             src.[RowHashSum],
             src.[CREATEDDATE],
             src.[PMDM__APPLICATIONDATE__C],
+            src.[PMDM__ACCOUNT__C],
             src.[LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS]
         );
 

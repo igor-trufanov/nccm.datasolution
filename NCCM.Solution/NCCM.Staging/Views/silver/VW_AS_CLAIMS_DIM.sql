@@ -1,7 +1,9 @@
 CREATE VIEW [silver.NCCM].VW_AS_CLAIMS_DIM
 AS
     SELECT 
-        CONCAT(stm.[CLAIM_ID], '||') AS UQ_KEY,
+        CONCAT(UPPER(stm.[CLAIM_ID])) AS UQ_KEY,
+        HASHBYTES('MD5', CONCAT(UPPER(stm.[CLAIM_ID]))) AS UQ_KEY_HASH,
+        CONCAT('||') AS NK_STRING,
         CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
             stm.[APPROVED_AMOUNT],
             stm.[CLAIM_AMOUNT],

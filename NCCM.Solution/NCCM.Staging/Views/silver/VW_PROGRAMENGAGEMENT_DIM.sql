@@ -1,7 +1,9 @@
 CREATE VIEW [silver.NCCM].VW_PROGRAMENGAGEMENT_DIM
 AS
     SELECT 
-        CONCAT(stm.[PROGRAM_ENGAGEMENT_ID], '||') AS UQ_KEY,
+        UPPER(CONCAT(stm.[PROGRAM_ENGAGEMENT_ID])) AS UQ_KEY,
+        HASHBYTES('MD5', CONCAT(stm.[PROGRAM_ENGAGEMENT_ID])) AS UQ_KEY_HASH,
+        UPPER(CONCAT('||')) AS NK_STRING,
         CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
             stm.[COMMENCEMENT_OF_SERVICING_DATE],
             stm.[PMDM__CONTACT],
@@ -46,7 +48,8 @@ AS
             stm.[TRAFFIC_LIGHT],
             stm.[IS_DELETED],
             stm.[ORIGINAL_SYSTEM_CREATED_DATE],
-            stm.[APPLICATION_DATE]
+            stm.[APPLICATION_DATE],
+            stm.[ACCOUNT]
         )), 2) AS ROW_HASH_SUM,
         stm.*
     FROM (
@@ -95,6 +98,7 @@ AS
             tbl.[TRAFFIC_LIGHT__C] AS [TRAFFIC_LIGHT],
             tbl.[ISDELETED] AS [IS_DELETED],
             tbl.[CREATEDDATE] AS [ORIGINAL_SYSTEM_CREATED_DATE],
-            tbl.[PMDM__APPLICATIONDATE__C] AS [APPLICATION_DATE]
+            tbl.[PMDM__APPLICATIONDATE__C] AS [APPLICATION_DATE],
+            tbl.[PMDM__ACCOUNT__C] AS [ACCOUNT]
         FROM [bronze.NCCM].PROGRAMENGAGEMENT AS tbl
     ) AS stm;

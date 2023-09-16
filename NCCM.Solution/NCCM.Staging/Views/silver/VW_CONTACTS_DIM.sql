@@ -1,7 +1,9 @@
 CREATE VIEW [silver.NCCM].VW_CONTACTS_DIM
 AS
     SELECT 
-        CONCAT(stm.[CONTACT_ID], '||', stm.[PROGRAM_ENGAGEMENT_ID]) AS UQ_KEY,
+        CONCAT(UPPER(stm.[CONTACT_ID])) AS UQ_KEY,
+        HASHBYTES('MD5', CONCAT(UPPER(stm.[CONTACT_ID]))) AS UQ_KEY_HASH,
+        CONCAT(UPPER(stm.[FIRST_NAME], '||', stm.[LAST_NAME], '||', stm.[BIRTH_DATE])) AS NK_STRING,
         CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
             stm.[LAST_NAME],
             stm.[FIRST_NAME],

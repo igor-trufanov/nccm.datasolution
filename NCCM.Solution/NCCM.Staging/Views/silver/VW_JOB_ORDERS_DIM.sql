@@ -1,7 +1,10 @@
 CREATE VIEW [silver.NCCM].VW_JOB_ORDERS_DIM
 AS
     SELECT 
-        CONCAT(stm.[JOB_ORDER_ID], '||') AS UQ_KEY,
+        CONCAT(UPPER(stm.[JOB_ORDER_ID])) AS UQ_KEY,
+        HASHBYTES('MD5', CONCAT(UPPER(stm.[JOB_ORDER_ID]))) AS UQ_KEY_HASH,
+        CONCAT('||') AS NK_STRING,
+        HASHBYTES('MD5', CONCAT(UPPER(stm.[CONTACT]))) AS CLIENT_CONTACT_HASH_KEY,
         CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
             stm.[HOST_ORGANISATION],
             stm.[JOB_ORDER_TYPE],
@@ -17,6 +20,10 @@ AS
             tbl.[JOB_ORDER_TYPE] AS [JOB_ORDER_TYPE],
             tbl.[JOB_TITLE] AS [JOB_TITLE],
             tbl.[JOB_TYPE] AS [JOB_TYPE],
-            tbl.[ISDELETED] AS [IS_DELETED]
+            tbl.[ISDELETED] AS [IS_DELETED],
+            prg.PMDM__CONTACT__C AS [CONTACT]
         FROM [bronze.NCCM].JOB_ORDERS AS tbl
+            LEFT JOIN [bronze.NCCM].PROGRAMENGAGEMENT AS prg
+                ON prg.[PMDM__ACCOUNT__C] = tbl.[HOST_ORGANISATION]
+                -- migth be two records?
     ) AS stm;
