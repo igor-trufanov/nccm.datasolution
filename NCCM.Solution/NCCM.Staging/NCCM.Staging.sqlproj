@@ -72,6 +72,7 @@
     <Folder Include="Tables\silver" />
     <Folder Include="StoredProcedures\silver" />
     <Folder Include="Sequences" />
+    <Folder Include="Views\gold" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.nccm.sql" />
@@ -128,6 +129,7 @@
     <Build Include="StoredProcedures\silver\SP_PLACEMENT_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_JOB_ORDERS_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_PARTICIPANTS_BRIDGE.sql" />
+    <Build Include="Views\gold\PROGRAM_FACT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
