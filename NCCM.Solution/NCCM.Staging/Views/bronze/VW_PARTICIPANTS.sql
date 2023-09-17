@@ -6,7 +6,7 @@ AS
             stm.CONTACT__C,
             stm.PROGRAM_ENGAGEMENT__C,
             stm.ISDELETED)), 2
-        ) AS RowHashSum
+        ) AS ROW_HASH_SUM
     FROM (
         SELECT
             NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,

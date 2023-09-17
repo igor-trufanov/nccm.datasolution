@@ -82,7 +82,7 @@
     [LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS] INT NOT NULL,
 
     -- Hash
-    [RowHashSum] VARCHAR(32) NOT NULL,
+    [ROW_HASH_SUM] VARCHAR(32) NOT NULL,
 
     -- Temporal
     [RowVersion] ROWVERSION NOT NULL,
