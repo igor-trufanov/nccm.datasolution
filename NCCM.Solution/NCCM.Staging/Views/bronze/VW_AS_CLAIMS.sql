@@ -17,7 +17,7 @@ AS
             stm.OUTCOME_TYPE__C,
             stm.SITE_CODE__C,
             stm.ISDELETED)), 2
-        ) AS RowHashSum
+        ) AS ROW_HASH_SUM
     FROM (
         SELECT
             CAST(CAST(NULLIF(CAST(tbl.AS_APPROVED_AMOUNT__C AS VARCHAR(255)), '') AS NUMERIC(18, 0)) AS INT) AS AS_APPROVED_AMOUNT__C,

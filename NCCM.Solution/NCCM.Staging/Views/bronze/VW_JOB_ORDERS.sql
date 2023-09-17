@@ -1,4 +1,4 @@
-﻿CREATE VIEW [bronze.NCCM].VW_JOB_ORDER
+﻿CREATE VIEW [bronze.NCCM].VW_JOB_ORDERS
 AS
     SELECT 
         stm.*,
@@ -8,9 +8,10 @@ AS
             stm.JOB_TITLE,
             stm.JOB_TYPE,
             stm.ISDELETED)), 2
-        ) AS RowHashSum
+        ) AS ROW_HASH_SUM
     FROM (
         SELECT
+            NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,
             NULLIF(CAST(tbl.HOST_ORGANISATION__C  AS VARCHAR(18)), '') AS HOST_ORGANISATION,
             NULLIF(CAST(tbl.JOB_ORDER_TYPE__C  AS VARCHAR(255)), '') AS JOB_ORDER_TYPE,
             NULLIF(CAST(tbl.JOB_TITLE__C  AS NVARCHAR(1024)), '') AS JOB_TITLE,

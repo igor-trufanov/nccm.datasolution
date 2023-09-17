@@ -12,7 +12,7 @@
     [ISDELETED] INT NOT NULL,
 
     -- Hash
-    [RowHashSum] VARCHAR(32) NOT NULL,
+    [ROW_HASH_SUM] VARCHAR(32) NOT NULL,
 
     -- Temporal
     [RowVersion] ROWVERSION NOT NULL,

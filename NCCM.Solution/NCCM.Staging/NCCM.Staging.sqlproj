@@ -45,6 +45,8 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatTSqlWarningsAsErrors>True</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings>71558</SuppressTSqlWarnings>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -69,6 +71,8 @@
     <Folder Include="Views\silver" />
     <Folder Include="Tables\silver" />
     <Folder Include="StoredProcedures\silver" />
+    <Folder Include="Sequences" />
+    <Folder Include="Views\gold" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.nccm.sql" />
@@ -111,6 +115,21 @@
     <Build Include="Tables\silver\PARTICIPANTS_BRIDGE.sql" />
     <Build Include="Tables\silver\PLACEMENT_DIM.sql" />
     <Build Include="Tables\silver\PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_CONTACTS_DIM.sql" />
+    <Build Include="Tables\silver\MAPPING_SURROGATE_KEYS_DIMS.sql" />
+    <Build Include="Sequences\SEQ_CONTACTS_DIM.sql" />
+    <Build Include="Sequences\SEQ_CLAIMS_DIM.sql" />
+    <Build Include="Sequences\SEQ_JOB_ORDERS_DIM.sql" />
+    <Build Include="Sequences\SEQ_OUTCOME_DIM.sql" />
+    <Build Include="Sequences\SEQ_PLACEMENT_DIM.sql" />
+    <Build Include="Sequences\SEQ_PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_CLAIMS_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_OUTCOME_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_PLACEMENT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_JOB_ORDERS_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_PARTICIPANTS_BRIDGE.sql" />
+    <Build Include="Views\gold\PROGRAM_FACT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

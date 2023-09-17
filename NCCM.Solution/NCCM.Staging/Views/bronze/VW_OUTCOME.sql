@@ -7,7 +7,7 @@ AS
             stm.RECORD_TYPE_NAME__C,
             stm.CLIENT_CASE__C,
             stm.ISDELETED)), 2
-        ) AS RowHashSum
+        ) AS ROW_HASH_SUM
     FROM (
         SELECT
             NULLIF(CAST(tbl.WRD_PHASE__C  AS VARCHAR(1024)), '') AS WRD_PHASE__C,
