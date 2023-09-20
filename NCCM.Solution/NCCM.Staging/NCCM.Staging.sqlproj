@@ -73,6 +73,9 @@
     <Folder Include="StoredProcedures\silver" />
     <Folder Include="Sequences" />
     <Folder Include="Views\gold" />
+    <Folder Include="Views\meta" />
+    <Folder Include="Tables\raw" />
+    <Folder Include="StoredProcedures\raw" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.nccm.sql" />
@@ -130,6 +133,10 @@
     <Build Include="StoredProcedures\silver\SP_JOB_ORDERS_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_PARTICIPANTS_BRIDGE.sql" />
     <Build Include="Views\gold\PROGRAM_FACT.sql" />
+    <Build Include="Views\meta\VW_CSV_SOURCE_FLAT_FILES.sql" />
+    <Build Include="Tables\raw\FFS_CONTACT.sql" />
+    <Build Include="Tables\raw\FFS_PMDM__PROGRAMENGAGEMENT__C.sql" />
+    <Build Include="StoredProcedures\raw\FFS_CLEAN_TABLES.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

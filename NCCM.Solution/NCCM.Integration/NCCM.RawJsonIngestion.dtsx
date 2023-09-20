@@ -1,0 +1,1224 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/1/2023 7:29:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-HIC7GDV"
+  DTS:CreatorName="DESKTOP-HIC7GDV\IgorTrufanov"
+  DTS:DTSID="{FCAEB087-60F4-45CC-B545-105862416A70}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="RawJsonIngestion"
+  DTS:PackageType="5"
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{61E0B03C-7935-4F4F-92CE-8ADF1EF7C0A4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CNT_FFS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E4C388CA-740D-4F22-B2C5-299EDF429E16}"
+      DTS:ObjectName="CNT_FFS">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::VR_CHUNK_SOURCE_FILE_NAME]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="303"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Record"
+              DTS:DTSID="{FDC871BC-0008-43AF-BFF5-7E5FDAD9A4A1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CNT_MSSQL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1557DF1B-13F5-4341-B671-05312A137B11}"
+      DTS:ObjectName="CNT_MSSQL">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::PR_CNT_MSSQL_CONNECTION_STRING]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1CF3F883-5082-458A-AA24-5CFBE7BDB368}"
+      DTS:ObjectName="PR_CNT_MSSQL_CONNECTION_STRING"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C2DB2D22-77D3-4649-856D-4D74477A7BE0}"
+      DTS:ObjectName="PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4C7D6E0B-8D6F-461C-9FBD-33B9082A8B58}"
+      DTS:ObjectName="PR_EPT_FILES_SOURCE_PATH"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{88B367DB-9F94-4439-BA92-DA599CE23127}"
+      DTS:ObjectName="PR_EPT_FILES_TARGET_PATH">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{706CA3AF-3A8F-4879-B27A-D770B1BFCA92}"
+      DTS:ObjectName="PR_LOGGING_RUN_ID"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">00000000-0000-0000-0000-000000000001</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{79F978F1-B871-492E-A135-CCEDB2DE19BC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_BATCH_SIZE">
+      <DTS:VariableValue
+        DTS:DataType="3">5000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{08A42DD9-9172-4EF1-8601-62C62AA282FA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::PR_EPT_FILES_TARGET_PATH] + @[User::VR_CHUNKS_TARGET_FOLDER_NAME]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_CHUNKS_FILES_TARGET_PATH">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6543511D-20F2-434A-82B1-E62A88FD3815}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_CHUNKS_TARGET_FOLDER_NAME">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C1F2910A-2438-4B6C-8047-45401DC459D0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_CHUNK_SOURCE_FILE_NAME">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5895079D-5AFE-4871-A18E-8A7E1CB5F4A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_CHUNK_TARGET_TABLE_NAME">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B98782F-FDD8-4FFF-A34D-39CCCE1D23D2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_COLUMNS_TO_SELECT">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1303C05-CD07-44AD-8C42-056C294802C1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_DELIMITER">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BA63495B-6E0F-46AD-8214-A92E98FDA728}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;-NoProfile -ExecutionPolicy Unrestricted -command&quot; + &quot; \&quot;&quot; + &#xA;@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT] + &quot; -columnsToSelect &quot; + &#xA;@[User::VR_COLUMNS_TO_SELECT] + &quot; -sourceFileName '&quot; + &#xA;@[User::VR_SOURCE_FILE_NAME] + &quot;' -sourcePath '&quot; + &#xA;@[$Package::PR_EPT_FILES_SOURCE_PATH] + &quot;' -targetPath '&quot; + &#xA;@[$Package::PR_EPT_FILES_TARGET_PATH] + &quot;' -batchSize '&quot; + &#xA;(DT_WSTR, 10)@[User::VR_BATCH_SIZE] + &quot;' -delimiter '&quot; + &#xA;@[User::VR_DELIMITER] + &quot;' -chunksTargetFolderName '&quot; + @[User::VR_CHUNKS_TARGET_FOLDER_NAME] &#xA; + &quot;'\&quot;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_EPT_FILES_CONVERT_PS_ARGUMENTS">
+      <DTS:VariableValue
+        DTS:DataType="8">-NoProfile -ExecutionPolicy Unrestricted -command "C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''"</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBCF7A4F-847B-403F-A81B-DE3804199407}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_LOGGING_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E0C65BAE-B7BD-4656-A261-BE981262E710}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_LOGGING_RUN_ID">
+      <DTS:VariableValue
+        DTS:DataType="8">00000000-0000-0000-0000-000000000001</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B28A38E7-F876-448E-BCF6-5EC19994DE7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_META">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6A1DCBD-4EE2-4AFE-AD19-3828D2624755}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_SOURCE_FILE_NAME">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EST_CLEAN_RAW_TABLES"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8F2DB95F-0AC0-4914-8677-DB2A37FE7065}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_CLEAN_RAW_TABLES"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:SqlStatementSource="EXEC  [raw.NCCM].FFS_CLEAN_TABLES;"
+          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST_GET_META"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EEB0BCCD-A3B5-4C20-AF87-32F7946A8635}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_GET_META"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:SqlStatementSource="SELECT &#xA;&#x9;SOURCE_FILE_NAME,&#xA;&#x9;LIST_OF_COLUMNS_TO_SELECT,&#xA;&#x9;BATCH_SIZE_RECORDS,&#xA;&#x9;DELIMITER,&#xA;&#x9;CHUNKS_TARGET_FOLDER_NAME,&#xA;&#x9;TARGET_TABLE_NAME&#xA;FROM [meta.NCCM].VW_CSV_SOURCE_FLAT_FILES&#xA;"
+          SQLTask:CodePage="65001"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::VR_META" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST_LOGGING_END"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B8ED22B3-690F-4D86-BF90-DA7E089EB82B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_LOGGING_END"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @id, @EndedAtUTC = @Dt, @Message = N'Raw Layer succeeded'&#xA;"
+          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::VR_LOGGING_ID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST_LOGGING_START"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9B6410D6-C61E-4F14-A15E-1EF188391C78}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_LOGGING_START"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = NEWID();;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Raw Layer', @StepNum = 1, @StartedAtUTC = @Dt&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId"
+          SQLTask:CodePage="65001"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Id"
+            SQLTask:DtsVariableName="User::VR_LOGGING_ID" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RunId"
+            SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{BF168F6A-6650-4CE4-AE73-62B319FD927F}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{CBDD4FC1-2879-486C-972E-BE8F4442405A}"
+        DTS:ObjectName="{CBDD4FC1-2879-486C-972E-BE8F4442405A}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::VR_META" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\EPT_FILES_CONVERT"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{237DD40E-3051-4096-8856-1B787DA78D86}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT_FILES_CONVERT"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">@[User::VR_EPT_FILES_CONVERT_PS_ARGUMENTS]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="PowerShell.exe"
+              Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''&quot;"
+              WindowStyle="Hidden" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{CF886EAB-104F-433F-AA97-5D509F733AC5}"
+          DTS:ObjectName="{CF886EAB-104F-433F-AA97-5D509F733AC5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::VR_SOURCE_FILE_NAME" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{74FA860C-0809-4188-817B-A9DBC971A5D2}"
+          DTS:ObjectName="{74FA860C-0809-4188-817B-A9DBC971A5D2}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::VR_COLUMNS_TO_SELECT" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D4F24471-F0B1-425D-8FAD-827B74109DFF}"
+          DTS:ObjectName="{D4F24471-F0B1-425D-8FAD-827B74109DFF}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::VR_BATCH_SIZE" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{DD581D7C-E7D7-425F-A215-5CACF12DB36A}"
+          DTS:ObjectName="{DD581D7C-E7D7-425F-A215-5CACF12DB36A}"
+          DTS:ValueIndex="3"
+          DTS:VariableName="User::VR_DELIMITER" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{49F3CFD1-0FDB-4AA9-AA35-F4ED6AC9DA3D}"
+          DTS:ObjectName="{49F3CFD1-0FDB-4AA9-AA35-F4ED6AC9DA3D}"
+          DTS:ValueIndex="4"
+          DTS:VariableName="User::VR_CHUNKS_TARGET_FOLDER_NAME" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FOR_EACH_META"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{952FC081-1ED7-4DB3-84B2-78751CB89394}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FOR_EACH_META">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{1E67E2FF-8F33-465D-81EF-C417F8964702}"
+        DTS:ObjectName="{1E67E2FF-8F33-465D-81EF-C417F8964702}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::VR_META" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{4AA66211-845E-4B0E-9C30-E75658B9953C}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FOR_EACH_CHUNKS">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{41CB6347-52E4-4084-B136-F06A705135D6}"
+            DTS:ObjectName="{41CB6347-52E4-4084-B136-F06A705135D6}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[User::VR_CHUNKS_FILES_TARGET_PATH]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\" />
+                <FEFEProperty
+                  FileSpec="*.json" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{00A0B378-5979-4243-965C-23135500C2A5}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Data Flow Task"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FILE_NAME]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="1024"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FILE_NAME]"
+                              name="FILE_NAME"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,1024)@[User::VR_CHUNK_SOURCE_FILE_NAME]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,1024)@[User::VR_CHUNK_SOURCE_FILE_NAME]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[RUN_ID]"
+                              dataType="guid"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[RUN_ID]"
+                              name="RUN_ID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_GUID)(@[User::VR_LOGGING_RUN_ID])</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_GUID)(@[User::VR_LOGGING_RUN_ID])</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="DST_DATA"
+                      usesDispositions="true"
+                      validateExternalMetadata="False"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[raw].[DUMMY]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::VR_CHUNK_TARGET_TABLE_NAME</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">4</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[CNT_MSSQL]"
+                          connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].Columns[Record]"
+                              cachedDataType="nText"
+                              cachedName="Record"
+                              externalMetadataColumnId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[RECORD]"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output].Columns[Record]" />
+                            <inputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].Columns[FILE_NAME]"
+                              cachedDataType="wstr"
+                              cachedLength="1024"
+                              cachedName="FILE_NAME"
+                              externalMetadataColumnId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[FILE_NAME]"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FILE_NAME]" />
+                            <inputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].Columns[RUN_ID]"
+                              cachedDataType="guid"
+                              cachedName="RUN_ID"
+                              externalMetadataColumnId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[RUN_ID]"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[RUN_ID]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                              dataType="i8"
+                              name="ID" />
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[RECORD]"
+                              dataType="nText"
+                              name="RECORD" />
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[FILE_NAME]"
+                              dataType="wstr"
+                              length="2000"
+                              name="FILE_NAME" />
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[RUN_ID]"
+                              dataType="guid"
+                              name="RUN_ID" />
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_AT_UTC]"
+                              dataType="dbTimeStamp"
+                              name="CREATED_AT_UTC" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1033"
+                      name="FFS_DATA"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">true</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[CNT_FFS]"
+                          connectionManagerRefId="Package.ConnectionManagers[CNT_FFS]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output].Columns[Record]"
+                              dataType="nText"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output].ExternalColumns[Record]"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output].Columns[Record]"
+                              name="Record"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output].ExternalColumns[Record]"
+                              dataType="nText"
+                              name="Record" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              dataType="nText"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task.Paths[Derived Column Output]"
+                      endId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task.Paths[Flat File Source Output]"
+                      endId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      name="Flat File Source Output"
+                      startId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA.Outputs[Flat File Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{C5EA921F-3AA5-4D89-9856-3F17F2335B43}"
+              DTS:ObjectName="{C5EA921F-3AA5-4D89-9856-3F17F2335B43}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::VR_CHUNK_SOURCE_FILE_NAME" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9B49B706-218F-4B8F-B2A8-B4727814898D}"
+          DTS:ObjectName="{9B49B706-218F-4B8F-B2A8-B4727814898D}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::VR_SOURCE_FILE_NAME" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{8A71FFD2-AEB3-4427-A7D7-4A0E8EBBA7AE}"
+          DTS:ObjectName="{8A71FFD2-AEB3-4427-A7D7-4A0E8EBBA7AE}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::VR_COLUMNS_TO_SELECT" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{A8EF583A-EB9C-43A2-A910-33999F28EA57}"
+          DTS:ObjectName="{A8EF583A-EB9C-43A2-A910-33999F28EA57}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::VR_BATCH_SIZE" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{3A297CA8-E9E0-4FC5-BA8C-3D2FBFFA3A80}"
+          DTS:ObjectName="{3A297CA8-E9E0-4FC5-BA8C-3D2FBFFA3A80}"
+          DTS:ValueIndex="3"
+          DTS:VariableName="User::VR_DELIMITER" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{A9FA45C1-2BA3-4C5B-8CDD-881980D37A53}"
+          DTS:ObjectName="{A9FA45C1-2BA3-4C5B-8CDD-881980D37A53}"
+          DTS:ValueIndex="4"
+          DTS:VariableName="User::VR_CHUNKS_TARGET_FOLDER_NAME" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{F8F40E88-1A36-4154-B146-275DFDBB5183}"
+          DTS:ObjectName="{F8F40E88-1A36-4154-B146-275DFDBB5183}"
+          DTS:ValueIndex="5"
+          DTS:VariableName="User::VR_CHUNK_TARGET_TABLE_NAME" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{645CCF2C-69F5-4236-BA40-25445D448D45}"
+      DTS:From="Package\EST_LOGGING_START"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST_CLEAN_RAW_TABLES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5F2C1D90-B67D-465F-8413-242CAA7D5A55}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FOR_EACH_META" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D558E358-C0E9-4EF0-9F9E-BDA3496C8A73}"
+      DTS:From="Package\EST_GET_META"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{16ED39F3-56F0-494D-A741-64C72AFE3F0D}"
+      DTS:From="Package\FOR_EACH_META"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EST_LOGGING_END" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{00F3C65C-68C7-4E97-AB8B-11F369FF83C2}"
+      DTS:From="Package\EST_CLEAN_RAW_TABLES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\EST_GET_META" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{85DDFF15-AB29-4865-ACB1-F5F85BD24716}"
+      DTS:EventID="6226004"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{DB5FF08E-CB27-4B56-A55E-5658E42C2257}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\EST_LOGGING_ERROR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2501E6DD-A6B4-4A39-ABD6-DE039E7D14AE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_LOGGING_ERROR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+              SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @ErrorMessage NVARCHAR(4000) = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.HSP].SP_LOGGING @RunId = @RunId, @StepName = 'Silver Processing is failed', @StepNum = -1, @StartedAtUTC = @Dt, @ErrorMessage = @ErrorMessage;"
+              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="36" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="4000" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\EST_CLEAN_RAW_TABLES"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\EST_GET_META"
+          TopLeft="34,209.5" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\EST_LOGGING_END"
+          TopLeft="23.5000000000001,827.5" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\EST_LOGGING_START"
+          TopLeft="17,5.5" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="166.4,103.2"
+          Size="166.4,146.4"
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS"
+          TopLeft="5.50000000000003,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="177.6,207.2"
+          Size="177.6,249.6"
+          Id="Package\FOR_EACH_META"
+          TopLeft="28.5000000000001,517.5" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Foreach Loop Container\EPT_FILES_CONVERT"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="208,103.2"
+          Size="214.4,146.4"
+          Id="Package\Foreach Loop Container"
+          TopLeft="13,311.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="118.75,457.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.6"
+              Start="0,0"
+              End="0,52.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="117.1,251.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4"
+              Start="0,0"
+              End="0,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="117,767.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="115.35,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4"
+              Start="0,0"
+              End="0,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="204,42"
+          Id="Package.EventHandlers[OnError]\EST_LOGGING_ERROR"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA"
+          TopLeft="17,5.5" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\Derived Column"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA"
+          TopLeft="16.5,209.5" />
+        <EdgeLayout
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="84.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="83.8,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4"
+              Start="0,0"
+              End="0,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
