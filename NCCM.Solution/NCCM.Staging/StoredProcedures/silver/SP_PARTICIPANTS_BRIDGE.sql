@@ -22,10 +22,10 @@ BEGIN
             dm.[ROW_HASH_SUM],
             dm.[IS_DELETED]
         FROM [silver.NCCM].VW_PARTICIPANTS_BRIDGE AS dm
-            LEFT JOIN [silver.NCCM].MAPPING_SURROGATE_KEYS_DIMS as ks
+            INNER JOIN [silver.NCCM].MAPPING_SURROGATE_KEYS_DIMS as ks
                 ON ks.UQ_KEY_HASH = dm.PROGRAM_ENGAGEMENT_HASH_KEY
                 AND ks.DIMENSION = 'PROGRAMENGAGEMENT_DIM'
-            LEFT JOIN [silver.NCCM].MAPPING_SURROGATE_KEYS_DIMS as ksc
+            INNER JOIN [silver.NCCM].MAPPING_SURROGATE_KEYS_DIMS as ksc
                 ON ksc.UQ_KEY_HASH = dm.CLIENT_CONTACT_HASH_KEY
                 AND ksc.DIMENSION = 'CONTACTS_DIM'
     ) AS src

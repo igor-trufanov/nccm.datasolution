@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [bronze.NCCM].PARTICIPANTS (
     -- PK
-    [Id] VARCHAR(18) NOT NULL,
+    [ID] VARCHAR(18) NOT NULL,
     
     -- Attributes
     [CONTACT__C] VARCHAR(18) NULL,
     [PROGRAM_ENGAGEMENT__C] VARCHAR(18) NULL,
-    [IsDeleted] INT NOT NULL,
+    [ISDELETED] INT NOT NULL,
 
     -- Hash
     [ROW_HASH_SUM] VARCHAR(32) NOT NULL,
