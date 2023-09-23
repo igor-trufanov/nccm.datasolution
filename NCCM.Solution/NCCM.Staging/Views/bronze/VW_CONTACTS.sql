@@ -13,13 +13,28 @@ AS
         ) AS ROW_HASH_SUM
     FROM (
         SELECT
-            NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,
-            NULLIF(CAST(tbl.LASTNAME AS NVARCHAR(1024)), '') AS LASTNAME,
-            NULLIF(CAST(tbl.FIRSTNAME AS NVARCHAR(1024)), '') AS FIRSTNAME,
-            NULLIF(CAST(tbl.ACCOUNTID AS VARCHAR(18)), '') AS ACCOUNTID,
-            NULLIF(CAST(tbl.GENDER__C AS VARCHAR(255)), '') AS GENDER__C,
-            NULLIF(CAST(tbl.JOBSEEKERID__C AS VARCHAR(18)), '') AS JOBSEEKERID__C,
-            CAST(NULLIF(NULLIF(CAST(tbl.BIRTHDATE AS VARCHAR(255)), ''), 'NULL') AS DATE) AS BIRTHDATE,
-            CAST(CAST(tbl.ISDELETED AS CHAR) AS INT) AS ISDELETED
-        FROM [$(Staging)].dbo.[SFICMS_CONTACT] AS tbl
+            NULLIF(NULLIF(ca.ID, 'NULL'), '') AS ID,
+            NULLIF(NULLIF(ca.LASTNAME, 'NULL'), '') AS LASTNAME,
+            NULLIF(NULLIF(ca.FIRSTNAME, 'NULL'), '') AS FIRSTNAME,
+            CAST(NULLIF(NULLIF(ca.BIRTHDATE, 'NULL'), '') AS DATE) AS BIRTHDATE,
+            NULLIF(NULLIF(ca.GENDER__C, 'NULL'), '') AS GENDER__C,
+            NULLIF(NULLIF(ca.JOBSEEKERID__C, 'NULL'), '') AS JOBSEEKERID__C,
+            NULLIF(NULLIF(ca.ACCOUNTID, 'NULL'), '') AS ACCOUNTID,
+            (CASE LTRIM(RTRIM(LOWER(CAST(ca.ISDELETED AS VARCHAR(255))))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
+        FROM [raw.NCCM].FFS_CONTACT AS tbl
+            CROSS APPLY (
+                SELECT 
+                    *
+                FROM OPENJSON(tbl.RECORD)
+                WITH (
+                    ID NVARCHAR(18) 'lax$."ID"',
+                    LASTNAME NVARCHAR(1024) 'lax$."LASTNAME"',
+                    FIRSTNAME NVARCHAR(1024) 'lax$."FIRSTNAME"',
+                    BIRTHDATE NVARCHAR(255) 'lax$."BIRTHDATE"',
+                    GENDER__C NVARCHAR(255) 'lax$."GENDER__C"',
+                    JOBSEEKERID__C NVARCHAR(18) 'lax$."JOBSEEKERID__C"',
+                    ACCOUNTID NVARCHAR(18) 'lax$."ACCOUNTID"',
+                    ISDELETED NVARCHAR(18) 'lax$."ISDELETED"'
+                )
+            ) AS ca
     ) AS stm;
