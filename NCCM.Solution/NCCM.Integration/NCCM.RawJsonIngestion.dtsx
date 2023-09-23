@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="98"
-  DTS:VersionGUID="{61E0B03C-7935-4F4F-92CE-8ADF1EF7C0A4}">
+  DTS:VersionBuild="102"
+  DTS:VersionGUID="{6F15F459-9243-4F9B-AEF9-91C4D591E052}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -56,7 +56,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -69,7 +69,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -369,8 +369,7 @@
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="PowerShell.exe"
-              Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''&quot;"
-              WindowStyle="Hidden" />
+              Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''&quot;" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -997,14 +996,14 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="166.4,103.2"
-          Size="166.4,146.4"
+          Size="208.8,146.4"
           Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS"
           TopLeft="5.50000000000003,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="177.6,207.2"
-          Size="177.6,249.6"
+          PanelSize="219.2,207.2"
+          Size="219.2,250.4"
           Id="Package\FOR_EACH_META"
           TopLeft="28.5000000000001,517.5" />
         <NodeLayout
@@ -1014,7 +1013,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="208,103.2"
+          PanelSize="214.4,103.2"
           Size="214.4,146.4"
           Id="Package\Foreach Loop Container"
           TopLeft="13,311.5" />
@@ -1042,7 +1041,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="118.75,457.9">
+          TopLeft="122.75,457.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1086,18 +1085,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="117,767.5">
+          TopLeft="125.3,767.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-8.59999999999999,59.6"
               Start="0,0"
-              End="0,52.5">
+              End="-8.59999999999999,52.1">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,25.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.8"
+                    Point2="0,29.8"
+                    Point3="-4,29.8" />
+                  <mssgle:LineSegment
+                    End="-4.59999999999999,29.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.59999999999999,29.8"
+                    Point2="-8.59999999999999,29.8"
+                    Point3="-8.59999999999999,33.8" />
+                  <mssgle:LineSegment
+                    End="-8.59999999999999,52.1" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

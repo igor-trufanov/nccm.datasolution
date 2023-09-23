@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{466AE36E-3323-4BA6-881E-FD9E237F0E4E}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{D91F8E7A-7869-4B5B-91A4-A9C925906C03}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -41,7 +41,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -75,160 +75,247 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\BRONZE 1"
+      DTS:refId="Package\BRONZE PROCESSING"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{F872AF48-0574-4378-85B2-F43E4FA4ED71}"
+      DTS:DTSID="{28BD7433-75BB-45C1-A59C-C4DE1A6C2657}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="BRONZE 1">
+      DTS:ObjectName="BRONZE PROCESSING">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_AS_CLAIMS"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{6bc0abef-4fef-40f1-b9be-1ac7ad3fc767}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:refId="Package\BRONZE PROCESSING\BRONZE 1"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{F872AF48-0574-4378-85B2-F43E4FA4ED71}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_AS_CLAIMS"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ObjectName="BRONZE 1">
           <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_AS_CLAIMS;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_AS_CLAIMS"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{6bc0abef-4fef-40f1-b9be-1ac7ad3fc767}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_AS_CLAIMS"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_AS_CLAIMS;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CLIENT_CASE"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{74bb1222-90ac-4df9-803d-fd5ca1d9c3de}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_CLIENT_CASE;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CONTACTS"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{f945f024-cc42-4ceb-be1a-528248b40fda}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_CONTACTS"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_CONTACTS;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_JOB_ORDERS"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{508ce1b5-91f9-41e9-ad3d-d60447e5ab69}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="4">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_JOB_ORDERS;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_OUTCOME"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{788a9521-9ceb-428c-b163-7fc2750b94d9}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_OUTCOME"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_OUTCOME;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PARTICIPANTS"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{78e2aa84-46fc-498d-a577-7673d6e0d320}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PARTICIPANTS"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="7">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PARTICIPANTS;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PLACEMENT"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{07190cc6-07b0-4309-b5ad-39dd2898a470}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PLACEMENT"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="5">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PLACEMENT;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PROGRAMENGAGEMENT"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{3a5bbf87-70fe-42a5-90dc-af9a5bcd75b3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="6">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PROGRAMENGAGEMENT;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_CLIENT_CASE"
+          DTS:refId="Package\BRONZE PROCESSING\EST_LOGGING_END_STEP_1 | BRONZE"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{74bb1222-90ac-4df9-803d-fd5ca1d9c3de}"
+          DTS:DTSID="{2d155917-fae5-4f09-b107-965f7849f828}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_CLIENT_CASE;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_CONTACTS"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{f945f024-cc42-4ceb-be1a-528248b40fda}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_CONTACTS"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_CONTACTS;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_JOB_ORDERS"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{508ce1b5-91f9-41e9-ad3d-d60447e5ab69}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
+          DTS:ObjectName="EST_LOGGING_END_STEP_1 | BRONZE"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_JOB_ORDERS;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @Id, @EndedAtUTC = @Dt, @Message = N'Bronze Layer succeeded';&#xA;"
+              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VR_LOGGING_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_OUTCOME"
+          DTS:refId="Package\BRONZE PROCESSING\EST_LOGGING_STEP_1 | BRONZE"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{788a9521-9ceb-428c-b163-7fc2750b94d9}"
+          DTS:DTSID="{c1fb6247-4db2-4f5f-a5ae-183becf86af6}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_OUTCOME"
+          DTS:ObjectName="EST_LOGGING_STEP_1 | BRONZE"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_OUTCOME;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_PARTICIPANTS"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{78e2aa84-46fc-498d-a577-7673d6e0d320}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PARTICIPANTS"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PARTICIPANTS;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_PLACEMENT"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{07190cc6-07b0-4309-b5ad-39dd2898a470}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PLACEMENT"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="7">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PLACEMENT;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\BRONZE 1\EST_PROCESSING_PROGRAMENGAGEMENT"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{3a5bbf87-70fe-42a5-90dc-af9a5bcd75b3}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [bronze.NCCM].SP_PROGRAMENGAGEMENT;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Bronze Layer', @StepNum = 1, @StartedAtUTC = @Dt;;&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId;"
+              SQLTask:CodePage="65001"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="Id"
+                SQLTask:DtsVariableName="User::VR_LOGGING_ID" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="RunId"
+                SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="36" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\BRONZE PROCESSING.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{20A3A6A1-CEE9-45AA-895E-46FBB289A482}"
+          DTS:From="Package\BRONZE PROCESSING\EST_LOGGING_STEP_1 | BRONZE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\BRONZE PROCESSING\BRONZE 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\BRONZE PROCESSING.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6D9CD609-99ED-42CD-A6AC-9AA410F5FD80}"
+          DTS:From="Package\BRONZE PROCESSING\BRONZE 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\BRONZE PROCESSING\EST_LOGGING_END_STEP_1 | BRONZE" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\EST_LOGGING_END"
@@ -249,56 +336,6 @@
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::VR_LOGGING_ALL_STEPS_ID"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\EST_LOGGING_END_STEP_1 | BRONZE"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2d155917-fae5-4f09-b107-965f7849f828}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="EST_LOGGING_END_STEP_1 | BRONZE"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-          SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @Id, @EndedAtUTC = @Dt, @Message = N'Bronze Layer succeeded';&#xA;"
-          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::VR_LOGGING_ID"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\EST_LOGGING_END_STEP_2 | SILVER"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{d9bb559c-ac62-4168-81f7-27ccd8174ad3}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="EST_LOGGING_END_STEP_2 | SILVER"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-          SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @Id, @EndedAtUTC = @Dt, @Message = N'Silver Layer succeeded';&#xA;"
-          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::VR_LOGGING_ID"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="3"
             SQLTask:ParameterSize="-1" />
@@ -332,305 +369,296 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\EST_LOGGING_STEP_1 | BRONZE"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{c1fb6247-4db2-4f5f-a5ae-183becf86af6}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="EST_LOGGING_STEP_1 | BRONZE"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-          SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Bronze Layer', @StepNum = 1, @StartedAtUTC = @Dt;;&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId;"
-          SQLTask:CodePage="65001"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="Id"
-            SQLTask:DtsVariableName="User::VR_LOGGING_ID" />
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="RunId"
-            SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="130"
-            SQLTask:ParameterSize="36" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\EST_LOGGING_STEP_2 | SILVER"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7cb06bfa-5262-4c29-915f-48d62fb37792}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="EST_LOGGING_STEP_2 | SILVER"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-          SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Silver Layer', @StepNum = 2, @StartedAtUTC = @Dt;;&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId;"
-          SQLTask:CodePage="65001"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="Id"
-            SQLTask:DtsVariableName="User::VR_LOGGING_ID" />
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="RunId"
-            SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="130"
-            SQLTask:ParameterSize="36" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\SILVER 1"
+      DTS:refId="Package\SILVER PROCESSING"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{79BFD7FD-C76C-4981-BAE1-AD0A2F5B0DD3}"
+      DTS:DTSID="{CDC365AD-6628-4A80-829A-D947EAB65D2B}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="SILVER 1">
+      DTS:ObjectName="SILVER PROCESSING">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\SILVER 1\EST_PROCESSING_CONTACTS_DIM"
+          DTS:refId="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9acdedae-dbf7-42d9-889b-479a735a4d7f}"
+          DTS:DTSID="{d9bb559c-ac62-4168-81f7-27ccd8174ad3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_CONTACTS_DIM"
+          DTS:ObjectName="EST_LOGGING_END_STEP_2 | SILVER"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_CONTACTS_DIM;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @Id, @EndedAtUTC = @Dt, @Message = N'Silver Layer succeeded';&#xA;"
+              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VR_LOGGING_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\SILVER 1\EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
+          DTS:refId="Package\SILVER PROCESSING\EST_LOGGING_STEP_2 | SILVER"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{6cd1a11f-e643-42dc-8edd-4c11a9a94825}"
+          DTS:DTSID="{7cb06bfa-5262-4c29-915f-48d62fb37792}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PROGRAMENGAGEMENT_DIM;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\SILVER 2"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{68A939B8-976B-4CF2-8C7D-928F55496DC0}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="SILVER 2">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\SILVER 2\EST_PROCESSING_CLAIMS_DIM"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{14e825b6-2b7b-4840-99d1-2842606b5f8b}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_CLAIMS_DIM"
+          DTS:ObjectName="EST_LOGGING_STEP_2 | SILVER"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_CLAIMS_DIM;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Silver Layer', @StepNum = 2, @StartedAtUTC = @Dt;;&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId;"
+              SQLTask:CodePage="65001"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="Id"
+                SQLTask:DtsVariableName="User::VR_LOGGING_ID" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="RunId"
+                SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::VR_LOGGING_RUN_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="36" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\SILVER 2\EST_PROCESSING_PARTICIPANTS_BRIDGE"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{6da57d70-0e7e-4430-9a4b-24eb3449c2ca}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:refId="Package\SILVER PROCESSING\SILVER 1"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{79BFD7FD-C76C-4981-BAE1-AD0A2F5B0DD3}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PARTICIPANTS_BRIDGE"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ObjectName="SILVER 1">
           <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PARTICIPANTS_BRIDGE;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_CONTACTS_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{9acdedae-dbf7-42d9-889b-479a735a4d7f}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_CONTACTS_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_CONTACTS_DIM;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{6cd1a11f-e643-42dc-8edd-4c11a9a94825}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PROGRAMENGAGEMENT_DIM;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SILVER PROCESSING\SILVER 2"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{68A939B8-976B-4CF2-8C7D-928F55496DC0}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SILVER 2">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_CLAIMS_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{14e825b6-2b7b-4840-99d1-2842606b5f8b}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_CLAIMS_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_CLAIMS_DIM;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_PARTICIPANTS_BRIDGE"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{6da57d70-0e7e-4430-9a4b-24eb3449c2ca}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PARTICIPANTS_BRIDGE"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PARTICIPANTS_BRIDGE;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SILVER PROCESSING\SILVER 3"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{F9AF2CA3-A8B8-4F5A-9E89-A38ABA7B6680}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SILVER 3">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_ORDERS_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{99f32bdc-0f5a-4ee9-b663-e531ba35d4e6}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_ORDERS_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_JOB_ORDERS_DIM;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_OUTCOME_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{39b1f87c-9e86-4198-b86c-34b18392b2e8}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_OUTCOME_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_OUTCOME_DIM;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_PLACEMENT_DIM"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{24749828-bd1c-49b3-8511-c2bf8ba76a48}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PLACEMENT_DIM"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PLACEMENT_DIM;&#xA;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
         </DTS:Executable>
       </DTS:Executables>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\SILVER 3"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{F9AF2CA3-A8B8-4F5A-9E89-A38ABA7B6680}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="SILVER 3">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\SILVER 3\EST_PROCESSING_ORDERS_DIM"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{99f32bdc-0f5a-4ee9-b663-e531ba35d4e6}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_ORDERS_DIM"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_JOB_ORDERS_DIM;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SILVER 3\EST_PROCESSING_OUTCOME_DIM"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{39b1f87c-9e86-4198-b86c-34b18392b2e8}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_OUTCOME_DIM"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_OUTCOME_DIM;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SILVER 3\EST_PROCESSING_PLACEMENT_DIM"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{24749828-bd1c-49b3-8511-c2bf8ba76a48}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="EST_PROCESSING_PLACEMENT_DIM"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-              SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PLACEMENT_DIM;&#xA;"
-              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{209068CF-A10F-4647-B9A5-FD1FBE4385B3}"
+          DTS:From="Package\SILVER PROCESSING\EST_LOGGING_STEP_2 | SILVER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SILVER PROCESSING\SILVER 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{84336869-946A-4C07-8AF0-43A60B983B8A}"
+          DTS:From="Package\SILVER PROCESSING\SILVER 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\SILVER PROCESSING\SILVER 2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{96233215-ECE1-4D46-A95A-D8879CA804BE}"
+          DTS:From="Package\SILVER PROCESSING\SILVER 2"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\SILVER PROCESSING\SILVER 3" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{37FC346E-41B4-46D5-AF61-43ED3A32DF5F}"
+          DTS:From="Package\SILVER PROCESSING\SILVER 3"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{20A3A6A1-CEE9-45AA-895E-46FBB289A482}"
-      DTS:From="Package\EST_LOGGING_STEP_1 | BRONZE"
+      DTS:DTSID="{D94C9F33-8907-477F-88D1-075ACAF45FB0}"
+      DTS:From="Package\EST_LOGGING_START"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\BRONZE 1" />
+      DTS:To="Package\BRONZE PROCESSING" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{6D9CD609-99ED-42CD-A6AC-9AA410F5FD80}"
-      DTS:From="Package\BRONZE 1"
+      DTS:DTSID="{E88D1F86-96EB-419D-BA8F-47CF9AFDC57B}"
+      DTS:From="Package\BRONZE PROCESSING"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\EST_LOGGING_END_STEP_1 | BRONZE" />
+      DTS:To="Package\SILVER PROCESSING" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{226FFD6F-3B62-4471-95CC-C2881C6E11BA}"
-      DTS:From="Package\EST_LOGGING_END_STEP_1 | BRONZE"
+      DTS:DTSID="{502E0E04-3B83-43E7-B067-6D59E4087D96}"
+      DTS:From="Package\SILVER PROCESSING"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\EST_LOGGING_STEP_2 | SILVER" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{209068CF-A10F-4647-B9A5-FD1FBE4385B3}"
-      DTS:From="Package\EST_LOGGING_STEP_2 | SILVER"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
-      DTS:To="Package\SILVER 1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{DDAF8AF9-0C24-4533-814B-FCA73167E6B9}"
-      DTS:From="Package\EST_LOGGING_START"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 4"
-      DTS:To="Package\EST_LOGGING_STEP_1 | BRONZE" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{092D7CB6-7540-481F-87EB-2EFF46CC2007}"
-      DTS:From="Package\EST_LOGGING_END_STEP_2 | SILVER"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 5"
       DTS:To="Package\EST_LOGGING_END" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
-      DTS:CreationName=""
-      DTS:DTSID="{84336869-946A-4C07-8AF0-43A60B983B8A}"
-      DTS:From="Package\SILVER 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 6"
-      DTS:To="Package\SILVER 2" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{96233215-ECE1-4D46-A95A-D8879CA804BE}"
-      DTS:From="Package\SILVER 2"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\SILVER 3" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
-      DTS:CreationName=""
-      DTS:DTSID="{37FC346E-41B4-46D5-AF61-43ED3A32DF5F}"
-      DTS:From="Package\SILVER 3"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 8"
-      DTS:To="Package\EST_LOGGING_END_STEP_2 | SILVER" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -745,120 +773,288 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\EST_LOGGING_END"
+          TopLeft="1145.5,1543.9" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\EST_LOGGING_START"
+          TopLeft="1139.5,5.50000000000018" />
+        <NodeLayout
           Size="237.6,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_AS_CLAIMS"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_AS_CLAIMS"
           TopLeft="5.50000000000018,5.50000000000007" />
         <NodeLayout
           Size="250.4,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_CLIENT_CASE"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CLIENT_CASE"
           TopLeft="304.1,5.50000000000007" />
         <NodeLayout
           Size="236.8,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_CONTACTS"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CONTACTS"
           TopLeft="614.9,5.50000000000007" />
         <NodeLayout
           Size="249.6,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_JOB_ORDERS"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_JOB_ORDERS"
           TopLeft="912.5,5.49999999999995" />
         <NodeLayout
           Size="232.8,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_OUTCOME"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_OUTCOME"
           TopLeft="1222.9,5.49999999999995" />
         <NodeLayout
           Size="255.2,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_PARTICIPANTS"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PARTICIPANTS"
           TopLeft="1516.7,5.49999999999995" />
         <NodeLayout
           Size="243.2,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_PLACEMENT"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PLACEMENT"
           TopLeft="1832.7,5.49999999999984" />
         <NodeLayout
           Size="307.2,41.6"
-          Id="Package\BRONZE 1\EST_PROCESSING_PROGRAMENGAGEMENT"
+          Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PROGRAMENGAGEMENT"
           TopLeft="2136.7,5.49999999999984" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="2449.6,102.4"
           Size="2449.6,145.6"
-          Id="Package\BRONZE 1"
-          TopLeft="5.5,208.7" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\EST_LOGGING_END"
-          TopLeft="1139.9,1335.9" />
+          Id="Package\BRONZE PROCESSING\BRONZE 1"
+          TopLeft="5.5,107.1" />
+        <EdgeLayout
+          Id="Package\BRONZE PROCESSING.PrecedenceConstraints[Constraint]"
+          TopLeft="1230.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\BRONZE PROCESSING.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1230.3,252.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="276.8,41.6"
-          Id="Package\EST_LOGGING_END_STEP_1 | BRONZE"
-          TopLeft="1091.9,414.3" />
-        <NodeLayout
-          Size="270.4,41.6"
-          Id="Package\EST_LOGGING_END_STEP_2 | SILVER"
-          TopLeft="1095.1,1234.3" />
-        <NodeLayout
-          Size="192.8,41.6"
-          Id="Package\EST_LOGGING_START"
-          TopLeft="1133.9,5.49999999999973" />
+          Id="Package\BRONZE PROCESSING\EST_LOGGING_END_STEP_1 | BRONZE"
+          TopLeft="1091.9,312.7" />
         <NodeLayout
           Size="248.8,41.6"
-          Id="Package\EST_LOGGING_STEP_1 | BRONZE"
-          TopLeft="1105.9,107.1" />
+          Id="Package\BRONZE PROCESSING\EST_LOGGING_STEP_1 | BRONZE"
+          TopLeft="1105.9,5.49999999999995" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="2460.8,409.6"
+          Size="2460.8,452.8"
+          Id="Package\BRONZE PROCESSING"
+          TopLeft="5.5,107.1" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1235.9,47.1000000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="270.4,41.6"
+          Id="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER"
+          TopLeft="323.5,723.9" />
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 8]"
+          TopLeft="458.7,663.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="242.4,41.6"
-          Id="Package\EST_LOGGING_STEP_2 | SILVER"
-          TopLeft="1109.1,515.9" />
+          Id="Package\SILVER PROCESSING\EST_LOGGING_STEP_2 | SILVER"
+          TopLeft="337.5,5.49999999999995" />
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 3]"
+          TopLeft="458.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="261.6,41.6"
-          Id="Package\SILVER 1\EST_PROCESSING_CONTACTS_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_CONTACTS_DIM"
           TopLeft="5.5,5.49999999999995" />
         <NodeLayout
           Size="332,41.6"
-          Id="Package\SILVER 1\EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
           TopLeft="327.3,5.49999999999995" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="664.8,102.4"
           Size="664.8,145.6"
-          Id="Package\SILVER 1"
-          TopLeft="897.9,617.5" />
+          Id="Package\SILVER PROCESSING\SILVER 1"
+          TopLeft="126.3,107.1" />
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 6]"
+          TopLeft="458.7,252.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="243.2,41.6"
-          Id="Package\SILVER 2\EST_PROCESSING_CLAIMS_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_CLAIMS_DIM"
           TopLeft="5.50000000000003,5.50000000000007" />
         <NodeLayout
           Size="300.8,41.6"
-          Id="Package\SILVER 2\EST_PROCESSING_PARTICIPANTS_BRIDGE"
+          Id="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_PARTICIPANTS_BRIDGE"
           TopLeft="309.7,5.50000000000007" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="616,102.4"
           Size="616,145.6"
-          Id="Package\SILVER 2"
-          TopLeft="922.3,823.1" />
+          Id="Package\SILVER PROCESSING\SILVER 2"
+          TopLeft="150.7,312.7" />
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
+          TopLeft="458.7,458.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="248.8,41.6"
-          Id="Package\SILVER 3\EST_PROCESSING_ORDERS_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_ORDERS_DIM"
           TopLeft="5.49999999999997,5.50000000000007" />
         <NodeLayout
           Size="257.6,41.6"
-          Id="Package\SILVER 3\EST_PROCESSING_OUTCOME_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_OUTCOME_DIM"
           TopLeft="315.1,5.49999999999995" />
         <NodeLayout
           Size="268,41.6"
-          Id="Package\SILVER 3\EST_PROCESSING_PLACEMENT_DIM"
+          Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_PLACEMENT_DIM"
           TopLeft="632.9,5.49999999999995" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="906.4,102.4"
           Size="906.4,145.6"
-          Id="Package\SILVER 3"
-          TopLeft="777.1,1028.7" />
+          Id="Package\SILVER PROCESSING\SILVER 3"
+          TopLeft="5.50000000000011,518.3" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="917.6,820.8"
+          Size="917.6,864"
+          Id="Package\SILVER PROCESSING"
+          TopLeft="777.1,619.900000000001" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1230.3,148.7">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1235.9,559.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -879,162 +1075,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="1230.3,354.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1230.3,455.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="1230.3,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="1230.3,47.0999999999997">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1230.3,1275.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1230.3,763.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1230.3,968.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="1230.3,1174.3">
+          TopLeft="1235.9,1483.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1061,15 +1103,15 @@
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="204,41.6"
-          Id="Package.EventHandlers[OnError]\EST_LOGGING_ERROR"
-          TopLeft="60,60" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="180.8,41.6"
           Id="Package.EventHandlers[OnError]\EST_LOGGING_END"
           TopLeft="60,161.6" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package.EventHandlers[OnError]\EST_LOGGING_ERROR"
+          TopLeft="60,60" />
         <EdgeLayout
           Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
           TopLeft="162,101.6">
@@ -1101,7 +1143,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
