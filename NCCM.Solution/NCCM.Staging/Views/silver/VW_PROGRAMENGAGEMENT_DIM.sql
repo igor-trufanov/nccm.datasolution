@@ -4,7 +4,7 @@ AS
         UPPER(stm.PROGRAM_ENGAGEMENT_ID) AS UQ_KEY,
         HASHBYTES('MD5', UPPER(stm.PROGRAM_ENGAGEMENT_ID)) AS UQ_KEY_HASH,
         '||' AS NK_STRING,
-        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+        HASHBYTES('MD5', CONCAT(
             stm.COMMENCEMENT_OF_SERVICING_DATE,
             stm.PMDM__CONTACT,
             stm.CONTRACT_REFERENCE_ID,
@@ -50,7 +50,7 @@ AS
             stm.ORIGINAL_SYSTEM_CREATED_DATE,
             stm.APPLICATION_DATE,
             stm.ACCOUNT
-        )), 2) AS ROW_HASH_SUM,
+        )) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

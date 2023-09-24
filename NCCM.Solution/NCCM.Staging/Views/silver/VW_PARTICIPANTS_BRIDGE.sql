@@ -3,10 +3,10 @@ AS
     SELECT 
         HASHBYTES('MD5', UPPER(stm.CONTACT)) AS CLIENT_CONTACT_HASH_KEY,
         HASHBYTES('MD5', UPPER(stm.PROGRAM_ENGAGEMENT)) AS PROGRAM_ENGAGEMENT_HASH_KEY,
-        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+        HASHBYTES('MD5', CONCAT(
             stm.IS_DELETED,
-            ''
-        )), 2) AS ROW_HASH_SUM,
+            stm.PARTICIPANTS_BRIDGE_ID
+        )) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

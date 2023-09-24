@@ -4,7 +4,7 @@ AS
         UPPER(stm.CONTACT_ID) AS UQ_KEY,
         HASHBYTES('MD5', UPPER(stm.CONTACT_ID)) AS UQ_KEY_HASH,
         UPPER(CONCAT(stm.FIRST_NAME, '||', stm.LAST_NAME, '||', stm.BIRTH_DATE)) AS NK_STRING,
-        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+        HASHBYTES('MD5', CONCAT(
             stm.LAST_NAME,
             stm.FIRST_NAME,
             stm.BIRTH_DATE,
@@ -43,7 +43,7 @@ AS
             stm.CALD,
             stm.EDUCATION_LEVEL,
             stm.AGE_OF_YOUNGEST_CHILD
-        )), 2) AS ROW_HASH_SUM,
+        )) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

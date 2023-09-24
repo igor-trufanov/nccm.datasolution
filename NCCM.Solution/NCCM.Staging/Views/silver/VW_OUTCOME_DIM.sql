@@ -5,12 +5,12 @@ AS
         HASHBYTES('MD5', UPPER(CONCAT(stm.OUTCOME_ID, '||', stm.CLIENT_CASE_ID))) AS UQ_KEY_HASH,
         '||' AS NK_STRING,
         HASHBYTES('MD5', UPPER(stm.CLIENT_CONTACT)) AS CLIENT_CONTACT_HASH_KEY,
-        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+        HASHBYTES('MD5', CONCAT(
             stm.CLIENT_CONTACT,
             stm.WRD_PHASE,
             stm.RECORD_TYPE_NAME,
             stm.IS_DELETED
-        )), 2) AS ROW_HASH_SUM,
+        )) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT

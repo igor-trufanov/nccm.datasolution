@@ -5,7 +5,7 @@ AS
         HASHBYTES('MD5',  UPPER(stm.PLACEMENT_ID)) AS UQ_KEY_HASH,
         '||' AS NK_STRING,
         HASHBYTES('MD5',  UPPER(stm.CONTACT)) AS CLIENT_CONTACT_HASH_KEY,
-        CONVERT(VARCHAR(32), HASHBYTES('MD5', CONCAT(
+        HASHBYTES('MD5', CONCAT(
             stm.ANCHOR_DATE,
             stm.CONTACT,
             stm.END_DATE,
@@ -17,7 +17,7 @@ AS
             stm.STATUS,
             stm.VACANCY_ID,
             stm.IS_DELETED
-        )), 2) AS ROW_HASH_SUM,
+        )) AS ROW_HASH_SUM,
         stm.*
     FROM (
         SELECT
