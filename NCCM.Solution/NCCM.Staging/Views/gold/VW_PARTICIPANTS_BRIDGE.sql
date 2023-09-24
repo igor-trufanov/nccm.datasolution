@@ -1,0 +1,10 @@
+CREATE VIEW [gold.NCCM].VW_PARTICIPANTS_BRIDGE
+AS
+    SELECT
+        tbl.[CONTACT_DIM_ID],
+        tbl.[PROGRAM_ENGAGEMENT_DIM_ID],
+        tbl.[IS_DELETED],
+        tbl.[ROW_CALENDAR_DATE],
+        tbl.[ROW_CREATED_AT],
+        tbl.[ROW_UPDATED_AT]
+    FROM [silver.NCCM].PARTICIPANTS_BRIDGE AS tbl

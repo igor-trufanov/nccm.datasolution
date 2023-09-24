@@ -138,6 +138,13 @@
     <Build Include="Tables\raw\FFS_PMDM__PROGRAMENGAGEMENT__C.sql" />
     <Build Include="StoredProcedures\raw\FFS_CLEAN_TABLES.sql" />
     <Build Include="StoredProcedures\silver\SP_MAPPING_SURROGATE_KEYS_DIMS.sql" />
+    <Build Include="Views\gold\VW_PLACEMENT_DIM.sql" />
+    <Build Include="Views\gold\VW_PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="Views\gold\VW_CLAIMS_DIM.sql" />
+    <Build Include="Views\gold\VW_CONTACTS_DIM.sql" />
+    <Build Include="Views\gold\VW_JOB_ORDERS_DIM.sql" />
+    <Build Include="Views\gold\VW_OUTCOME_DIM.sql" />
+    <Build Include="Views\gold\VW_PARTICIPANTS_BRIDGE.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

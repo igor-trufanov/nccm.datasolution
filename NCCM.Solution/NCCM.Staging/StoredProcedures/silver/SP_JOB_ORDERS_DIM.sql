@@ -19,7 +19,7 @@ BEGIN
     USING (
         SELECT 
             dm.*,
-            ks.DIM_ID AS JOB_ORDERS_DIM_ID,
+            ks.DIM_ID AS JOB_ORDER_DIM_ID,
             ksc.DIM_ID AS CONTACT_DIM_ID
         FROM [silver.NCCM].VW_JOB_ORDERS_DIM AS dm
             LEFT JOIN [silver.NCCM].MAPPING_SURROGATE_KEYS_DIMS as ks
@@ -30,7 +30,7 @@ BEGIN
                 AND ksc.DIMENSION = 'CONTACTS_DIM'
     ) AS src
     ON (
-        trg.JOB_ORDERS_DIM_ID = src.JOB_ORDERS_DIM_ID
+        trg.JOB_ORDER_DIM_ID = src.JOB_ORDER_DIM_ID
     )
     WHEN MATCHED AND trg.[ROW_HASH_SUM] <> src.[ROW_HASH_SUM] THEN 
         UPDATE SET
@@ -46,7 +46,7 @@ BEGIN
             trg.[ROW_UPDATED_AT] = @Timestamp
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
-            [JOB_ORDERS_DIM_ID],
+            [JOB_ORDER_DIM_ID],
             [NK_STRING],
             [ROW_HASH_SUM],
             [JOB_ORDER_ID],
@@ -60,7 +60,7 @@ BEGIN
             [ROW_CREATED_AT],
             [ROW_UPDATED_AT]
         ) VALUES (
-            src.[JOB_ORDERS_DIM_ID],
+            src.[JOB_ORDER_DIM_ID],
             src.[NK_STRING],
             src.[ROW_HASH_SUM],
             src.[JOB_ORDER_ID],
