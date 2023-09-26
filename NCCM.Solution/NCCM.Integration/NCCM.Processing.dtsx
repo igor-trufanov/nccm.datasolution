@@ -11,64 +11,10 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{D86ADAA6-2DD1-4685-9F0D-1B717CE7D1A5}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{2FDCE1BD-8FF6-463B-A621-646AFB04E18A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-      DTS:CreationName="OLEDB"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}"
-      DTS:ObjectName="CNT_MSSQL_REPORTING">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::PR_CNT_MSSQL_CONNECTION_STRING_REPORTING]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Reporting;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-      DTS:CreationName="OLEDB"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
-      DTS:ObjectName="CNT_MSSQL_STAGING">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::PR_CNT_MSSQL_CONNECTION_STRING_STAGING]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{099E32AC-565B-4B19-83EF-3F4B51A2920B}"
-      DTS:ObjectName="PR_CNT_MSSQL_CONNECTION_STRING_REPORTING"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Reporting;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{3D1694A0-435C-401C-848B-44140AF6979E}"
-      DTS:ObjectName="PR_CNT_MSSQL_CONNECTION_STRING_STAGING"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -166,7 +112,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_AS_CLAIMS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -184,7 +130,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -202,7 +148,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CONTACTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -220,7 +166,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -238,7 +184,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_OUTCOME"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -256,7 +202,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PARTICIPANTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -274,7 +220,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PLACEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -292,7 +238,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -514,8 +460,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -813,8 +759,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1506,8 +1452,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1745,8 +1691,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1974,8 +1920,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2137,8 +2083,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2426,8 +2372,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 6.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2583,8 +2529,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3324,8 +3270,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3757,8 +3703,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4865,8 +4811,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5193,8 +5139,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 3.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5503,8 +5449,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 4.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5699,8 +5645,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 5.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6117,8 +6063,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 6.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6301,8 +6247,8 @@
                   <connections>
                     <connection
                       refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
-                      connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8569,226 +8515,72 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7"
+          TopLeft="2314.23329531468,567.666662719184" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 3"
+          TopLeft="1356.0999638026,358.79999750495" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 6"
+          TopLeft="2069.69996270984,358.79999750495" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7"
+          TopLeft="2307.56662901226,358.79999750495" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 6"
+          TopLeft="2076.36662901226,567.666662719184" />
+        <NodeLayout
           Size="152,41.6"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source"
           TopLeft="642.499964895349,358.79999750495" />
         <NodeLayout
           Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination"
-          TopLeft="649.166631197765,567.666662719184" />
-        <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output]"
-          TopLeft="718.499964895349,400.39999750495">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.266666302416,167.266665214234"
-              Start="0,0"
-              End="16.266666302416,159.766665214234">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,79.633332607117"
-                    Point2="0,83.633332607117"
-                    Point3="4,83.633332607117" />
-                  <mssgle:LineSegment
-                    End="12.266666302416,83.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.266666302416,83.633332607117"
-                    Point2="16.266666302416,83.633332607117"
-                    Point3="16.266666302416,87.633332607117" />
-                  <mssgle:LineSegment
-                    End="16.266666302416,159.766665214234" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4"
+          TopLeft="1600.63329640743,567.666662719184" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2"
+          TopLeft="1118.23329750018,358.79999750495" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 1"
           TopLeft="880.366631197765,358.79999750495" />
         <NodeLayout
           Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1"
-          TopLeft="887.033297500181,567.666662719184" />
-        <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output1]"
-          TopLeft="956.366631197765,400.39999750495">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.266666302416,167.266665214234"
-              Start="0,0"
-              End="16.266666302416,159.766665214234">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,79.633332607117"
-                    Point2="0,83.633332607117"
-                    Point3="4,83.633332607117" />
-                  <mssgle:LineSegment
-                    End="12.266666302416,83.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.266666302416,83.633332607117"
-                    Point2="16.266666302416,83.633332607117"
-                    Point3="16.266666302416,87.633332607117" />
-                  <mssgle:LineSegment
-                    End="16.266666302416,159.766665214234" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2"
-          TopLeft="1118.23329750018,358.79999750495" />
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3"
+          TopLeft="1362.76663010501,567.666662719184" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 2"
           TopLeft="1124.8999638026,567.666662719184" />
-        <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output2]"
-          TopLeft="1194.23329750018,400.39999750495">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.266666302416,167.266665214234"
-              Start="0,0"
-              End="16.266666302416,159.766665214234">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,79.633332607117"
-                    Point2="0,83.633332607117"
-                    Point3="4,83.633332607117" />
-                  <mssgle:LineSegment
-                    End="12.266666302416,83.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.266666302416,83.633332607117"
-                    Point2="16.266666302416,83.633332607117"
-                    Point3="16.266666302416,87.633332607117" />
-                  <mssgle:LineSegment
-                    End="16.266666302416,159.766665214234" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 3"
-          TopLeft="1356.0999638026,358.79999750495" />
         <NodeLayout
           Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3"
-          TopLeft="1362.76663010501,567.666662719184" />
-        <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output3]"
-          TopLeft="1432.0999638026,400.39999750495">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.266666302416,167.266665214234"
-              Start="0,0"
-              End="16.266666302416,159.766665214234">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,79.633332607117"
-                    Point2="0,83.633332607117"
-                    Point3="4,83.633332607117" />
-                  <mssgle:LineSegment
-                    End="12.266666302416,83.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.266666302416,83.633332607117"
-                    Point2="16.266666302416,83.633332607117"
-                    Point3="16.266666302416,87.633332607117" />
-                  <mssgle:LineSegment
-                    End="16.266666302416,159.766665214234" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5"
+          TopLeft="1838.49996270985,567.666662719184" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1"
+          TopLeft="887.033297500181,567.666662719184" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 4"
           TopLeft="1593.96663010501,358.79999750495" />
         <NodeLayout
           Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4"
-          TopLeft="1600.63329640743,567.666662719184" />
-        <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output4]"
-          TopLeft="1669.96663010501,400.39999750495">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.266666302416,167.266665214234"
-              Start="0,0"
-              End="16.266666302416,159.766665214234">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,79.633332607117"
-                    Point2="0,83.633332607117"
-                    Point3="4,83.633332607117" />
-                  <mssgle:LineSegment
-                    End="12.266666302416,83.633332607117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.266666302416,83.633332607117"
-                    Point2="16.266666302416,83.633332607117"
-                    Point3="16.266666302416,87.633332607117" />
-                  <mssgle:LineSegment
-                    End="16.266666302416,159.766665214234" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination"
+          TopLeft="649.166631197765,567.666662719184" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 5"
           TopLeft="1831.83329640743,358.79999750495" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5"
-          TopLeft="1838.49996270985,567.666662719184" />
         <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output5]"
-          TopLeft="1907.83329640743,400.39999750495">
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output7]"
+          TopLeft="2383.56662901226,400.39999750495">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8820,14 +8612,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 6"
-          TopLeft="2069.69996270984,358.79999750495" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 6"
-          TopLeft="2076.36662901226,567.666662719184" />
         <EdgeLayout
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output6]"
           TopLeft="2145.69996270984,400.39999750495">
@@ -8862,17 +8646,179 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7"
-          TopLeft="2307.56662901226,358.79999750495" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7"
-          TopLeft="2314.23329531468,567.666662719184" />
         <EdgeLayout
-          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output7]"
-          TopLeft="2383.56662901226,400.39999750495">
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output5]"
+          TopLeft="1907.83329640743,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.266666302416,167.266665214234"
+              Start="0,0"
+              End="16.266666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="12.266666302416,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.266666302416,83.633332607117"
+                    Point2="16.266666302416,83.633332607117"
+                    Point3="16.266666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.266666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output4]"
+          TopLeft="1669.96663010501,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.266666302416,167.266665214234"
+              Start="0,0"
+              End="16.266666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="12.266666302416,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.266666302416,83.633332607117"
+                    Point2="16.266666302416,83.633332607117"
+                    Point3="16.266666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.266666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output3]"
+          TopLeft="1432.0999638026,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.266666302416,167.266665214234"
+              Start="0,0"
+              End="16.266666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="12.266666302416,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.266666302416,83.633332607117"
+                    Point2="16.266666302416,83.633332607117"
+                    Point3="16.266666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.266666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output2]"
+          TopLeft="1194.23329750018,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.266666302416,167.266665214234"
+              Start="0,0"
+              End="16.266666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="12.266666302416,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.266666302416,83.633332607117"
+                    Point2="16.266666302416,83.633332607117"
+                    Point3="16.266666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.266666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output1]"
+          TopLeft="956.366631197765,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.266666302416,167.266665214234"
+              Start="0,0"
+              End="16.266666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="12.266666302416,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.266666302416,83.633332607117"
+                    Point2="16.266666302416,83.633332607117"
+                    Point3="16.266666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.266666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output]"
+          TopLeft="718.499964895349,400.39999750495">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8908,72 +8854,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 2">
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8999,72 +8880,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 4">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 5">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 6">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9090,7 +8919,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7">
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9103,7 +8932,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7">
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9112,6 +8941,123 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 4">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 5">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

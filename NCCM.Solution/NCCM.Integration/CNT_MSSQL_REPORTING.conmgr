@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:DelayValidation="True"
+  DTS:ObjectName="CNT_MSSQL_REPORTING"
+  DTS:DTSID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::PR_CNT_MSSQL_CONNECTION_STRING_REPORTING]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Reporting;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

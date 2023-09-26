@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="102"
-  DTS:VersionGUID="{6F15F459-9243-4F9B-AEF9-91C4D591E052}">
+  DTS:VersionBuild="105"
+  DTS:VersionGUID="{8714D649-548D-4AA6-A6CB-98FB1CDBF65F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,32 +45,8 @@
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CNT_MSSQL]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{1557DF1B-13F5-4341-B671-05312A137B11}"
-      DTS:ObjectName="CNT_MSSQL">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::PR_CNT_MSSQL_CONNECTION_STRING]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{1CF3F883-5082-458A-AA24-5CFBE7BDB368}"
-      DTS:ObjectName="PR_CNT_MSSQL_CONNECTION_STRING"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=WINDEV2305EVAL;Initial Catalog=Staging13;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
-    </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
@@ -582,7 +558,7 @@
                         <property
                           dataType="System.String"
                           description="Specifies the name of the database object used to open a rowset."
-                          name="OpenRowset">[raw].[DUMMY]</property>
+                          name="OpenRowset"></property>
                         <property
                           dataType="System.String"
                           description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -604,7 +580,7 @@
                           dataType="System.Int32"
                           description="Specifies the mode used to access the database."
                           name="AccessMode"
-                          typeConverter="AccessMode">4</property>
+                          typeConverter="AccessMode">3</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -625,8 +601,8 @@
                       <connections>
                         <connection
                           refId="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\DST_DATA.Connections[OleDbConnection]"
-                          connectionManagerID="Package.ConnectionManagers[CNT_MSSQL]"
-                          connectionManagerRefId="Package.ConnectionManagers[CNT_MSSQL]"
+                          connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
                           description="The OLE DB runtime connection used to access the database."
                           name="OleDbConnection" />
                       </connections>
@@ -995,7 +971,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="166.4,103.2"
+          PanelSize="208.8,103.2"
           Size="208.8,146.4"
           Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS"
           TopLeft="5.50000000000003,5.5" />
