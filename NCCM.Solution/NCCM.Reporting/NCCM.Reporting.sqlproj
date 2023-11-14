@@ -70,5 +70,7 @@
     <Build Include="Tables\gold\PLACEMENT_DIM.sql" />
     <Build Include="Tables\gold\PROGRAM_FACT.sql" />
     <Build Include="Tables\gold\PROGRAMENGAGEMENT_DIM.sql" />
+    <Build Include="Tables\gold\PNX_HISTORY.sql" />
+    <Build Include="Tables\gold\DES_HISTORY.sql" />
   </ItemGroup>
 </Project>

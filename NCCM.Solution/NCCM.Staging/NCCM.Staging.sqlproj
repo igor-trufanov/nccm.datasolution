@@ -151,6 +151,8 @@
     <Build Include="Views\silver\VW_DES_HISTORY.sql" />
     <Build Include="StoredProcedures\silver\SP_PNX_HISTORY.sql" />
     <Build Include="StoredProcedures\silver\SP_DES_HISTORY.sql" />
+    <Build Include="Views\gold\VW_PNX_HISTORY.sql" />
+    <Build Include="Views\gold\VW_DES_HISTORY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
