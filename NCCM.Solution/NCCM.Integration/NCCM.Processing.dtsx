@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{2FDCE1BD-8FF6-463B-A621-646AFB04E18A}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{08FCB80E-B975-4C69-970A-1C2497273EF4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -112,7 +112,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_AS_CLAIMS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -130,7 +130,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -148,7 +148,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CONTACTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -166,7 +166,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -184,7 +184,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_OUTCOME"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -202,7 +202,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PARTICIPANTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -220,7 +220,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PLACEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -7802,6 +7802,54 @@
             </DTS:Executable>
           </DTS:Executables>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SILVER PROCESSING\SILVER 4"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{DF26D1CD-2AAE-46CF-B829-362A9A868528}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SILVER 4">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_DES_HISTORY"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{5f0438d0-56c7-4e29-8544-922805d1733c}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_DES_HISTORY"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_DES_HISTORY;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_PNX_HISTORY"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{facdb073-1d53-40e1-aec1-a55844a6a2a6}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EST_PROCESSING_PNX_HISTORY"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+                  SQLTask:SqlStatementSource="EXEC [silver.NCCM].SP_PNX_HISTORY;"
+                  SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -7821,6 +7869,22 @@
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\SILVER PROCESSING\SILVER 1" />
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{B7B25662-856B-45EE-99D2-770D998249EC}"
+          DTS:From="Package\SILVER PROCESSING\SILVER 3"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SILVER PROCESSING\SILVER 4" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{65B7784C-D5E6-4BC9-87F8-D7DC36FF9974}"
+          DTS:From="Package\SILVER PROCESSING\SILVER 4"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 6]"
           DTS:CreationName=""
           DTS:DTSID="{84336869-946A-4C07-8AF0-43A60B983B8A}"
@@ -7836,14 +7900,6 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 7"
           DTS:To="Package\SILVER PROCESSING\SILVER 3" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 8]"
-          DTS:CreationName=""
-          DTS:DTSID="{37FC346E-41B4-46D5-AF61-43ED3A32DF5F}"
-          DTS:From="Package\SILVER PROCESSING\SILVER 3"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 8"
-          DTS:To="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -8090,11 +8146,11 @@
           PanelSize="2460.8,409.6"
           Size="2460.8,452.8"
           Id="Package\BRONZE PROCESSING"
-          TopLeft="5.5,107.1" />
+          TopLeft="5.50000000000023,107.1" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\EST_LOGGING_END"
-          TopLeft="1145.5,2155.9" />
+          TopLeft="1145.5,2361.5" />
         <NodeLayout
           Size="192.8,41.6"
           Id="Package\EST_LOGGING_START"
@@ -8187,11 +8243,11 @@
           PanelSize="306.4,407.2"
           Size="306.4,450.4"
           Id="Package\REPORTING PROCESSING"
-          TopLeft="1082.7,1645.5" />
+          TopLeft="1082.7,1851.1" />
         <NodeLayout
           Size="270.4,41.6"
           Id="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER"
-          TopLeft="323.5,825.5" />
+          TopLeft="323.5,1031.1" />
         <NodeLayout
           Size="242.4,41.6"
           Id="Package\SILVER PROCESSING\EST_LOGGING_STEP_2 | SILVER"
@@ -8248,7 +8304,7 @@
           PanelSize="906.4,102.4"
           Size="906.4,145.6"
           Id="Package\SILVER PROCESSING\SILVER 3"
-          TopLeft="5.50000000000011,619.9" />
+          TopLeft="5.50000000000006,619.9" />
         <EdgeLayout
           Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint]"
           TopLeft="458.7,47.1">
@@ -8299,6 +8355,28 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
+          TopLeft="458.7,559.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
               EndConnector="0,60.0000000000001"
               Start="0,0"
               End="0,52.5000000000001">
@@ -8315,30 +8393,23 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_PNX_HISTORY"
+          TopLeft="4.66666671219809,5.5" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_DES_HISTORY"
+          TopLeft="315.1,5.50000000000007" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="578.4,102.4"
+          Size="578.4,145.6"
+          Id="Package\SILVER PROCESSING\SILVER 4"
+          TopLeft="169.5,825.5" />
         <EdgeLayout
-          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
-          TopLeft="458.7,559.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 8]"
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 2]"
           TopLeft="458.7,765.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8359,13 +8430,35 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 3]"
+          TopLeft="458.7,971.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="917.6,922.4"
-          Size="917.6,965.6"
+          PanelSize="917.6,1128"
+          Size="917.6,1171.2"
           Id="Package\SILVER PROCESSING"
-          TopLeft="777.1,619.900000000001" />
+          TopLeft="777.1,619.9" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="1235.9,47.1000000000002">
@@ -8394,28 +8487,6 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
-              Start="0,0"
-              End="0,52.5000000000003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1235.9,1585.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
               EndConnector="0,60"
               Start="0,0"
               End="0,52.5">
@@ -8433,19 +8504,41 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="1235.9,2095.9">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1235.9,1791.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999995"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="0,52.4999999999995">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999995" />
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="1235.9,2301.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
