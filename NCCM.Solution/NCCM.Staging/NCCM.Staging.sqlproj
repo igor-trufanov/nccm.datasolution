@@ -145,6 +145,12 @@
     <Build Include="Views\gold\VW_JOB_ORDERS_DIM.sql" />
     <Build Include="Views\gold\VW_OUTCOME_DIM.sql" />
     <Build Include="Views\gold\VW_PARTICIPANTS_BRIDGE.sql" />
+    <Build Include="Tables\silver\DES_HISTORY.sql" />
+    <Build Include="Tables\silver\PNX_HISTORY.sql" />
+    <Build Include="Views\silver\VW_PNX_HISTORY.sql" />
+    <Build Include="Views\silver\VW_DES_HISTORY.sql" />
+    <Build Include="StoredProcedures\silver\SP_PNX_HISTORY.sql" />
+    <Build Include="StoredProcedures\silver\SP_DES_HISTORY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
