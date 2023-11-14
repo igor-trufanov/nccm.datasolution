@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{08FCB80E-B975-4C69-970A-1C2497273EF4}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{5AC00753-CE45-4AD9-9103-D0A5E24C4B15}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -112,7 +112,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_AS_CLAIMS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -130,7 +130,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -148,7 +148,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CONTACTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -166,7 +166,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -184,7 +184,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_OUTCOME"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -202,7 +202,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PARTICIPANTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -220,7 +220,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PLACEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -238,7 +238,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -3212,6 +3212,468 @@
                           refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination 8"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[gold.NCCM].[DES_HISTORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Connections[OleDbConnection]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[SITE_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SITE_CODE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[SITE_CODE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SITE_CODE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_CALENDAR_DATE]"
+                          cachedDataType="dbDate"
+                          cachedName="ROW_CALENDAR_DATE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_CALENDAR_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[CLIENT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="CLIENT"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[CLIENT]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[REFERRAL_STATUS_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="REFERRAL_STATUS_CODE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[REFERRAL_STATUS_CODE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[REFERRAL_STATUS_CODE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[SERVICING_PLACEMENT_STATUS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SERVICING_PLACEMENT_STATUS"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          cachedDataType="dbDate"
+                          cachedName="COMMENCEMENT_OF_SERVICING_DATE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_IS_CURRENT]"
+                          cachedDataType="bool"
+                          cachedName="ROW_IS_CURRENT"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          cachedDataType="bool"
+                          cachedName="ROW_IS_CURRENT_FOR_THE_DAY"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ROW_EFFECTIVE_DATE_TIME"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_END_DATE_TIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ROW_END_DATE_TIME"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_END_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[ROW_REASON_FOR_CHANGE]"
+                          cachedDataType="wstr"
+                          cachedLength="1024"
+                          cachedName="ROW_REASON_FOR_CHANGE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SITE_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          name="ROW_CALENDAR_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="CLIENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[REFERRAL_STATUS_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="REFERRAL_STATUS_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_END_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          name="ROW_REASON_FOR_CHANGE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination 9"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[gold.NCCM].[PNX_HISTORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Connections[OleDbConnection]"
+                      connectionManagerID="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_REPORTING]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[SITE_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SITE_CODE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[SITE_CODE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SITE_CODE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_CALENDAR_DATE]"
+                          cachedDataType="dbDate"
+                          cachedName="ROW_CALENDAR_DATE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_CALENDAR_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[CLIENT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="CLIENT"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CLIENT]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          cachedDataType="dbDate"
+                          cachedName="COMMENCEMENT_OF_SERVICING_DATE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_REFERRAL_STATUS]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[CONTRACT_REFERRAL_STATUS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="CONTRACT_REFERRAL_STATUS"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CONTRACT_REFERRAL_STATUS]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[SERVICING_PLACEMENT_STATUS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SERVICING_PLACEMENT_STATUS"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_IS_CURRENT]"
+                          cachedDataType="bool"
+                          cachedName="ROW_IS_CURRENT"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          cachedDataType="bool"
+                          cachedName="ROW_IS_CURRENT_FOR_THE_DAY"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_REASON_FOR_CHANGE]"
+                          cachedDataType="wstr"
+                          cachedLength="1024"
+                          cachedName="ROW_REASON_FOR_CHANGE"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_END_DATE_TIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ROW_END_DATE_TIME"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_END_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]" />
+                        <inputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ROW_EFFECTIVE_DATE_TIME"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SITE_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          name="ROW_CALENDAR_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="CLIENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_REFERRAL_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="CONTRACT_REFERRAL_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_END_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          name="ROW_REASON_FOR_CHANGE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -7406,6 +7868,632 @@
                     </output>
                   </outputs>
                 </component>
+                <component
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source 8"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[gold.NCCM].[VW_DES_HISTORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Connections[OleDbConnection]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[SITE_CODE]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SITE_CODE]"
+                          name="SITE_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_CALENDAR_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]"
+                          name="ROW_CALENDAR_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[CLIENT]"
+                          length="18"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[CLIENT]"
+                          name="CLIENT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[REFERRAL_STATUS_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[REFERRAL_STATUS_CODE]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[REFERRAL_STATUS_CODE]"
+                          name="REFERRAL_STATUS_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          name="SERVICING_PLACEMENT_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          name="COMMENCEMENT_OF_SERVICING_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]"
+                          name="ROW_IS_CURRENT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          name="ROW_EFFECTIVE_DATE_TIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_END_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]"
+                          name="ROW_END_DATE_TIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          length="1024"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          name="ROW_REASON_FOR_CHANGE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SITE_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          name="ROW_CALENDAR_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="CLIENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[REFERRAL_STATUS_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="REFERRAL_STATUS_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_END_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          name="ROW_REASON_FOR_CHANGE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[CLIENT]"
+                          name="CLIENT" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[REFERRAL_STATUS_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[REFERRAL_STATUS_CODE]"
+                          name="REFERRAL_STATUS_CODE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[SITE_CODE]"
+                          name="SITE_CODE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT]"
+                          name="ROW_IS_CURRENT" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_CALENDAR_DATE]"
+                          name="ROW_CALENDAR_DATE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_END_DATE_TIME]"
+                          name="ROW_END_DATE_TIME" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          name="ROW_REASON_FOR_CHANGE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source 9"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[gold.NCCM].[VW_PNX_HISTORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Connections[OleDbConnection]"
+                      connectionManagerID="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CNT_MSSQL_STAGING]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[SITE_CODE]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SITE_CODE]"
+                          name="SITE_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[CLIENT]"
+                          length="18"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CLIENT]"
+                          name="CLIENT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          name="COMMENCEMENT_OF_SERVICING_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CONTRACT_REFERRAL_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_REFERRAL_STATUS]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[CONTRACT_REFERRAL_STATUS]"
+                          name="CONTRACT_REFERRAL_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          name="SERVICING_PLACEMENT_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT]"
+                          name="ROW_IS_CURRENT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          name="ROW_EFFECTIVE_DATE_TIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_CALENDAR_DATE]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_CALENDAR_DATE]"
+                          name="ROW_CALENDAR_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_END_DATE_TIME]"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_END_DATE_TIME]"
+                          name="ROW_END_DATE_TIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          length="1024"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          name="ROW_REASON_FOR_CHANGE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SITE_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="CLIENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_REFERRAL_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="CONTRACT_REFERRAL_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          name="ROW_CALENDAR_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          name="ROW_END_DATE_TIME" />
+                        <externalMetadataColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output].ExternalColumns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          name="ROW_REASON_FOR_CHANGE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[CLIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[CLIENT]"
+                          name="CLIENT" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          dataType="dbDate"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[COMMENCEMENT_OF_SERVICING_DATE]"
+                          name="COMMENCEMENT_OF_SERVICING_DATE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[CONTRACT_REFERRAL_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[CONTRACT_REFERRAL_STATUS]"
+                          name="CONTRACT_REFERRAL_STATUS" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[SITE_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[SITE_CODE]"
+                          name="SITE_CODE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[SERVICING_PLACEMENT_STATUS]"
+                          name="SERVICING_PLACEMENT_STATUS" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT]"
+                          dataType="bool"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT]"
+                          name="ROW_IS_CURRENT" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          dataType="bool"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_IS_CURRENT_FOR_THE_DAY]"
+                          name="ROW_IS_CURRENT_FOR_THE_DAY" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_EFFECTIVE_DATE_TIME]"
+                          name="ROW_EFFECTIVE_DATE_TIME" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_CALENDAR_DATE]"
+                          dataType="dbDate"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_CALENDAR_DATE]"
+                          name="ROW_CALENDAR_DATE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_END_DATE_TIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_END_DATE_TIME]"
+                          name="ROW_END_DATE_TIME" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          dataType="wstr"
+                          length="1024"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ROW_REASON_FOR_CHANGE]"
+                          name="ROW_REASON_FOR_CHANGE" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
                 <path
@@ -7448,6 +8536,16 @@
                   endId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output8]"
+                  endId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output9]"
+                  endId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -7523,7 +8621,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{14a2e4ba-593c-4ec7-a1d7-eb1eff251e11}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [gold.NCCM].[CLAIMS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[CONTACTS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[JOB_ORDERS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[OUTCOME_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[PARTICIPANTS_BRIDGE];&#xA;TRUNCATE TABLE [gold.NCCM].[PLACEMENT_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[PROGRAM_FACT];&#xA;TRUNCATE TABLE [gold.NCCM].[PROGRAMENGAGEMENT_DIM];&#xA;"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [gold.NCCM].[CLAIMS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[CONTACTS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[JOB_ORDERS_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[OUTCOME_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[PARTICIPANTS_BRIDGE];&#xA;TRUNCATE TABLE [gold.NCCM].[PLACEMENT_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].[PROGRAM_FACT];&#xA;TRUNCATE TABLE [gold.NCCM].[PROGRAMENGAGEMENT_DIM];&#xA;TRUNCATE TABLE [gold.NCCM].PNX_HISTORY;&#xA;TRUNCATE TABLE [gold.NCCM].DES_HISTORY;&#xA;"
               SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -7821,7 +8919,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_DES_HISTORY"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -7839,7 +8937,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PNX_HISTORY"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -8305,6 +9403,21 @@
           Size="906.4,145.6"
           Id="Package\SILVER PROCESSING\SILVER 3"
           TopLeft="5.50000000000006,619.9" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_DES_HISTORY"
+          TopLeft="315.1,5.50000000000007" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_PNX_HISTORY"
+          TopLeft="4.66666671219809,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="578.4,102.4"
+          Size="578.4,145.6"
+          Id="Package\SILVER PROCESSING\SILVER 4"
+          TopLeft="169.5,825.5" />
         <EdgeLayout
           Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint]"
           TopLeft="458.7,47.1">
@@ -8350,65 +9463,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 6]"
-          TopLeft="458.7,354.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
-          TopLeft="458.7,559.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="252.8,41.6"
-          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_PNX_HISTORY"
-          TopLeft="4.66666671219809,5.5" />
-        <NodeLayout
-          Size="252.8,41.6"
-          Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_DES_HISTORY"
-          TopLeft="315.1,5.50000000000007" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="578.4,102.4"
-          Size="578.4,145.6"
-          Id="Package\SILVER PROCESSING\SILVER 4"
-          TopLeft="169.5,825.5" />
-        <EdgeLayout
           Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 2]"
           TopLeft="458.7,765.5">
           <EdgeLayout.Curve>
@@ -8444,6 +9498,50 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 6]"
+          TopLeft="458.7,354.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 7]"
+          TopLeft="458.7,559.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8943,6 +10041,90 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8"
+          TopLeft="2545.43329531468,358.79999750495" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8"
+          TopLeft="2552.0999616171,567.666662719184" />
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output8]"
+          TopLeft="2621.43329531468,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.6666663024162,167.266665214234"
+              Start="0,0"
+              End="20.6666663024162,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="16.6666663024162,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.6666663024162,83.633332607117"
+                    Point2="20.6666663024162,83.633332607117"
+                    Point3="20.6666663024162,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="20.6666663024162,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9"
+          TopLeft="2783.2999616171,358.79999750495" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9"
+          TopLeft="2789.96662791951,567.666662719184" />
+        <EdgeLayout
+          Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES.Paths[OLE DB Source Output9]"
+          TopLeft="2863.6999616171,400.39999750495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.866666302416,167.266665214234"
+              Start="0,0"
+              End="11.866666302416,159.766665214234">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.633332607117"
+                    Point2="0,83.633332607117"
+                    Point3="4,83.633332607117" />
+                  <mssgle:LineSegment
+                    End="7.86666630241598,83.633332607117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.86666630241598,83.633332607117"
+                    Point2="11.866666302416,83.633332607117"
+                    Point3="11.866666302416,87.633332607117" />
+                  <mssgle:LineSegment
+                    End="11.866666302416,159.766665214234" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -9151,6 +10333,58 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
