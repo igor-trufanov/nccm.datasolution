@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="105"
-  DTS:VersionGUID="{8714D649-548D-4AA6-A6CB-98FB1CDBF65F}">
+  DTS:VersionBuild="107"
+  DTS:VersionGUID="{7FBC7011-F67E-418C-899E-6C7E872FB5CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -230,7 +230,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
           SQLTask:SqlStatementSource="EXEC  [raw.NCCM].FFS_CLEAN_TABLES;"
           SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
@@ -248,7 +248,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
           SQLTask:SqlStatementSource="SELECT &#xA;&#x9;SOURCE_FILE_NAME,&#xA;&#x9;LIST_OF_COLUMNS_TO_SELECT,&#xA;&#x9;BATCH_SIZE_RECORDS,&#xA;&#x9;DELIMITER,&#xA;&#x9;CHUNKS_TARGET_FOLDER_NAME,&#xA;&#x9;TARGET_TABLE_NAME&#xA;FROM [meta.NCCM].VW_CSV_SOURCE_FLAT_FILES&#xA;"
           SQLTask:CodePage="65001"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
@@ -271,7 +271,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
           SQLTask:SqlStatementSource="DECLARE @Id INT = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.NCCM].SP_LOGGING @Id = @id, @EndedAtUTC = @Dt, @Message = N'Raw Layer succeeded'&#xA;"
           SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
@@ -296,7 +296,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+          SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
           SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = NEWID();;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;DECLARE @Id INT = 0;&#xA;&#xA;EXEC @Id = [logging.NCCM].SP_LOGGING @RunId = @RunId, @StepName = 'Raw Layer', @StepNum = 1, @StartedAtUTC = @Dt&#xA;&#xA;SELECT @Id AS Id, @RunId AS RunId"
           SQLTask:CodePage="65001"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
@@ -915,7 +915,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{1557DF1B-13F5-4341-B671-05312A137B11}"
+              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
               SQLTask:SqlStatementSource="DECLARE @RunId UNIQUEIDENTIFIER = ?;&#xA;DECLARE @ErrorMessage NVARCHAR(4000) = ?;&#xA;DECLARE @Dt DATETIME = GETUTCDATE();&#xA;&#xA;EXEC [logging.HSP].SP_LOGGING @RunId = @RunId, @StepName = 'Silver Processing is failed', @StepNum = -1, @StartedAtUTC = @Dt, @ErrorMessage = @ErrorMessage;"
               SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
@@ -1124,7 +1124,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="204,42"
+          Size="204,41.6"
           Id="Package.EventHandlers[OnError]\EST_LOGGING_ERROR"
           TopLeft="60,60" />
       </GraphLayout>
