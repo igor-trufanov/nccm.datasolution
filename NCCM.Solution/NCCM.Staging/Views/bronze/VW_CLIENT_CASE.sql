@@ -9,9 +9,20 @@ AS
         ) AS ROW_HASH_SUM
     FROM (
         SELECT
-            NULLIF(CAST(tbl.ID  AS VARCHAR(18)), '') AS ID,
-            NULLIF(CAST(tbl.CLIENT_CONTACT__C  AS VARCHAR(18)), '') AS CLIENT_CONTACT__C,
-            NULLIF(CAST(tbl.FUNDING_PROGRAM__C  AS VARCHAR(255)), '') AS FUNDING_PROGRAM__C,
-            (CASE LTRIM(RTRIM(LOWER(CAST(tbl.ISDELETED AS VARCHAR(255))))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
-        FROM [$(Staging5)].dbo.SFICMS_Client_Case__c AS tbl
+            NULLIF(NULLIF(ca.ID, 'NULL'), '') AS ID,
+            NULLIF(NULLIF(ca.CLIENT_CONTACT__C, 'NULL'), '') AS CLIENT_CONTACT__C,
+            NULLIF(NULLIF(ca.FUNDING_PROGRAM__C, 'NULL'), '') AS FUNDING_PROGRAM__C,
+            (CASE LTRIM(RTRIM(LOWER(NULLIF(ca.ISDELETED, 'NULL')))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
+        FROM [raw.NCCM].FFS_CLIENT_CASE AS tbl
+            CROSS APPLY (
+                SELECT 
+                    *
+                FROM OPENJSON(tbl.RECORD)
+                WITH (
+                    ID VARCHAR(18) 'lax$."ID"',
+                    CLIENT_CONTACT__C VARCHAR(18) 'lax$."CLIENT_CONTACT__C"',
+                    FUNDING_PROGRAM__C VARCHAR(255) 'lax$."FUNDING_PROGRAM__C"',
+                    ISDELETED VARCHAR(255) 'lax$."ISDELETED"'
+                )
+            ) AS ca
     ) AS stm;

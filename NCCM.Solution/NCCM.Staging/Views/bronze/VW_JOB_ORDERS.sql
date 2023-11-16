@@ -11,11 +11,24 @@ AS
         ) AS ROW_HASH_SUM
     FROM (
         SELECT
-            NULLIF(CAST(tbl.ID AS VARCHAR(18)), '') AS ID,
-            NULLIF(CAST(tbl.HOST_ORGANISATION__C  AS VARCHAR(18)), '') AS HOST_ORGANISATION,
-            NULLIF(CAST(tbl.JOB_ORDER_TYPE__C  AS VARCHAR(255)), '') AS JOB_ORDER_TYPE,
-            NULLIF(CAST(tbl.JOB_TITLE__C  AS NVARCHAR(1024)), '') AS JOB_TITLE,
-            NULLIF(CAST(tbl.JOB_TYPE__C  AS NVARCHAR(1024)), '') AS JOB_TYPE,
-            (CASE LTRIM(RTRIM(LOWER(CAST(tbl.ISDELETED AS VARCHAR(255))))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
-        FROM [$(Staging5)].dbo.SFICMS_Job_Order__C AS tbl
+            NULLIF(NULLIF(ca.ID, 'NULL'), '') AS ID,
+            NULLIF(NULLIF(ca.HOST_ORGANISATION__C, 'NULL'), '') AS HOST_ORGANISATION,
+            NULLIF(NULLIF(ca.JOB_ORDER_TYPE__C, 'NULL'), '') AS JOB_ORDER_TYPE,
+            NULLIF(NULLIF(ca.JOB_TITLE__C, 'NULL'), '') AS JOB_TITLE,
+            NULLIF(NULLIF(ca.JOB_TYPE__C, 'NULL'), '') AS JOB_TYPE,
+            (CASE LTRIM(RTRIM(LOWER(NULLIF(ca.ISDELETED, 'NULL')))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
+        FROM [raw.NCCM].FFS_JOB_ORDERS AS tbl
+            CROSS APPLY (
+                SELECT 
+                    *
+                FROM OPENJSON(tbl.RECORD)
+                WITH (
+                    ID VARCHAR(18) 'lax$."ID"',
+                    HOST_ORGANISATION__C  VARCHAR(18) 'lax$."HOST_ORGANISATION__C"',
+                    JOB_ORDER_TYPE__C  VARCHAR(255) 'lax$."JOB_ORDER_TYPE__C"',
+                    JOB_TITLE__C  NVARCHAR(1024) 'lax$."JOB_TITLE__C"',
+                    JOB_TYPE__C  NVARCHAR(1024) 'lax$."JOB_TYPE__C"',
+                    ISDELETED VARCHAR(255) 'lax$."ISDELETED"'
+                )
+            ) AS ca
     ) AS stm;
