@@ -153,6 +153,12 @@
     <Build Include="StoredProcedures\silver\SP_DES_HISTORY.sql" />
     <Build Include="Views\gold\VW_PNX_HISTORY.sql" />
     <Build Include="Views\gold\VW_DES_HISTORY.sql" />
+    <Build Include="Tables\raw\FFS_AS_CLAIMS.sql" />
+    <Build Include="Tables\raw\FFS_CLIENT_CASE.sql" />
+    <Build Include="Tables\raw\FFS_JOB_ORDERS.sql" />
+    <Build Include="Tables\raw\FFS_OUTCOME.sql" />
+    <Build Include="Tables\raw\FFS_PARTICIPANTS.sql" />
+    <Build Include="Tables\raw\FFS_PLACEMENT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
