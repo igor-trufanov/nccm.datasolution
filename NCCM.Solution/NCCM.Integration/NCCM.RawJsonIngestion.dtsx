@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{88CF18C6-BBB5-4C5C-B22E-DDBDB4120D5B}">
+  DTS:VersionBuild="129"
+  DTS:VersionGUID="{A637F9F2-0433-4616-9205-18F143553FC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -60,12 +60,22 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
+      DTS:DTSID="{E552F5C0-F284-4D67-A073-511C6E02AF35}"
+      DTS:ObjectName="PR_EPT_FILES_CONVERT_STATUS_CHECKING_SCRIPT"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\status_checking.ps1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
       DTS:DTSID="{C2DB2D22-77D3-4649-856D-4D74477A7BE0}"
       DTS:ObjectName="PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT"
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1</DTS:Property>
+        DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -173,23 +183,34 @@
       DTS:CreationName=""
       DTS:DTSID="{BA63495B-6E0F-46AD-8214-A92E98FDA728}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;-NoProfile -ExecutionPolicy Unrestricted -command&quot; + &quot; \&quot;&quot; + &#xA;@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT] + &quot; -columnsToSelect &quot; + &#xA;@[User::VR_COLUMNS_TO_SELECT] + &quot; -sourceFileName '&quot; + &#xA;@[User::VR_SOURCE_FILE_NAME] + &quot;' -sourcePath '&quot; + &#xA;@[$Package::PR_EPT_FILES_SOURCE_PATH] + &quot;' -targetPath '&quot; + &#xA;@[$Package::PR_EPT_FILES_TARGET_PATH] + &quot;' -batchSize '&quot; + &#xA;(DT_WSTR, 10)@[User::VR_BATCH_SIZE] + &quot;' -delimiter '&quot; + &#xA;@[User::VR_DELIMITER] + &quot;' -chunksTargetFolderName '&quot; + @[User::VR_CHUNKS_TARGET_FOLDER_NAME] &#xA; + &quot;'\&quot;&quot;"
+      DTS:Expression="&quot;-NoProfile -ExecutionPolicy Unrestricted -command&quot; + &quot; \&quot;&quot; + &#xA;@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT] + &quot; -columnsToSelect &quot; + &#xA;@[User::VR_COLUMNS_TO_SELECT] + &quot; -sourceFileName '&quot; + &#xA;@[User::VR_SOURCE_FILE_NAME] + &quot;' -sourcePath '&quot; + &#xA;@[$Package::PR_EPT_FILES_SOURCE_PATH] + &quot;' -targetPath '&quot; + &#xA;@[$Package::PR_EPT_FILES_TARGET_PATH] + &quot;' -batchSize '&quot; + &#xA;(DT_WSTR, 10)@[User::VR_BATCH_SIZE] + &quot;' -delimiter '&quot; + &#xA;@[User::VR_DELIMITER] + &quot;' -chunksTargetFolderName '&quot; + &#xA;@[User::VR_CHUNKS_TARGET_FOLDER_NAME] + &quot;' -processName 'PROCESS_UPLOADING_NCCM_RUNNING'\&quot;&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="VR_EPT_FILES_CONVERT_PS_ARGUMENTS">
       <DTS:VariableValue
-        DTS:DataType="8">-NoProfile -ExecutionPolicy Unrestricted -command "C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''"</DTS:VariableValue>
+        DTS:DataType="8">-NoProfile -ExecutionPolicy Unrestricted -command "C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName '' -processName 'PROCESS_UPLOADING_NCCM_RUNNING'"</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{CE8CA80D-E138-4EB3-B4EF-A46923C6051D}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File &quot;+@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT]+&quot;', '&quot;+@[User::VR_COLUMNS_TO_SELECT]+&quot;', '&quot;+@[User::VR_SOURCE_FILE_NAME]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_SOURCE_PATH]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_TARGET_PATH]+&quot;', '&quot;+(DT_WSTR, 10)@[User::VR_BATCH_SIZE]+&quot;', '&quot;+@[User::VR_DELIMITER]+&quot;', '&quot;+@[User::VR_CHUNKS_TARGET_FOLDER_NAME]+&quot;'&quot;"
+      DTS:Expression="&quot;start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File &quot;+@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT]+&quot;', '&quot;+@[User::VR_COLUMNS_TO_SELECT]+&quot;', '&quot;+@[User::VR_SOURCE_FILE_NAME]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_SOURCE_PATH]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_TARGET_PATH]+&quot;', '&quot;+(DT_WSTR, 10)@[User::VR_BATCH_SIZE]+&quot;', '&quot;+@[User::VR_DELIMITER]+&quot;', '&quot;+@[User::VR_CHUNKS_TARGET_FOLDER_NAME]+&quot;', 'PROCESS_UPLOADING_NCCM_RUNNING'&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="VR_EPT_FILES_CONVERT_PS_ARGUMENTS_ASYNC">
       <DTS:VariableValue
-        DTS:DataType="8">start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', ''</DTS:VariableValue>
+        DTS:DataType="8">start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', '', 'PROCESS_UPLOADING_NCCM_RUNNING'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3AA3742C-39E0-46F0-B1BD-B70ACD1062CB}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;-NoProfile -ExecutionPolicy Unrestricted -command&quot; + &quot; \&quot;&quot; + &#xA;@[$Package::PR_EPT_FILES_CONVERT_STATUS_CHECKING_SCRIPT] + &quot;\&quot;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_EPT_FILES_CONVERT_STATUS_CHECKING_PS_ARGUMENTS">
+      <DTS:VariableValue
+        DTS:DataType="8">-NoProfile -ExecutionPolicy Unrestricted -command "C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\status_checking.ps1"</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -240,6 +261,25 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{e155ef78-5ac0-48b5-b655-c5c0638375e2}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EPT_FILES_CONVERT_STATUS_CHECKING"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">@[User::VR_EPT_FILES_CONVERT_STATUS_CHECKING_PS_ARGUMENTS]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="PowerShell.exe"
+          Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\status_checking.ps1&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\EST_CLEAN_RAW_TABLES"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -284,7 +324,6 @@
       DTS:refId="Package\EST_LOGGING_END"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{B8ED22B3-690F-4D86-BF90-DA7E089EB82B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -368,7 +407,7 @@
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="PowerShell.exe"
-              Arguments="start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', ''" />
+              Arguments="start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', '', 'PROCESS_UPLOADING_NCCM_RUNNING'" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -409,7 +448,6 @@
       DTS:refId="Package\FOR_EACH_META"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:Disabled="True"
       DTS:DTSID="{952FC081-1ED7-4DB3-84B2-78751CB89394}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -876,11 +914,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{5F2C1D90-B67D-465F-8413-242CAA7D5A55}"
+      DTS:DTSID="{C8A31D23-8FE4-4FFC-AB50-03CE22075FA2}"
       DTS:From="Package\Foreach Loop Container"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\FOR_EACH_META" />
+      DTS:To="Package\EPT_FILES_CONVERT_STATUS_CHECKING" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -905,6 +943,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\EST_GET_META" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{95EC906A-B969-4BCE-9E89-35EFDE50F548}"
+      DTS:From="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\FOR_EACH_META" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -983,7 +1029,7 @@
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\EST_LOGGING_END"
-          TopLeft="23.5000000000001,827.5" />
+          TopLeft="30.1666663024162,878.633332977758" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\EST_LOGGING_START"
@@ -1005,7 +1051,7 @@
           PanelSize="219.2,207.2"
           Size="219.2,250.4"
           Id="Package\FOR_EACH_META"
-          TopLeft="28.5000000000001,517.5" />
+          TopLeft="26.000000136594,563.433333013919" />
         <NodeLayout
           Size="189.6,41.6"
           Id="Package\Foreach Loop Container\EPT_FILES_CONVERT"
@@ -1040,28 +1086,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="122.75,457.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.6"
-              Start="0,0"
-              End="0,52.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="117.1,251.1">
           <EdgeLayout.Curve>
@@ -1085,30 +1109,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="125.3,767.9">
+          TopLeft="135.600000136594,813.833333013919">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.59999999999999,59.6"
+              EndConnector="-12.2333338341778,64.7999999638398"
               Start="0,0"
-              End="-8.59999999999999,52.1">
+              End="-12.2333338341778,57.2999999638398">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.8" />
+                    End="0,28.3999999819199" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.8"
-                    Point2="0,29.8"
-                    Point3="-4,29.8" />
+                    Point1="0,28.3999999819199"
+                    Point2="0,32.3999999819199"
+                    Point3="-4,32.3999999819199" />
                   <mssgle:LineSegment
-                    End="-4.59999999999999,29.8" />
+                    End="-8.23333383417784,32.3999999819199" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.59999999999999,29.8"
-                    Point2="-8.59999999999999,29.8"
-                    Point3="-8.59999999999999,33.8" />
+                    Point1="-8.23333383417784,32.3999999819199"
+                    Point2="-12.2333338341778,32.3999999819199"
+                    Point3="-12.2333338341778,36.3999999819199" />
                   <mssgle:LineSegment
-                    End="-8.59999999999999,52.1" />
+                    End="-12.2333338341778,57.2999999638398" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1131,6 +1155,78 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="297.6,41.6"
+          Id="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
+          TopLeft="341.666647998824,442.866663587027" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="227.4,384.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.266647998824,78.9666635870272"
+              Start="0,0"
+              End="106.766647998824,78.9666635870272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.1333239994119,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.1333239994119,0"
+                    Point2="57.1333239994119,0"
+                    Point3="57.1333239994119,4" />
+                  <mssgle:LineSegment
+                    End="57.1333239994119,74.9666635870272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.1333239994119,74.9666635870272"
+                    Point2="57.1333239994119,78.9666635870272"
+                    Point3="61.1333239994119,78.9666635870272" />
+                  <mssgle:LineSegment
+                    End="106.766647998824,78.9666635870272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="490.466647998824,484.466663587027">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-354.86664786223,78.9666694268914"
+              Start="0,0"
+              End="-354.86664786223,71.4666694268914">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4833347134457" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4833347134457"
+                    Point2="0,39.4833347134457"
+                    Point3="-4,39.4833347134457" />
+                  <mssgle:LineSegment
+                    End="-350.86664786223,39.4833347134457" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-350.86664786223,39.4833347134457"
+                    Point2="-354.86664786223,39.4833347134457"
+                    Point3="-354.86664786223,43.4833347134457" />
+                  <mssgle:LineSegment
+                    End="-354.86664786223,71.4666694268914" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

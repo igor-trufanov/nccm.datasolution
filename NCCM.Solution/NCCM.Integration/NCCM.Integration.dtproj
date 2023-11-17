@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">WINDEV2305EVAL</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXpRXEo9ZxkOUZ/TCK6TO6QAAAAACAAAAAAAQZgAAAAEAACAAAACXv9YUObmCKLfAi7VsDzePYRd4oXat1AQGf58FKqX8WQAAAAAOgAAAAAIAACAAAAA9g9cbEolQIFipH6B3pa3g3+P6VyfLLyf67BJTSwdVsZAAAAA2+3V2R2uJJwAI/sJYF3pwhUU9jDNtq8caeqdlglZz3SAJE2rGdgw/AM9NndnZ3bbyWqomO17h8kqvyRcQf8Px3lKjORCLAxS2PSJQyn+EKPQi7Shy7dx6Fla30VWIAk7YWkd6t48gf57sHMHVg7aLCU9/tX3M8wMnRBm6Atfz4nj4oqA+p1rTJGIl0on8VjdAAAAAnXfFb/x6bSUWwgZ3Vs2eKKMOWs72sPVN7YoBQkxQuq+GOLv5cl+jFzBG0vT/CzDlIRHlGYq8r7BsXNvBCQ0gSw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXpRXEo9ZxkOUZ/TCK6TO6QAAAAACAAAAAAAQZgAAAAEAACAAAABHQ1bqfOl6CK6ro6byF2e68la6025bSu5RsWPt1LFjpQAAAAAOgAAAAAIAACAAAADmPH9eGwTkM4rcldKBt3XSwBWnWmyCU8ReB7dVOif8O5AAAAAY12wlj1PFtyHqLomx8wVswpLzv9yGXYHy1XOelm3xgUWL5cxFT8rHpUhI1p8DxvizaBo+Oq7RlK7qvQOTqEog4Vyg7xs4QSLjF8SWYEIwbgRQMt7nU2NdT7+aDCUzNHggttByfBqUfyaIL3ho17Y/Eg9kuuPoR9lBwtpNZFfYPpQQaTW0r1HqWkcosr5jX01AAAAATpLM8Xo7pKZJjmo2HnHMnbAKVpT9uHAeqWBL++FqLN0PUFxoYSa98vz0EnT1LklH4ZwoB+Fq39R4CxTjsydEaA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -330,10 +330,10 @@
                 <SSIS:Property SSIS:Name="Name">RawJsonIngestion</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">115</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">127</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C0258C0A-D26E-443B-8F19-5314134D41D7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CA728D81-FE74-4DD8-AB90-5D31F27699D0}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -354,6 +354,20 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="PR_EPT_FILES_CONVERT_STATUS_CHECKING_SCRIPT">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{E552F5C0-F284-4D67-A073-511C6E02AF35}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\status_checking.ps1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{C2DB2D22-77D3-4649-856D-4D74477A7BE0}</SSIS:Property>
@@ -364,7 +378,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

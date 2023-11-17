@@ -27,7 +27,11 @@ param (
 
     [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
     [String]
-    $chunksTargetFolderName
+    $chunksTargetFolderName,
+
+    [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
+    [String]
+    $processName
 )
 
 $rowCount = 0
