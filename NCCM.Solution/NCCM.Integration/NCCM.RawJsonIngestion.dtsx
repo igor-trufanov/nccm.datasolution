@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="129"
-  DTS:VersionGUID="{A637F9F2-0433-4616-9205-18F143553FC5}">
+  DTS:VersionBuild="132"
+  DTS:VersionGUID="{31080024-D051-4B57-9D5F-A7D491F74062}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -642,7 +642,7 @@
                           dataType="System.Int32"
                           description="Specifies the mode used to access the database."
                           name="AccessMode"
-                          typeConverter="AccessMode">3</property>
+                          typeConverter="AccessMode">4</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -1019,6 +1019,10 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="297.6,41.6"
+          Id="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
+          TopLeft="341.666647998824,442.866663587027" />
+        <NodeLayout
           Size="222.4,41.6"
           Id="Package\EST_CLEAN_RAW_TABLES"
           TopLeft="5.50000000000001,107.5" />
@@ -1077,6 +1081,40 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="227.4,384.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.266647998824,78.9666635870272"
+              Start="0,0"
+              End="106.766647998824,78.9666635870272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.1333239994119,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.1333239994119,0"
+                    Point2="57.1333239994119,0"
+                    Point3="57.1333239994119,4" />
+                  <mssgle:LineSegment
+                    End="57.1333239994119,74.9666635870272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.1333239994119,74.9666635870272"
+                    Point2="57.1333239994119,78.9666635870272"
+                    Point3="61.1333239994119,78.9666635870272" />
+                  <mssgle:LineSegment
+                    End="106.766647998824,78.9666635870272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1155,44 +1193,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="297.6,41.6"
-          Id="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
-          TopLeft="341.666647998824,442.866663587027" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="227.4,384.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="114.266647998824,78.9666635870272"
-              Start="0,0"
-              End="106.766647998824,78.9666635870272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="53.1333239994119,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="53.1333239994119,0"
-                    Point2="57.1333239994119,0"
-                    Point3="57.1333239994119,4" />
-                  <mssgle:LineSegment
-                    End="57.1333239994119,74.9666635870272" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.1333239994119,74.9666635870272"
-                    Point2="57.1333239994119,78.9666635870272"
-                    Point3="61.1333239994119,78.9666635870272" />
-                  <mssgle:LineSegment
-                    End="106.766647998824,78.9666635870272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
