@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{7FBC7011-F67E-418C-899E-6C7E872FB5CE}">
+  DTS:VersionBuild="117"
+  DTS:VersionGUID="{88CF18C6-BBB5-4C5C-B22E-DDBDB4120D5B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -49,6 +49,16 @@
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{D13A3C54-ED20-4EE5-BD4A-8E46E0E1CA14}"
+      DTS:ObjectName="PR_EPT_FILES_CONVERT_ASYNC"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
       DTS:DataType="8"
       DTS:DTSID="{C2DB2D22-77D3-4649-856D-4D74477A7BE0}"
       DTS:ObjectName="PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT"
@@ -71,7 +81,8 @@
       DTS:CreationName=""
       DTS:DataType="8"
       DTS:DTSID="{88B367DB-9F94-4439-BA92-DA599CE23127}"
-      DTS:ObjectName="PR_EPT_FILES_TARGET_PATH">
+      DTS:ObjectName="PR_EPT_FILES_TARGET_PATH"
+      DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
         DTS:Name="ParameterValue">C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\</DTS:Property>
@@ -171,6 +182,17 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{CE8CA80D-E138-4EB3-B4EF-A46923C6051D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File &quot;+@[$Package::PR_EPT_FILES_CONVERT_TO_JSON_SCRIPT]+&quot;', '&quot;+@[User::VR_COLUMNS_TO_SELECT]+&quot;', '&quot;+@[User::VR_SOURCE_FILE_NAME]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_SOURCE_PATH]+&quot;', '&quot;+@[$Package::PR_EPT_FILES_TARGET_PATH]+&quot;', '&quot;+(DT_WSTR, 10)@[User::VR_BATCH_SIZE]+&quot;', '&quot;+@[User::VR_DELIMITER]+&quot;', '&quot;+@[User::VR_CHUNKS_TARGET_FOLDER_NAME]+&quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VR_EPT_FILES_CONVERT_PS_ARGUMENTS_ASYNC">
+      <DTS:VariableValue
+        DTS:DataType="8">start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', ''</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{BBCF7A4F-847B-403F-A81B-DE3804199407}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -262,6 +284,7 @@
       DTS:refId="Package\EST_LOGGING_END"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{B8ED22B3-690F-4D86-BF90-DA7E089EB82B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -341,11 +364,11 @@
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="Arguments">@[User::VR_EPT_FILES_CONVERT_PS_ARGUMENTS]</DTS:PropertyExpression>
+            DTS:Name="Arguments">@[$Package::PR_EPT_FILES_CONVERT_ASYNC] ? @[User::VR_EPT_FILES_CONVERT_PS_ARGUMENTS_ASYNC]  :  @[User::VR_EPT_FILES_CONVERT_PS_ARGUMENTS]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="PowerShell.exe"
-              Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName ''&quot;" />
+              Arguments="start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\Repo\hsp.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', ''" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -386,6 +409,7 @@
       DTS:refId="Package\FOR_EACH_META"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
       DTS:DTSID="{952FC081-1ED7-4DB3-84B2-78751CB89394}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -983,7 +1007,7 @@
           Id="Package\FOR_EACH_META"
           TopLeft="28.5000000000001,517.5" />
         <NodeLayout
-          Size="197.6,41.6"
+          Size="189.6,41.6"
           Id="Package\Foreach Loop Container\EPT_FILES_CONVERT"
           TopLeft="5.5,5.5" />
         <ContainerLayout
