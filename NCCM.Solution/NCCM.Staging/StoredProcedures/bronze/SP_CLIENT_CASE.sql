@@ -10,6 +10,9 @@ BEGIN
         UPDATE SET
             trg.CLIENT_CONTACT__C = src.CLIENT_CONTACT__C,
             trg.FUNDING_PROGRAM__C = src.FUNDING_PROGRAM__C,
+            trg.FUNDING_REGION = src.FUNDING_REGION,
+            trg.STAGE__C = src.STAGE__C,
+            trg.CLIENT_COMMENCEMENT_DATE__C = src.CLIENT_COMMENCEMENT_DATE__C,
             trg.ISDELETED = src.ISDELETED,
             trg.ROW_HASH_SUM = src.ROW_HASH_SUM
     WHEN NOT MATCHED BY TARGET THEN 
@@ -17,12 +20,18 @@ BEGIN
             ID,
             CLIENT_CONTACT__C,
             FUNDING_PROGRAM__C,
+            FUNDING_REGION,
+            STAGE__C,
+            CLIENT_COMMENCEMENT_DATE__C,
             ISDELETED,
             ROW_HASH_SUM
         ) VALUES (
             src.ID,
             src.CLIENT_CONTACT__C,
             src.FUNDING_PROGRAM__C,
+            src.FUNDING_REGION,
+            src.STAGE__C,
+            src.CLIENT_COMMENCEMENT_DATE__C,
             src.ISDELETED,
             src.ROW_HASH_SUM
         );

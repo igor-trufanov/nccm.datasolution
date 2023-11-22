@@ -14,28 +14,31 @@ BEGIN
             trg.GENDER__C = src.GENDER__C,
             trg.JOBSEEKERID__C = src.JOBSEEKERID__C,
             trg.ACCOUNTID = src.ACCOUNTID,
+            trg.REGION__C = src.REGION__C,
             trg.ISDELETED = src.ISDELETED,
             trg.ROW_HASH_SUM = src.ROW_HASH_SUM
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
             ID,
-            LastName,
-            FirstName,
-            Birthdate,
-            Gender__c,
+            LASTNAME,
+            FIRSTNAME,
+            BIRTHDATE,
+            GENDER__C,
             ISDELETED,
-            JobSeekerId__c,
-            AccountId,
+            JOBSEEKERID__C,
+            ACCOUNTID,
+            REGION__C,
             ROW_HASH_SUM
         ) VALUES (
             src.ID,
-            src.LastName,
-            src.FirstName,
-            src.Birthdate,
-            src.Gender__c,
+            src.LASTNAME,
+            src.FIRSTNAME,
+            src.BIRTHDATE,
+            src.GENDER__C,
             src.ISDELETED,
-            src.JobSeekerId__c,
-            src.AccountId,
+            src.JOBSEEKERID__C,
+            src.ACCOUNTID,
+            src.REGION__C,
             src.ROW_HASH_SUM
         );
 

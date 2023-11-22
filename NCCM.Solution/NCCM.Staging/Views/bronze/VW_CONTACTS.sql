@@ -9,7 +9,8 @@ AS
             stm.GENDER__C,
             stm.JOBSEEKERID__C,
             stm.BIRTHDATE,
-            stm.ISDELETED)), 2
+            stm.ISDELETED,
+            stm.REGION__C)), 2
         ) AS ROW_HASH_SUM
     FROM (
         SELECT
@@ -20,6 +21,7 @@ AS
             NULLIF(NULLIF(ca.GENDER__C, 'NULL'), '') AS GENDER__C,
             NULLIF(NULLIF(ca.JOBSEEKERID__C, 'NULL'), '') AS JOBSEEKERID__C,
             NULLIF(NULLIF(ca.ACCOUNTID, 'NULL'), '') AS ACCOUNTID,
+            NULLIF(NULLIF(ca.REGION__C, 'NULL'), '') AS REGION__C,
             (CASE LTRIM(RTRIM(LOWER(CAST(ca.ISDELETED AS VARCHAR(255))))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED
         FROM [raw.NCCM].FFS_CONTACT AS tbl
             CROSS APPLY (
@@ -27,14 +29,15 @@ AS
                     *
                 FROM OPENJSON(tbl.RECORD)
                 WITH (
-                    ID NVARCHAR(18) 'lax$."ID"',
+                    ID VARCHAR(18) 'lax$."ID"',
                     LASTNAME NVARCHAR(1024) 'lax$."LASTNAME"',
                     FIRSTNAME NVARCHAR(1024) 'lax$."FIRSTNAME"',
-                    BIRTHDATE NVARCHAR(255) 'lax$."BIRTHDATE"',
-                    GENDER__C NVARCHAR(255) 'lax$."GENDER__C"',
-                    JOBSEEKERID__C NVARCHAR(18) 'lax$."JOBSEEKERID__C"',
-                    ACCOUNTID NVARCHAR(18) 'lax$."ACCOUNTID"',
-                    ISDELETED NVARCHAR(18) 'lax$."ISDELETED"'
+                    BIRTHDATE VARCHAR(255) 'lax$."BIRTHDATE"',
+                    GENDER__C VARCHAR(255) 'lax$."GENDER__C"',
+                    JOBSEEKERID__C VARCHAR(18) 'lax$."JOBSEEKERID__C"',
+                    ACCOUNTID VARCHAR(18) 'lax$."ACCOUNTID"',
+                    REGION__C VARCHAR(255) 'lax$."REGION__C"',
+                    ISDELETED VARCHAR(18) 'lax$."ISDELETED"'
                 )
             ) AS ca
     ) AS stm;
