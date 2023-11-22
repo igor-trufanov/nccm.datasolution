@@ -159,6 +159,12 @@
     <Build Include="Tables\raw\FFS_OUTCOME.sql" />
     <Build Include="Tables\raw\FFS_PARTICIPANTS.sql" />
     <Build Include="Tables\raw\FFS_PLACEMENT.sql" />
+    <Build Include="Views\gold\VW_CLAIMS_DIM_HISTORY.sql" />
+    <Build Include="Views\gold\VW_CONTACTS_DIM_HISTORY.sql" />
+    <Build Include="Views\gold\VW_JOB_ORDERS_DIM_HISTORY.sql" />
+    <Build Include="Views\gold\VW_OUTCOME_DIM_HISTORY.sql" />
+    <Build Include="Views\gold\VW_PLACEMENT_DIM_HISTORY.sql" />
+    <Build Include="Views\gold\VW_PROGRAMENGAGEMENT_DIM_HISTORY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />
