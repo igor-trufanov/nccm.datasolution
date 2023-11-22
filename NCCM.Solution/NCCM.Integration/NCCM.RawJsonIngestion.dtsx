@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="RawJsonIngestion"
   DTS:PackageType="5"
-  DTS:VersionBuild="132"
-  DTS:VersionGUID="{31080024-D051-4B57-9D5F-A7D491F74062}">
+  DTS:VersionBuild="136"
+  DTS:VersionGUID="{BEDCBB60-DD12-47F8-99D0-6BA1FE41D291}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -55,7 +55,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="11"
-        DTS:Name="ParameterValue">-1</DTS:Property>
+        DTS:Name="ParameterValue">0</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -264,6 +264,7 @@
       DTS:refId="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
       DTS:CreationName="Microsoft.ExecuteProcess"
       DTS:Description="Execute Process Task"
+      DTS:Disabled="True"
       DTS:DTSID="{e155ef78-5ac0-48b5-b655-c5c0638375e2}"
       DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
@@ -329,7 +330,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_LOGGING_END"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -407,7 +408,7 @@
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="PowerShell.exe"
-              Arguments="start-process powershell.exe  -ArgumentList '-NoProfile', '-ExecutionPolicy Unrestricted', '-File C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1', '', '', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\', 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\', '5000', '', '', 'PROCESS_UPLOADING_NCCM_RUNNING'" />
+              Arguments="-NoProfile -ExecutionPolicy Unrestricted -command &quot;C:\Users\User\Downloads\Share\NCCM\repo\nccm.datasolution\Tools\ConvertCsvToJsonByChunks\main.ps1 -columnsToSelect  -sourceFileName '' -sourcePath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\' -targetPath 'C:\Users\User\Downloads\Share\NCCM\files-20230731T190819Z-001\files\ingestion\json\' -batchSize '5000' -delimiter '' -chunksTargetFolderName '' -processName 'PROCESS_UPLOADING_NCCM_RUNNING'&quot;" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -951,6 +952,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\FOR_EACH_META" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{643BE9D9-1558-485E-8994-8ABD582445C5}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\FOR_EACH_META" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -1017,11 +1026,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="297.6,41.6"
-          Id="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
-          TopLeft="341.666647998824,442.866663587027" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\EST_CLEAN_RAW_TABLES"
@@ -1081,40 +1086,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="227.4,384.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="114.266647998824,78.9666635870272"
-              Start="0,0"
-              End="106.766647998824,78.9666635870272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="53.1333239994119,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="53.1333239994119,0"
-                    Point2="57.1333239994119,0"
-                    Point3="57.1333239994119,4" />
-                  <mssgle:LineSegment
-                    End="57.1333239994119,74.9666635870272" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.1333239994119,74.9666635870272"
-                    Point2="57.1333239994119,78.9666635870272"
-                    Point3="61.1333239994119,78.9666635870272" />
-                  <mssgle:LineSegment
-                    End="106.766647998824,78.9666635870272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1201,6 +1172,10 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="297.6,41.6"
+          Id="Package\EPT_FILES_CONVERT_STATUS_CHECKING"
+          TopLeft="341.666647998824,442.866663587027" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="490.466647998824,484.466663587027">
@@ -1235,6 +1210,74 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="227.4,384.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.266647998824,78.9666635870272"
+              Start="0,0"
+              End="106.766647998824,78.9666635870272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.1333239994119,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.1333239994119,0"
+                    Point2="57.1333239994119,0"
+                    Point3="57.1333239994119,4" />
+                  <mssgle:LineSegment
+                    End="57.1333239994119,74.9666635870272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.1333239994119,74.9666635870272"
+                    Point2="57.1333239994119,78.9666635870272"
+                    Point3="61.1333239994119,78.9666635870272" />
+                  <mssgle:LineSegment
+                    End="106.766647998824,78.9666635870272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="120.2,457.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.799999863406,105.533333013919"
+              Start="0,0"
+              End="-19.799999863406,98.033333013919">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.86115923003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.86115923003"
+                    Point2="0,62.86115923003"
+                    Point3="-4,62.86115923003" />
+                  <mssgle:LineSegment
+                    End="-15.799999863406,62.86115923003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.799999863406,62.86115923003"
+                    Point2="-19.799999863406,62.86115923003"
+                    Point3="-19.799999863406,66.86115923003" />
+                  <mssgle:LineSegment
+                    End="-19.799999863406,98.033333013919" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1254,7 +1297,7 @@
     design-time-name="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="134.4,41.6"
           Id="Package\FOR_EACH_META\FOR_EACH_CHUNKS\Data Flow Task\FFS_DATA"
@@ -1286,7 +1329,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1308,7 +1353,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
