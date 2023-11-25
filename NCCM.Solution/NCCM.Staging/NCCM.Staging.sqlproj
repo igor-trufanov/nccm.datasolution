@@ -166,6 +166,9 @@
     <Build Include="Views\gold\VW_PLACEMENT_DIM_HISTORY.sql" />
     <Build Include="Views\gold\VW_PROGRAMENGAGEMENT_DIM_HISTORY.sql" />
     <Build Include="Views\silver\VW_RESP_ASSES_HISTORY.sql" />
+    <Build Include="Tables\silver\RESP_ASSES_HISTORY.sql" />
+    <Build Include="StoredProcedures\silver\SP_RESP_ASSES_HISTORY.sql" />
+    <Build Include="Views\gold\VW_RESP_ASSES_HISTORY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

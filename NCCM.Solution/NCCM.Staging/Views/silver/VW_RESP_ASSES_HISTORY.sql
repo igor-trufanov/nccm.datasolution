@@ -4,7 +4,7 @@ AS
         UPPER(stm.CLIENT) AS UQ_KEY,
         HASHBYTES('MD5', UPPER(stm.CLIENT)) AS UQ_KEY_HASH,
         HASHBYTES('MD5', CONCAT(
-            stm.FUNDING_REGION,
+            stm.FUNDING_PROGRAM,
             stm.REFERRAL_STATUS_CODE,
             stm.REGION,
             stm.CLIENT_COMMENCEMENT_DATE
@@ -13,7 +13,7 @@ AS
     FROM (
         SELECT
             tbl.ID AS CLIENT,
-            tbl.FUNDING_REGION AS FUNDING_REGION,
+            tbl.FUNDING_PROGRAM__C AS FUNDING_PROGRAM,
             tbl.STAGE__C AS REFERRAL_STATUS_CODE,
             tbl.CLIENT_COMMENCEMENT_DATE__C AS CLIENT_COMMENCEMENT_DATE,
             cnt.REGION__C AS REGION

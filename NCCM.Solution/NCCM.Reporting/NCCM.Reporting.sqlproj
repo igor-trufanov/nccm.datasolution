@@ -59,6 +59,8 @@
     <Folder Include="Schemas" />
     <Folder Include="Tables" />
     <Folder Include="Tables\gold" />
+    <Folder Include="Views" />
+    <Folder Include="Views\gold" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\gold.nccm.sql" />
@@ -72,5 +74,21 @@
     <Build Include="Tables\gold\PROGRAMENGAGEMENT_DIM.sql" />
     <Build Include="Tables\gold\PNX_HISTORY.sql" />
     <Build Include="Tables\gold\DES_HISTORY.sql" />
+    <Build Include="Views\gold\RESP_ASSES_HISTORY.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCCM.Staging\NCCM.Staging.sqlproj">
+      <Name>NCCM.Staging</Name>
+      <Project>{d6807e60-9709-4161-b54d-b4f8972374fe}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>Staging</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="Staging">
+      <DefaultValue>Staging</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

@@ -7,12 +7,12 @@
   DTS:CreatorName="WINDEV2305EVAL\User"
   DTS:DTSID="{5DA638D7-A43F-43F7-9A8B-2A7E4736B9EE}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{CD5FD345-E94A-4F68-B6DF-2B2A9D758620}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{91D65D00-5400-48B3-8A1A-BEF1E24C3863}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -130,7 +130,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CLIENT_CASE"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -148,7 +148,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CONTACTS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -166,7 +166,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_JOB_ORDERS"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -184,7 +184,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_OUTCOME"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -220,7 +220,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PLACEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -238,7 +238,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -8559,7 +8559,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="EST_LOGGING_END_STEP_3 | REPORTING"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -8584,7 +8584,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="EST_LOGGING_STEP_3 | REPORTING"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -8608,6 +8608,24 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\REPORTING PROCESSING\EST_PROCESSING_RESP_ASSES_HISTORY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3a253263-604a-46d3-a7c3-1830948df358}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PROCESSING_RESP_ASSES_HISTORY"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1304C630-70F8-4B7D-BEFC-39531EA3C3C8}"
+              SQLTask:SqlStatementSource="EXEC [silver.NCCM].[SP_RESP_ASSES_HISTORY];"
+              SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\REPORTING PROCESSING\EST_REPORTING_CLEANING"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -8616,7 +8634,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="EST_REPORTING_CLEANING"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -8757,7 +8775,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_CONTACTS_DIM"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -8775,7 +8793,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -9148,50 +9166,50 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="237.6,41.6"
+          Size="237.333333333334,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_AS_CLAIMS"
           TopLeft="5.50000000000018,5.50000000000007" />
         <NodeLayout
-          Size="250.4,41.6"
+          Size="250.666666666667,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CLIENT_CASE"
           TopLeft="304.1,5.50000000000007" />
         <NodeLayout
-          Size="236.8,41.6"
+          Size="236.666666666667,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_CONTACTS"
           TopLeft="614.9,5.50000000000007" />
         <NodeLayout
-          Size="249.6,41.6"
+          Size="249.333333333334,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_JOB_ORDERS"
           TopLeft="912.5,5.49999999999995" />
         <NodeLayout
-          Size="232.8,41.6"
+          Size="232.666666666667,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_OUTCOME"
           TopLeft="1222.9,5.49999999999995" />
         <NodeLayout
-          Size="255.2,41.6"
+          Size="255.333333333334,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PARTICIPANTS"
           TopLeft="1516.7,5.49999999999995" />
         <NodeLayout
-          Size="243.2,41.6"
+          Size="243.333333333334,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PLACEMENT"
           TopLeft="1832.7,5.49999999999984" />
         <NodeLayout
-          Size="307.2,41.6"
+          Size="307.333333333334,41.3333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1\EST_PROCESSING_PROGRAMENGAGEMENT"
           TopLeft="2136.7,5.49999999999984" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="2449.6,102.4"
-          Size="2449.6,145.6"
+          PanelSize="2449.33333333334,102.666666666667"
+          Size="2449.33333333334,145.333333333334"
           Id="Package\BRONZE PROCESSING\BRONZE 1"
           TopLeft="5.5,107.1" />
         <NodeLayout
-          Size="276.8,41.6"
+          Size="276.666666666667,41.3333333333334"
           Id="Package\BRONZE PROCESSING\EST_LOGGING_END_STEP_1 | BRONZE"
           TopLeft="1091.9,312.7" />
         <NodeLayout
-          Size="248.8,41.6"
+          Size="248.666666666667,41.3333333333334"
           Id="Package\BRONZE PROCESSING\EST_LOGGING_STEP_1 | BRONZE"
           TopLeft="1105.9,5.49999999999995" />
         <EdgeLayout
@@ -9241,32 +9259,32 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="2460.8,409.6"
-          Size="2460.8,452.8"
+          PanelSize="2460.66666666667,410"
+          Size="2460.66666666667,452.666666666667"
           Id="Package\BRONZE PROCESSING"
           TopLeft="5.50000000000023,107.1" />
         <NodeLayout
-          Size="180.8,41.6"
+          Size="180.666666666667,41.3333333333334"
           Id="Package\EST_LOGGING_END"
           TopLeft="1145.5,2361.5" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="192.666666666667,41.3333333333334"
           Id="Package\EST_LOGGING_START"
           TopLeft="1139.5,5.50000000000018" />
         <NodeLayout
-          Size="204,41.6"
+          Size="204,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES"
-          TopLeft="51.1,208.7" />
+          TopLeft="51.0999999999997,208.7" />
         <NodeLayout
-          Size="295.2,41.6"
+          Size="295.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\EST_LOGGING_END_STEP_3 | REPORTING"
           TopLeft="5.50000000000006,310.3" />
         <NodeLayout
-          Size="267.2,41.6"
+          Size="267.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\EST_LOGGING_STEP_3 | REPORTING"
           TopLeft="19.5,5.50000000000007" />
         <NodeLayout
-          Size="224.8,41.6"
+          Size="224.666666666667,41.3333333333334"
           Id="Package\REPORTING PROCESSING\EST_REPORTING_CLEANING"
           TopLeft="40.7,107.1" />
         <EdgeLayout
@@ -9293,18 +9311,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\REPORTING PROCESSING.PrecedenceConstraints[Constraint 1]"
-          TopLeft="153.1,250.3">
+          TopLeft="153.133333333333,250.033333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,60.2666666666669"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.7666666666669">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.7666666666669" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9315,18 +9333,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\REPORTING PROCESSING.PrecedenceConstraints[Constraint 2]"
-          TopLeft="153.1,148.7">
+          TopLeft="153.066666666666,148.433333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,60.2666666666665"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.7666666666665">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.7666666666665" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9335,87 +9353,91 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="252.666666666667,41.3333333333334"
+          Id="Package\REPORTING PROCESSING\EST_PROCESSING_RESP_ASSES_HISTORY"
+          TopLeft="5.49999999999999,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="306.4,407.2"
-          Size="306.4,450.4"
+          PanelSize="306.666666666667,407.333333333334"
+          Size="306.666666666667,450.666666666667"
           Id="Package\REPORTING PROCESSING"
           TopLeft="1082.7,1851.1" />
         <NodeLayout
-          Size="270.4,41.6"
+          Size="270.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\EST_LOGGING_END_STEP_2 | SILVER"
           TopLeft="323.5,1031.1" />
         <NodeLayout
-          Size="242.4,41.6"
+          Size="242.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\EST_LOGGING_STEP_2 | SILVER"
           TopLeft="337.5,5.49999999999995" />
         <NodeLayout
-          Size="364,41.6"
+          Size="364,41.3333333333334"
           Id="Package\SILVER PROCESSING\EST_PROCESSING_MAPPING_SURROGATE_KEYS_DIMS"
           TopLeft="276.7,107.1" />
         <NodeLayout
-          Size="261.6,41.6"
+          Size="261.333333333334,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_CONTACTS_DIM"
           TopLeft="5.5,5.49999999999995" />
         <NodeLayout
-          Size="332,41.6"
+          Size="332,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 1\EST_PROCESSING_PROGRAMENGAGEMENT_DIM"
           TopLeft="327.3,5.49999999999995" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="664.8,102.4"
-          Size="664.8,145.6"
+          PanelSize="664.666666666667,102.666666666667"
+          Size="664.666666666667,145.333333333334"
           Id="Package\SILVER PROCESSING\SILVER 1"
           TopLeft="126.3,208.7" />
         <NodeLayout
-          Size="243.2,41.6"
+          Size="243.333333333334,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_CLAIMS_DIM"
           TopLeft="5.50000000000003,5.50000000000007" />
         <NodeLayout
-          Size="300.8,41.6"
+          Size="300.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 2\EST_PROCESSING_PARTICIPANTS_BRIDGE"
           TopLeft="309.7,5.50000000000007" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="616,102.4"
-          Size="616,145.6"
+          PanelSize="616,102.666666666667"
+          Size="616,145.333333333334"
           Id="Package\SILVER PROCESSING\SILVER 2"
           TopLeft="150.7,414.3" />
         <NodeLayout
-          Size="248.8,41.6"
+          Size="248.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_ORDERS_DIM"
           TopLeft="5.49999999999997,5.50000000000007" />
         <NodeLayout
-          Size="257.6,41.6"
+          Size="257.333333333334,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_OUTCOME_DIM"
           TopLeft="315.1,5.49999999999995" />
         <NodeLayout
-          Size="268,41.6"
+          Size="268,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 3\EST_PROCESSING_PLACEMENT_DIM"
           TopLeft="632.9,5.49999999999995" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="906.4,102.4"
-          Size="906.4,145.6"
+          PanelSize="906.666666666667,102.666666666667"
+          Size="906.666666666667,145.333333333334"
           Id="Package\SILVER PROCESSING\SILVER 3"
           TopLeft="5.50000000000006,619.9" />
         <NodeLayout
-          Size="252.8,41.6"
+          Size="252.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_DES_HISTORY"
           TopLeft="315.1,5.50000000000007" />
         <NodeLayout
-          Size="252.8,41.6"
+          Size="252.666666666667,41.3333333333334"
           Id="Package\SILVER PROCESSING\SILVER 4\EST_PROCESSING_PNX_HISTORY"
-          TopLeft="4.66666671219809,5.5" />
+          TopLeft="4.66666671219808,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="578.4,102.4"
-          Size="578.4,145.6"
+          PanelSize="578.666666666667,203.333333333334"
+          Size="578.666666666667,246"
           Id="Package\SILVER PROCESSING\SILVER 4"
           TopLeft="169.5,825.5" />
         <EdgeLayout
@@ -9464,18 +9486,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 2]"
-          TopLeft="458.7,765.5">
+          TopLeft="458.833333333333,765.233333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,60.2666666666667"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.7666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.7666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9486,18 +9508,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SILVER PROCESSING.PrecedenceConstraints[Constraint 3]"
-          TopLeft="458.7,971.1">
+          TopLeft="458.833333333333,1071.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
+              EndConnector="0,-40.4000000000001"
               Start="0,0"
-              End="0,52.5000000000002">
+              End="0,-32.9000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000002" />
+                    End="0,-32.9000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9553,8 +9575,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="917.6,1128"
-          Size="917.6,1171.2"
+          PanelSize="917.333333333334,1128"
+          Size="917.333333333334,1171.33333333334"
           Id="Package\SILVER PROCESSING"
           TopLeft="777.1,619.9" />
         <EdgeLayout
@@ -9581,18 +9603,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="1235.9,559.9">
+          TopLeft="1235.8,559.766666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.1333333333333"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.6333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.6333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9603,18 +9625,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1235.9,1791.1">
+          TopLeft="1235.9,1791.23333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
+              EndConnector="0,59.866666666667"
               Start="0,0"
-              End="0,52.4999999999998">
+              End="0,52.366666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999998" />
+                    End="0,52.366666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9625,18 +9647,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="1235.9,2301.5">
+          TopLeft="1235.93333333333,2301.76666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,59.7333333333331"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.2333333333331">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.2333333333331" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9706,83 +9728,83 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 3"
           TopLeft="1356.0999638026,358.79999750495" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 1"
           TopLeft="880.366631197765,358.79999750495" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source"
           TopLeft="642.499964895349,358.79999750495" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 9"
           TopLeft="2789.96662791951,567.666662719184" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 6"
           TopLeft="2069.69996270984,358.79999750495" />
         <NodeLayout
-          Size="180,41.6"
+          Size="180,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 8"
           TopLeft="2552.0999616171,567.666662719184" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 2"
           TopLeft="1118.23329750018,358.79999750495" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 4"
           TopLeft="1600.63329640743,567.666662719184" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 1"
           TopLeft="887.033297500181,567.666662719184" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 7"
           TopLeft="2314.23329531468,567.666662719184" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 3"
           TopLeft="1362.76663010501,567.666662719184" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 2"
           TopLeft="1124.8999638026,567.666662719184" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 5"
           TopLeft="1838.49996270985,567.666662719184" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 8"
           TopLeft="2545.43329531468,358.79999750495" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination 6"
           TopLeft="2076.36662901226,567.666662719184" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 4"
           TopLeft="1593.96663010501,358.79999750495" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 7"
           TopLeft="2307.56662901226,358.79999750495" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 5"
           TopLeft="1831.83329640743,358.79999750495" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171.333333333334,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Destination"
           TopLeft="649.166631197765,567.666662719184" />
         <NodeLayout
-          Size="160.8,41.6"
+          Size="160.666666666667,41.3333333333334"
           Id="Package\REPORTING PROCESSING\DFT_COPY_ALL_TABLES\OLE DB Source 9"
           TopLeft="2783.2999616171,358.79999750495" />
         <EdgeLayout
