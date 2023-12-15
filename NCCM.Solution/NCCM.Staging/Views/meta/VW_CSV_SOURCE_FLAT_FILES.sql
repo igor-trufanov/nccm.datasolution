@@ -63,5 +63,13 @@ AS
 			10000,
 			',',
 			'[raw.NCCM].FFS_PLACEMENT'
+		UNION ALL
+		SELECT 
+			'account.csv',
+			'ID,EMPLOYER__C,ISDELETED',
+			10000,
+			',',
+			'[raw.NCCM].FFS_ACCOUNT'
+
 	) stm
 	CROSS APPLY (SELECT '_json_chunks') AS ca(CHUNKS_TARGET_FOLDER_NAME_SUFFIX)

@@ -72,6 +72,7 @@ BEGIN
             trg.[EDUCATION_LEVEL] = src.[EDUCATION_LEVEL],
             trg.[AGE_OF_YOUNGEST_CHILD] = src.[AGE_OF_YOUNGEST_CHILD],
             trg.[PROGRAM_ENGAGEMENT_ID] = src.[PROGRAM_ENGAGEMENT_ID],
+            trg.[EMPLOYER] = src.[EMPLOYER],
             trg.[IS_DELETED] = src.[IS_DELETED],
             trg.[ROW_UPDATED_AT] = @Timestamp
     WHEN NOT MATCHED BY TARGET THEN 
@@ -118,6 +119,7 @@ BEGIN
             [EDUCATION_LEVEL],
             [AGE_OF_YOUNGEST_CHILD],
             [PROGRAM_ENGAGEMENT_ID],
+            [EMPLOYER],
             [IS_DELETED],
             [ROW_CALENDAR_DATE],
             [ROW_CREATED_AT],
@@ -165,6 +167,7 @@ BEGIN
             src.[EDUCATION_LEVEL],
             src.[AGE_OF_YOUNGEST_CHILD],
             src.[PROGRAM_ENGAGEMENT_ID],
+            src.[EMPLOYER],
             src.[IS_DELETED],
             @Date, -- ROW_CALENDAR_DATE
             @Timestamp, -- ROW_CREATED_AT

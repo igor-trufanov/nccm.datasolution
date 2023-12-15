@@ -42,7 +42,8 @@ AS
             stm.MENTAL_ILLNESS_FLAG,
             stm.CALD,
             stm.EDUCATION_LEVEL,
-            stm.AGE_OF_YOUNGEST_CHILD
+            stm.AGE_OF_YOUNGEST_CHILD,
+            stm.EMPLOYER
         )) AS ROW_HASH_SUM,
         stm.*
     FROM (
@@ -87,9 +88,12 @@ AS
             prg.CALD__C AS CALD,
             prg.EDUCATION_LEVEL__C AS EDUCATION_LEVEL,
             prg.AGE_OF_YOUNGEST_CHILD__C AS AGE_OF_YOUNGEST_CHILD,
-            prg.ID AS PROGRAM_ENGAGEMENT_ID
+            prg.ID AS PROGRAM_ENGAGEMENT_ID,
+            ac.EMPLOYER__C AS EMPLOYER
         FROM [bronze.NCCM].CONTACTS AS tbl
             LEFT JOIN [bronze.NCCM].PROGRAMENGAGEMENT AS prg
                 ON prg.PMDM__CONTACT__C = tbl.ID
                 AND prg.LAST_CONTACT_ACROSS_ALL_THEIR_ENGAGEMENTS = 1
+            LEFT JOIN [bronze.NCCM].ACCOUNT AS ac
+                ON ac.ID = tbl.ACCOUNTID
     ) AS stm;

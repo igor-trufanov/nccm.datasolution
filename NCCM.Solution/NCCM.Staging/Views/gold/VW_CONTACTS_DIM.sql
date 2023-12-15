@@ -42,6 +42,7 @@ AS
         tbl.[EDUCATION_LEVEL],
         tbl.[AGE_OF_YOUNGEST_CHILD],
         tbl.[PROGRAM_ENGAGEMENT_ID],
+        tbl.[EMPLOYER],
         tbl.[IS_DELETED],
         tbl.[ROW_CALENDAR_DATE],
         tbl.[ROW_CREATED_AT],

@@ -169,6 +169,10 @@
     <Build Include="Tables\silver\RESP_ASSES_HISTORY.sql" />
     <Build Include="StoredProcedures\silver\SP_RESP_ASSES_HISTORY.sql" />
     <Build Include="Views\gold\VW_RESP_ASSES_HISTORY.sql" />
+    <Build Include="Tables\raw\FFS_ACCOUNT.sql" />
+    <Build Include="Views\bronze\VW_ACCOUNT.sql" />
+    <Build Include="Tables\bronze\ACCOUNT.sql" />
+    <Build Include="StoredProcedures\bronze\SP_ACCOUNT.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\deployment.nccm.sql" />

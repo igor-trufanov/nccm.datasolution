@@ -40,6 +40,7 @@ CREATE TABLE [gold.NCCM].[CONTACTS_DIM](
     [EDUCATION_LEVEL] [varchar](255) NULL,
     [AGE_OF_YOUNGEST_CHILD] [int] NULL,
     [PROGRAM_ENGAGEMENT_ID] [varchar](18) NULL,
+    [EMPLOYER] [varchar](2048) NULL,
     [IS_DELETED] [int] NOT NULL,
     [ROW_CALENDAR_DATE] [date] NOT NULL,
     [ROW_CREATED_AT] [datetime] NOT NULL,
