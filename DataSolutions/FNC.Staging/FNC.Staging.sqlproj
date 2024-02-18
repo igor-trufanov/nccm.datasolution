@@ -66,6 +66,7 @@
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\silver" />
     <Folder Include="Sequences" />
+    <Folder Include="Views\gold" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.fnc.sql" />
@@ -90,5 +91,8 @@
     <Build Include="StoredProcedures\silver\SP_MAPPING_SURROGATE_KEYS_DIMS.sql" />
     <Build Include="Sequences\SEQ_ACCOUNT_DIM.sql" />
     <Build Include="Sequences\SEQ_DEPARTMENT_DIM.sql" />
+    <Build Include="Views\gold\PROGRAM_FACT.sql" />
+    <Build Include="Tables\silver\Copy of ACCOUNT_DIM.sql" />
+    <Build Include="Views\silver\VW_TRANSACTION_FACT.sql" />
   </ItemGroup>
 </Project>
