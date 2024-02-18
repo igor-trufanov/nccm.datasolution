@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [gold.FNC] AUTHORIZATION dbo;

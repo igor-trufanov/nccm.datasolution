@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>FNC.Staging</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{d0e8fc8c-2771-427d-affc-0bdff9b608a8}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>FNC.Staging</RootNamespace>
+    <AssemblyName>FNC.Staging</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\bronze" />
+    <Folder Include="Schemas" />
+    <Folder Include="Views" />
+    <Folder Include="Views\bronze" />
+    <Folder Include="Views\raw" />
+    <Folder Include="Tables\raw" />
+    <Folder Include="Views\silver" />
+    <Folder Include="Tables\silver" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="StoredProcedures\silver" />
+    <Folder Include="Sequences" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\bronze.fnc.sql" />
+    <Build Include="Schemas\gold.fnc.sql" />
+    <Build Include="Schemas\logging.fnc.sql" />
+    <Build Include="Schemas\meta.fnc.sql" />
+    <Build Include="Schemas\silver.fnc.sql" />
+    <Build Include="Schemas\raw.fnc.sql" />
+    <Build Include="Tables\raw\Glacctgrphierarchy.sql" />
+    <Build Include="Tables\raw\Department_PROD.sql" />
+    <Build Include="Tables\raw\Gldetail_PROD.sql" />
+    <Build Include="Tables\raw\Glbudgetitem.sql" />
+    <Build Include="Tables\raw\Glbudgetheader.sql" />
+    <Build Include="Tables\raw\Glacctgrp_PROD.sql" />
+    <Build Include="Views\silver\VW_DEPARTMENT_DIM.sql" />
+    <Build Include="Views\silver\VW_ACCOUNT_DIM.sql" />
+    <Build Include="Tables\silver\DEPARTMENT_DIM.sql" />
+    <Build Include="Tables\silver\ACCOUNT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_DEPARTMENT_DIM.sql" />
+    <Build Include="Tables\silver\MAPPING_SURROGATE_KEYS_DIMS.sql" />
+    <Build Include="StoredProcedures\silver\SP_ACCOUNT_DIM.sql" />
+    <Build Include="StoredProcedures\silver\SP_MAPPING_SURROGATE_KEYS_DIMS.sql" />
+    <Build Include="Sequences\SEQ_ACCOUNT_DIM.sql" />
+    <Build Include="Sequences\SEQ_DEPARTMENT_DIM.sql" />
+  </ItemGroup>
+</Project>

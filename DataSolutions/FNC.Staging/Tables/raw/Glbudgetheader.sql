@@ -1,0 +1,21 @@
+﻿CREATE TABLE [raw.FNC].[Glbudgetheader](
+	[Recordno] [bigint] NOT NULL,
+	[Budgetid] [nvarchar](255) NOT NULL,
+	[Description] [nvarchar](255) NULL,
+	[Systemgenerated] [nvarchar](2000) NULL,
+	[Default_budget] [bit] NULL,
+	[User] [nvarchar](255) NULL,
+	[Status] [nvarchar](2000) NULL,
+	[Whencreated] [datetime2](7) NULL,
+	[Whenmodified] [datetime2](7) NULL,
+	[Createdby] [bigint] NULL,
+	[Modifiedby] [bigint] NULL,
+	[Isconsolidated] [bit] NULL,
+	[Currency] [nvarchar](2000) NULL,
+	[Ispabudget] [bit] NULL,
+	[Ispcnbudget] [bit] NULL,
+	[Megaentitykey] [bigint] NULL,
+	[Megaentityid] [nvarchar](255) NULL,
+	[Megaentityname] [nvarchar](255) NULL,
+	[Record_url] [nvarchar](2000) NULL
+);

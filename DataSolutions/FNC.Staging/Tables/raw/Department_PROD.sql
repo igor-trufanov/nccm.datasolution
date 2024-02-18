@@ -1,0 +1,20 @@
+﻿CREATE TABLE [raw.FNC].[Department_PROD](
+	[Departmentid] [nvarchar](255) NOT NULL,
+	[Recordno] [bigint] NULL,
+	[Title] [nvarchar](255) NULL,
+	[Parentkey] [bigint] NULL,
+	[Parentid] [nvarchar](255) NULL,
+	[Supervisorkey] [bigint] NULL,
+	[Supervisorid] [nvarchar](255) NULL,
+	[Whencreated] [datetime] NULL,
+	[Whenmodified] [datetime] NULL,
+	[Supervisorname] [nvarchar](255) NULL,
+	[Status] [nvarchar](2000) NULL,
+	[Custtitle] [nvarchar](255) NULL,
+	[Createdby] [bigint] NULL,
+	[Modifiedby] [bigint] NULL,
+	[Gp_code] [nvarchar](255) NULL,
+	[Cost_centre_type] [nvarchar](2000) NULL,
+	[Parentname] [nvarchar](2000) NULL,
+	[Record_url] [nvarchar](2000) NULL
+);

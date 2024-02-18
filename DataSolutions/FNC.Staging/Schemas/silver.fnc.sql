@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [silver.FNC] AUTHORIZATION dbo;

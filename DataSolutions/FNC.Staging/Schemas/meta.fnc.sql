@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [meta.FNC] AUTHORIZATION dbo;
