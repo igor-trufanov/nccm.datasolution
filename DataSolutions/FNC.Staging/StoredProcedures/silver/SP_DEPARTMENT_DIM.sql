@@ -12,7 +12,7 @@ BEGIN
     DECLARE @Timestamp DATETIME = GETUTCDATE();
 
     ;WITH trg AS (
-        SELECT * FROM [silver.FNC].DEPARTMENT_DIM WHERE ARCHIVAL = 0
+        SELECT * FROM [$(SSIReporting)].[gold.FNC].DEPARTMENT_DIM WHERE ARCHIVAL = 0
     )
     MERGE trg
     USING (

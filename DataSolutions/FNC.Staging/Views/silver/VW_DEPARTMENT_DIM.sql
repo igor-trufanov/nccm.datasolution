@@ -24,5 +24,5 @@ AS
             tbl.Supervisorname AS SUPERVISOR_NAME,
             NULL AS PATH, -- TBD
             0 AS IS_DELETED -- TBD
-        FROM [raw.FNC].[Department_PROD] AS tbl
+        FROM [bronze.FNC].[Department_PROD] AS tbl
     ) AS stm;

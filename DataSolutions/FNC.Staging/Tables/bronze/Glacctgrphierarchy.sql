@@ -1,4 +1,4 @@
-﻿CREATE TABLE [raw.FNC].[Glacctgrphierarchy](
+﻿CREATE TABLE [bronze.FNC].[Glacctgrphierarchy](
 	[Glacctgrpkey] [bigint] NULL,
 	[Glacctgrpname] [nvarchar](255) NULL,
 	[Glacctgrptitle] [nvarchar](255) NULL,

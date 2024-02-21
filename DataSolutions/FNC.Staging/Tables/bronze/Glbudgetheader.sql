@@ -1,4 +1,4 @@
-﻿CREATE TABLE [raw.FNC].[Glbudgetheader](
+﻿CREATE TABLE [bronze.FNC].[Glbudgetheader](
 	[Recordno] [bigint] NOT NULL,
 	[Budgetid] [nvarchar](255) NOT NULL,
 	[Description] [nvarchar](255) NULL,

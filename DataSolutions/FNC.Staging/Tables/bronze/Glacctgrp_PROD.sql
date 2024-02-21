@@ -1,4 +1,4 @@
-﻿CREATE TABLE [raw.FNC].[Glacctgrp_PROD](
+﻿CREATE TABLE [bronze.FNC].[Glacctgrp_PROD](
 	[Recordno] [nvarchar](255) NOT NULL,
 	[Name] [nvarchar](255) NOT NULL,
 	[Normal_balance] [nvarchar](2000) NULL,

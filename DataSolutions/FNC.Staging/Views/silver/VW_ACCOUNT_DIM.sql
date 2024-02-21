@@ -21,7 +21,7 @@ AS
             tbl2.Recordno AS RECORD_NUMBER,
             tbl.Glacctgrptitle AS GLACCTGRP_TITLE,
             0 AS IS_DELETED -- TBD
-        FROM [raw.FNC].[Glacctgrphierarchy] AS tbl
-            LEFT JOIN [raw.FNC].[Glacctgrp_PROD] AS tbl2
+        FROM [bronze.FNC].[Glacctgrphierarchy] AS tbl
+            LEFT JOIN [bronze.FNC].[Glacctgrp_PROD] AS tbl2
                 ON tbl2.Recordno = tbl.Glacctgrpkey
     ) AS stm;

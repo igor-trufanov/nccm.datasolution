@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{d0e8fc8c-2771-427d-affc-0bdff9b608a8}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath />
     <RootNamespace>FNC.Staging</RootNamespace>
@@ -70,29 +70,38 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\bronze.fnc.sql" />
-    <Build Include="Schemas\gold.fnc.sql" />
     <Build Include="Schemas\logging.fnc.sql" />
     <Build Include="Schemas\meta.fnc.sql" />
     <Build Include="Schemas\silver.fnc.sql" />
-    <Build Include="Schemas\raw.fnc.sql" />
-    <Build Include="Tables\raw\Glacctgrphierarchy.sql" />
-    <Build Include="Tables\raw\Department_PROD.sql" />
-    <Build Include="Tables\raw\Gldetail_PROD.sql" />
-    <Build Include="Tables\raw\Glbudgetitem.sql" />
-    <Build Include="Tables\raw\Glbudgetheader.sql" />
-    <Build Include="Tables\raw\Glacctgrp_PROD.sql" />
     <Build Include="Views\silver\VW_DEPARTMENT_DIM.sql" />
     <Build Include="Views\silver\VW_ACCOUNT_DIM.sql" />
-    <Build Include="Tables\silver\DEPARTMENT_DIM.sql" />
-    <Build Include="Tables\silver\ACCOUNT_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_DEPARTMENT_DIM.sql" />
     <Build Include="Tables\silver\MAPPING_SURROGATE_KEYS_DIMS.sql" />
     <Build Include="StoredProcedures\silver\SP_ACCOUNT_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_MAPPING_SURROGATE_KEYS_DIMS.sql" />
     <Build Include="Sequences\SEQ_ACCOUNT_DIM.sql" />
     <Build Include="Sequences\SEQ_DEPARTMENT_DIM.sql" />
-    <Build Include="Views\gold\PROGRAM_FACT.sql" />
-    <Build Include="Tables\silver\Copy of ACCOUNT_DIM.sql" />
     <Build Include="Views\silver\VW_TRANSACTION_FACT.sql" />
+    <Build Include="Tables\bronze\Department_PROD.sql" />
+    <Build Include="Tables\bronze\Glacctgrp_PROD.sql" />
+    <Build Include="Tables\bronze\Glacctgrphierarchy.sql" />
+    <Build Include="Tables\bronze\Glbudgetheader.sql" />
+    <Build Include="Tables\bronze\Glbudgetitem.sql" />
+    <Build Include="Tables\bronze\Gldetail_PROD.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FNC.Reporting\FNC.Reporting.sqlproj">
+      <Name>FNC.Reporting</Name>
+      <Project>{5f9fc931-cf30-4c1d-a1eb-018825c1641c}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>SSIReporting</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="SSIReporting">
+      <DefaultValue>SSIReporting</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

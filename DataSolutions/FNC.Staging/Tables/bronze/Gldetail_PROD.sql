@@ -1,4 +1,4 @@
-﻿CREATE TABLE [raw.FNC].[Gldetail_PROD](
+﻿CREATE TABLE [bronze.FNC].[Gldetail_PROD](
 	[Recordno] [nvarchar](255) NOT NULL,
 	[Batchkey] [bigint] NULL,
 	[Batch_date] [date] NULL,

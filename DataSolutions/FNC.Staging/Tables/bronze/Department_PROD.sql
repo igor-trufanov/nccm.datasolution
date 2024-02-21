@@ -1,4 +1,4 @@
-﻿CREATE TABLE [raw.FNC].[Department_PROD](
+﻿CREATE TABLE [bronze.FNC].[Department_PROD](
 	[Departmentid] [nvarchar](255) NOT NULL,
 	[Recordno] [bigint] NULL,
 	[Title] [nvarchar](255) NULL,
