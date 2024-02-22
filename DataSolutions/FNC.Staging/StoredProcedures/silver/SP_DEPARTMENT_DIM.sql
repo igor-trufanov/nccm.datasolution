@@ -30,6 +30,7 @@ BEGIN
     WHEN MATCHED AND trg.[ROW_HASH_SUM] <> src.[ROW_HASH_SUM] THEN 
         UPDATE SET
             trg.[ROW_HASH_SUM] = src.[ROW_HASH_SUM],
+            trg.[DEPARTMENT_ID] = src.[DEPARTMENT_ID],
             trg.[TITLE] = src.[TITLE],
             trg.[LEVEL] = src.[LEVEL],
             trg.[PARENT_ID] = src.[PARENT_ID],
@@ -41,6 +42,7 @@ BEGIN
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
             [DEPARTMENT_DIM_ID],
+            [DEPARTMENT_ID],
             [ROW_HASH_SUM],
             [TITLE],
             [LEVEL],
@@ -53,6 +55,7 @@ BEGIN
             [ROW_UPDATED_AT]
         ) VALUES (
             src.[DEPARTMENT_DIM_ID],
+            src.[DEPARTMENT_ID],
             src.[ROW_HASH_SUM],
             src.[TITLE],
             src.[LEVEL],

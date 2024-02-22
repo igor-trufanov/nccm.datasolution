@@ -17,7 +17,8 @@ AS
             acn.ACCOUNT_DIM_ID AS ACCOUNT_DIM_ID,
             tbl.Batch_date AS BATCH_DATE,
             tbl.Amount AS AMOUNT
-        FROM [bronze.FNC].Gldetail_PROD AS tbl
+        FROM [bronze.FNC].Gldetail_PROD AS tbl -- group
+            -- left to one record
             LEFT JOIN [$(SSIReporting)].[gold.FNC].ACCOUNT_DIM AS acn
                 ON acn.ACCOUNT_NUMBER = tbl.Accountno
             LEFT JOIN [$(SSIReporting)].[gold.FNC].DEPARTMENT_DIM AS dpt
