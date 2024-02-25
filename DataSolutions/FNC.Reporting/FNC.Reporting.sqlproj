@@ -65,5 +65,6 @@
     <Build Include="Schemas\gold.fnc.sql" />
     <Build Include="gold\TRANSACTION_TITLE_DIM.sql" />
     <Build Include="gold\TRANSACTION_FACT.sql" />
+    <Build Include="gold\BUDGET_FACT.sql" />
   </ItemGroup>
 </Project>

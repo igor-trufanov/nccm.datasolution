@@ -92,6 +92,9 @@
     <Build Include="Sequences\SEQ_TRANSACTION_TITLE_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_TRANSACTION_TITLE_DIM.sql" />
     <Build Include="StoredProcedures\silver\SP_TRANSACTION_FACT.sql" />
+    <Build Include="Views\silver\VW_BUDGET_FACT.sql" />
+    <Build Include="StoredProcedures\silver\SP_BUDGET_FACT.sql" />
+    <Build Include="StoredProcedures\silver\SP_RUN.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FNC.Reporting\FNC.Reporting.sqlproj">
