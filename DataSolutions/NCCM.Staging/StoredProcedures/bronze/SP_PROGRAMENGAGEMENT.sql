@@ -84,7 +84,11 @@ BEGIN
             trg.ROW_HASH_SUM = src.ROW_HASH_SUM,
             trg.CREATEDDATE = src.CREATEDDATE,
             trg.PMDM__APPLICATIONDATE__C = src.PMDM__APPLICATIONDATE__C,
-            trg.PMDM__ACCOUNT__C = src.PMDM__ACCOUNT__C
+            trg.PMDM__ACCOUNT__C = src.PMDM__ACCOUNT__C,
+            trg.PILOT_PROGRAM_PHASE__C=src.PILOT_PROGRAM_PHASE__C,
+            trg.JOB_SEEKER_ID__C=src.JOB_SEEKER_ID__C,
+            trg.PMDM__STARTDATE__C=src.PMDM__STARTDATE__C,
+            trg.PMDM__STAGE__C=src.PMDM__STAGE__C
     WHEN NOT MATCHED BY TARGET THEN 
         INSERT (
             ID,
@@ -164,7 +168,11 @@ BEGIN
             ROW_HASH_SUM,
             CREATEDDATE,
             PMDM__APPLICATIONDATE__C,
-            PMDM__ACCOUNT__C
+            PMDM__ACCOUNT__C,
+            PILOT_PROGRAM_PHASE__C,
+            JOB_SEEKER_ID__C,
+            PMDM__STARTDATE__C,
+            PMDM__STAGE__C
         ) VALUES (
             src.ID,
             src.AGE_OF_YOUNGEST_CHILD__C,
@@ -243,7 +251,11 @@ BEGIN
             src.ROW_HASH_SUM,
             src.CREATEDDATE,
             src.PMDM__APPLICATIONDATE__C,
-            src.PMDM__ACCOUNT__C
+            src.PMDM__ACCOUNT__C,
+            src.PILOT_PROGRAM_PHASE__C,
+            src.JOB_SEEKER_ID__C,
+            src.PMDM__STARTDATE__C,
+            src.PMDM__STAGE__C
         );
 
         WITH cte AS (

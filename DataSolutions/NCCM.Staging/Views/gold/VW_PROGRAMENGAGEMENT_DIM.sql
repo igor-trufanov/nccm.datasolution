@@ -49,6 +49,12 @@ AS
         tbl.[ORIGINAL_SYSTEM_CREATED_DATE],
         tbl.[APPLICATION_DATE],
         tbl.[ACCOUNT],
+        tbl.[CLIENT_CASE_PROGRAM_ENGAGEMENT_ID],
+        tbl.[CLIENT_CASE_CREATED_DATE],
+        tbl.[CLIENT_CASE_DATE_OF_EXIT],
+        tbl.[CLIENT_CASE_OWNER_ID],
+        tbl.[CLIENT_CASE_SUBURB__C],
+        tbl.[CLIENT_CASE_POSTAL__CODE],
         tbl.[ROW_CALENDAR_DATE],
         tbl.[ROW_CREATED_AT],
         tbl.[ROW_UPDATED_AT]

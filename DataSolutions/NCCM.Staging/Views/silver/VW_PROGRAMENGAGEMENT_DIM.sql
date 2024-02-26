@@ -49,7 +49,17 @@ AS
             stm.IS_DELETED,
             stm.ORIGINAL_SYSTEM_CREATED_DATE,
             stm.APPLICATION_DATE,
-            stm.ACCOUNT
+            stm.ACCOUNT,
+            stm.PILOT_PROGRAM_PHASE__C,
+            stm.JOB_SEEKER_ID__C,
+            stm.PMDM__STARTDATE__C,
+            stm.PMDM__STAGE__C,
+            stm.CLIENT_CASE_PROGRAM_ENGAGEMENT_ID,
+            stm.CLIENT_CASE_CREATED_DATE,
+            stm.CLIENT_CASE_DATE_OF_EXIT,
+            stm.CLIENT_CASE_OWNER_ID,
+            stm.CLIENT_CASE_SUBURB__C,
+            stm.CLIENT_CASE_POSTAL__CODE
         )) AS ROW_HASH_SUM,
         stm.*
     FROM (
@@ -99,6 +109,21 @@ AS
             tbl.ISDELETED AS IS_DELETED,
             tbl.CREATEDDATE AS ORIGINAL_SYSTEM_CREATED_DATE,
             tbl.PMDM__APPLICATIONDATE__C AS APPLICATION_DATE,
-            tbl.PMDM__ACCOUNT__C AS ACCOUNT
+            tbl.PMDM__ACCOUNT__C AS ACCOUNT,
+            tbl.PILOT_PROGRAM_PHASE__C,
+            tbl.JOB_SEEKER_ID__C,
+            tbl.PMDM__STARTDATE__C,
+            tbl.PMDM__STAGE__C,
+            cl.PROGRAM_ENGAGEMENT_ID AS CLIENT_CASE_PROGRAM_ENGAGEMENT_ID,
+            cl.CREATED_DATE AS CLIENT_CASE_CREATED_DATE,
+            cl.DATE_OF_EXIT AS CLIENT_CASE_DATE_OF_EXIT,
+            cl.OWNER_ID AS CLIENT_CASE_OWNER_ID,
+            cl.SUBURB__C AS CLIENT_CASE_SUBURB__C,
+            cl.STAGE__C as STAGE__C,
+            cl.POSTAL__CODE AS CLIENT_CASE_POSTAL__CODE,
+            ROW_NUMBER() OVER(PARTITION BY cl.PROGRAM_ENGAGEMENT_ID ORDER BY cl.CREATED_DATE DESC) AS RN
         FROM [bronze.NCCM].PROGRAMENGAGEMENT AS tbl
-    ) AS stm;
+            LEFT JOIN [bronze.NCCM].CLIENT_CASE AS cl
+                ON tbl.ID=cl.PROGRAM_ENGAGEMENT_ID
+    ) AS stm
+    WHERE stm.RN = 1;

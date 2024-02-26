@@ -78,6 +78,10 @@ AS
             stm.ISDELETED,
             stm.CREATEDDATE,
             stm.PMDM__APPLICATIONDATE__C,
+            stm.PILOT_PROGRAM_PHASE__C,
+            stm.JOB_SEEKER_ID__C,
+            stm.PMDM__STARTDATE__C,
+            stm.PMDM__STAGE__C,
             stm.PMDM__ACCOUNT__C)), 2
         ) AS ROW_HASH_SUM
     FROM (
@@ -158,7 +162,13 @@ AS
             (CASE LTRIM(RTRIM(LOWER(CAST(ca.ISDELETED AS VARCHAR(255))))) WHEN 'false' THEN 0 WHEN 'true' THEN 1 ELSE NULL END) AS ISDELETED,
             CAST(NULLIF(NULLIF(ca.CREATEDDATE, 'NULL'), '') AS DATETIME) AS CREATEDDATE,
             CAST(NULLIF(NULLIF(ca.PMDM__APPLICATIONDATE__C, 'NULL'), '') AS DATE) AS PMDM__APPLICATIONDATE__C,
-            NULLIF(NULLIF(ca.PMDM__ACCOUNT__C, 'NULL'), '') AS PMDM__ACCOUNT__C
+            NULLIF(NULLIF(ca.PMDM__ACCOUNT__C, 'NULL'), '') AS PMDM__ACCOUNT__C,
+            NULLIF(NULLIF(ca.PILOT_PROGRAM_PHASE__C, 'NULL'), '') AS PILOT_PROGRAM_PHASE__C,
+            NULLIF(NULLIF(ca.JOB_SEEKER_ID__C, 'NULL'), '') AS JOB_SEEKER_ID__C,
+            CAST(NULLIF(NULLIF(ca.PMDM__STARTDATE__C, 'NULL'), '') AS DATE) AS PMDM__STARTDATE__C,
+            NULLIF(NULLIF(ca.PMDM__STAGE__C, 'NULL'), '') AS PMDM__STAGE__C
+            
+            
         FROM [raw.NCCM].FFS_PMDM__PROGRAMENGAGEMENT__C AS tbl
             CROSS APPLY (
                 SELECT 
@@ -241,7 +251,12 @@ AS
                     ISDELETED VARCHAR(255) 'lax$."ISDELETED"',
                     CREATEDDATE VARCHAR(255) 'lax$."CREATEDDATE"',
                     PMDM__APPLICATIONDATE__C VARCHAR(255) 'lax$."PMDM__APPLICATIONDATE__C"',
-                    PMDM__ACCOUNT__C VARCHAR(18) 'lax$."PMDM__ACCOUNT__C"'
+                    PMDM__ACCOUNT__C VARCHAR(18) 'lax$."PMDM__ACCOUNT__C"',
+                    PILOT_PROGRAM_PHASE__C VARCHAR(18) 'lax$."PILOT_PROGRAM_PHASE__C"',
+                    JOB_SEEKER_ID__C VARCHAR(18) 'lax$."JOB_SEEKER_ID__C"',
+                    PMDM__STARTDATE__C VARCHAR(255) 'lax$."PMDM__STARTDATE__C"',
+                    PMDM__STAGE__C VARCHAR(18) 'lax$."PMDM__STAGE__C"'
                 )
             ) AS ca
-    ) AS stm;
+    ) AS stm
+    WHERE stm.PROGRAM_NAME__C IN ('DES', 'PNX', 'RESP', 'ASESS', 'YEPP', 'CWTT')
