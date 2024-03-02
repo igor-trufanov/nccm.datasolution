@@ -259,4 +259,4 @@ AS
                 )
             ) AS ca
     ) AS stm
-    WHERE stm.PROGRAM_NAME__C IN ('DES', 'PNX', 'RESP', 'ASESS', 'YEPP', 'CWTT')
+    WHERE stm.PROGRAM_NAME__C IN ('DES', 'PARENTSNEXT', 'RESP', 'ASESS', 'YEPP', 'CWTT')

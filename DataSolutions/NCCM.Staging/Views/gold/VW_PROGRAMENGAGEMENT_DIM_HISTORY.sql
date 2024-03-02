@@ -1,7 +1,7 @@
 CREATE VIEW [gold.NCCM].VW_PROGRAMENGAGEMENT_DIM_HISTORY
 AS
     SELECT
-        tbl.[PROGRAMENGAGEMENT_DIM_ID],
+       tbl.[PROGRAMENGAGEMENT_DIM_ID],
         tbl.[ARCHIVAL],
         tbl.[PROGRAM_ENGAGEMENT_ID],
         tbl.[COMMENCEMENT_OF_SERVICING_DATE],
@@ -49,6 +49,17 @@ AS
         tbl.[ORIGINAL_SYSTEM_CREATED_DATE],
         tbl.[APPLICATION_DATE],
         tbl.[ACCOUNT],
+        tbl.[CLIENT_CASE_PROGRAM_ENGAGEMENT_ID],
+        tbl.[CLIENT_CASE_CREATED_DATE],
+        tbl.[CLIENT_CASE_DATE_OF_EXIT],
+        tbl.[CLIENT_CASE_OWNER_ID],
+        tbl.[CLIENT_CASE_SUBURB__C],
+        tbl.[CLIENT_CASE_POSTAL__CODE],
+        tbl.[STAGE__C],
+        tbl.PILOT_PROGRAM_PHASE__C,
+        tbl.JOB_SEEKER_ID__C,
+        tbl.PMDM__STARTDATE__C,
+        tbl.PMDM__STAGE__C,
         tbl.[ROW_CALENDAR_DATE],
         tbl.[ROW_CREATED_AT],
         tbl.[ROW_UPDATED_AT],

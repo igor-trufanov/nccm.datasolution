@@ -33,4 +33,14 @@ BEGIN
             src.ROW_HASH_SUM
         );
 
+
+    UPDATE trg
+            SET trg.ISDELETED = 1
+        FROM [bronze.NCCM].JOB_ORDERS AS trg
+            LEFT JOIN [bronze.NCCM].VW_JOB_ORDERS AS src
+                ON trg.ID = src.ID
+        WHERE 
+            trg.ISDELETED = 0 
+            AND src.ID IS NULL;
+
 END;

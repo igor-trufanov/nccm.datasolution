@@ -51,4 +51,13 @@ BEGIN
             src.ROW_HASH_SUM
         );
 
+    UPDATE trg
+            SET trg.ISDELETED = 1
+        FROM [bronze.NCCM].PLACEMENT AS trg
+            LEFT JOIN [bronze.NCCM].VW_PLACEMENT AS src
+                ON trg.ID = src.ID
+        WHERE 
+            trg.ISDELETED = 0 
+            AND src.ID IS NULL;
+
 END;

@@ -55,6 +55,11 @@ AS
         tbl.[CLIENT_CASE_OWNER_ID],
         tbl.[CLIENT_CASE_SUBURB__C],
         tbl.[CLIENT_CASE_POSTAL__CODE],
+        tbl.[STAGE__C],
+        tbl.PILOT_PROGRAM_PHASE__C,
+        tbl.JOB_SEEKER_ID__C,
+        tbl.PMDM__STARTDATE__C,
+        tbl.PMDM__STAGE__C,
         tbl.[ROW_CALENDAR_DATE],
         tbl.[ROW_CREATED_AT],
         tbl.[ROW_UPDATED_AT]
